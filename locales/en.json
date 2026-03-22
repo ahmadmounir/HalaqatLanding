@@ -1,0 +1,178 @@
+{
+    "nav": {
+        "features": "Features",
+        "organizations": "For Organizations",
+        "experience": "Experience",
+        "login": "Log in",
+        "demo": "Get Started",
+        "brand": "Hafiz Platform"
+    },
+    "hero": {
+        "badge": "Used by 50+ Institutions",
+        "title": "Empowering Quranic Institutions with",
+        "titleHighlight": "Data-Driven Management",
+        "subtitle": "Hafiz provides a secure digital workspace that bridges seamless assessment with dynamic motivation. Focus on your ultimate mission nurturing a generation of proficient Quran memorizers.",
+        "ctaPrimary": "Get Started",
+        "ctaSecondary": "Explore Features"
+    },
+    "dashboard": {
+        "url": "app.hafiz.com",
+        "activeStudents": "Active Students",
+        "halaqat": "Halaqat",
+        "avgProgress": "Avg. Progress",
+        "thisMonth": "+12% this month",
+        "newCircles": "6 new circles",
+        "improvement": "+5% improvement",
+        "weeklyProgress": "Weekly Recitation Progress",
+        "last7Days": "Last 7 days",
+        "hifzPages": "Hifz Pages",
+        "revisionPages": "Revision Pages",
+        "accuracy": "Accuracy",
+        "absences": "Absences",
+        "nextRecitation": "Next Recitation"
+    },
+    "features": {
+        "label": "Key Features",
+        "title": "Everything You Need to Manage Quranic Education",
+        "subtitle": "A complete suite of tools designed specifically for Quranic institutions, schools, and independent educators.",
+        "multilingual": {
+            "title": "Multilingual",
+            "description": "Full RTL support for Arabic alongside English and Turkish interfaces. Serve your global community."
+        },
+        "analytics": {
+            "title": "Smart Analytics",
+            "description": "Advanced dashboards for Admins, Teachers, and Students with actionable insights and progress tracking."
+        },
+        "recitation": {
+            "title": "Recitation Workflow",
+            "description": "Comprehensive tools to add, evaluate, and track mistakes with detailed reminders for improvement."
+        },
+        "gamification": {
+            "title": "Gamification",
+            "description": "Integrated leaderboards for students and Halaqat to boost motivation and healthy competition."
+        },
+        "telegram": {
+            "title": "Telegram Integration",
+            "description": "Automated notifications and progress reports delivered directly to students and parents."
+        },
+        "security": {
+            "title": "Secure & Fast",
+            "description": "Built for high performance with enterprise-grade security and complete data integrity."
+        }
+    },
+    "organizations": {
+        "label": "Multi-Tenancy",
+        "title": "Your Institution, Your Space",
+        "subtitle": "Create a private, branded environment for your Quranic school or association. Manage your own students, teachers, and Halaqat circles independently while benefiting from our powerful platform.",
+        "workspace": {
+            "title": "Private Workspace",
+            "description": "Each institution gets their own isolated environment with complete data separation."
+        },
+        "branding": {
+            "title": "Custom Branding",
+            "description": "Apply your logo, colors, and domain for a fully branded experience."
+        },
+        "roles": {
+            "title": "Role Management",
+            "description": "Manage administrators, teachers, and students with granular permissions."
+        },
+        "data": {
+            "title": "Data Sovereignty",
+            "description": "Your data stays yours. Complete control over privacy and access."
+        },
+        "students": "Students",
+        "teachers": "Teachers",
+        "circles": "Circles",
+        "admin": "Admin",
+        "teacher": "Teacher"
+    },
+    "experience": {
+        "label": "User Experience",
+        "title": "Designed for Students & Teachers",
+        "subtitle": "Intuitive interfaces that make Quranic education management effortless for everyone.",
+        "student": {
+            "badge": "Student Portal",
+            "title": "Simple & Motivating",
+            "description": "Students can track their progress, view assignments, and stay motivated with gamified achievements.",
+            "features": [
+                "Personal dashboard with Juz progress",
+                "View upcoming recitation sessions",
+                "Track mistakes and improvements",
+                "Earn badges and climb leaderboards"
+            ],
+            "welcome": "Welcome back",
+            "level": "Level 12 Hafiz",
+            "points": "pts",
+            "progress": "Progress Overview"
+        },
+        "teacher": {
+            "badge": "Teacher Interface",
+            "title": "Efficient & Comprehensive",
+            "description": "Teachers can quickly grade recitations, track student progress, and manage their Halaqat with ease.",
+            "features": [
+                "Quick grading with error categorization",
+                "Bulk student management",
+                "Automated progress reports"
+            ],
+            "recentEvals": "Recent Evaluations",
+            "viewAll": "View All",
+            "completed": "Completed",
+            "hifzDetails": "Hifz Details",
+            "revisionDetails": "Revision Details",
+            "content": "Content",
+            "pages": "Pages",
+            "reminders": "Reminders",
+            "mistakes": "Mistakes",
+            "minorMistakes": "Minor Mistakes",
+            "totalScore": "Total Score"
+        }
+    },
+    "socialProof": {
+        "badge": "Proven & Reliable",
+        "title": "Trusted by Quranic Institutions Worldwide",
+        "subtitle": "Hafiz is actively serving institutions across multiple countries with proven stability and continuous improvements.",
+        "institutions": "Active Institutions",
+        "students": "Students Managed",
+        "uptime": "Uptime",
+        "rating": "User Rating"
+    },
+    "cta": {
+        "title": "Ready to Transform Your Quranic Institution?",
+        "subtitle": "Join over 50 institutions already using Hafiz to manage their Quranic education programs efficiently.",
+        "demo": "Get Started",
+        "contact": "Contact Sales",
+        "trial": "Free 14-day trial - No credit card required - Full support included"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Ready to digitize your Quranic institution? Feel free to reach out and get started.",
+        "namePlaceholder": "Your Name",
+        "emailPlaceholder": "Your Email",
+        "messagePlaceholder": "Your Message",
+        "sendWhatsapp": "Chat on WhatsApp",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "whatsapp": {
+            "template": "Hello, my name is {name}. My email is {email}. Message: {message}"
+        }
+    },
+    "footer": {
+        "description": "Empowering Quranic institutions with modern, data-driven management tools.",
+        "rights": "All rights reserved.",
+        "product": "Product",
+        "company": "Company",
+        "legal": "Legal",
+        "featuresLink": "Features",
+        "pricing": "Pricing",
+        "docs": "Documentation",
+        "changelog": "Changelog",
+        "about": "About Us",
+        "blog": "Blog",
+        "careers": "Careers",
+        "contactLink": "Contact",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy",
+        "experience": "Experience"
+    }
+}

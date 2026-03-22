@@ -1,0 +1,178 @@
+{
+    "nav": {
+        "features": "Özellikler",
+        "organizations": "Kurumlar İçin",
+        "experience": "Deneyim",
+        "login": "Giriş Yap",
+        "demo": "Hemen Başlayın",
+        "brand": "Hafız Platformu"
+    },
+    "hero": {
+        "badge": "50'den Fazla Kurum Tarafından Güvenilir",
+        "title": "Kur'an Kurumlarını Güçlendiren",
+        "titleHighlight": "Veri Odaklı Yönetim",
+        "subtitle": "Hafiz; kolay takip ve güçlü motivasyonu harmanlayan güvenli bir dijital ekosistem sunar. Siz en yüce görevinize odaklanın Hafız ve ehil nesiller yetiştirmek.",
+        "ctaPrimary": "Hemen Başlayın",
+        "ctaSecondary": "Özellikleri Keşfedin"
+    },
+    "dashboard": {
+        "url": "app.hafiz.com",
+        "activeStudents": "Aktif Öğrenciler",
+        "halaqat": "Halkalar",
+        "avgProgress": "Ort. İlerleme",
+        "thisMonth": "+%12 bu ay",
+        "newCircles": "6 yeni halka",
+        "improvement": "+%5 gelişme",
+        "weeklyProgress": "Haftalık Tilavet İlerlemesi",
+        "last7Days": "Son 7 gün",
+        "hifzPages": "Hıfz Sayfaları",
+        "revisionPages": "Tekrar Sayfaları",
+        "accuracy": "Doğruluk",
+        "absences": "Devamsızlık",
+        "nextRecitation": "Sonraki Tilavet"
+    },
+    "features": {
+        "label": "Temel Özellikler",
+        "title": "Kur'an Eğitimini Yönetmek İçin İhtiyacınız Olan Her Şey",
+        "subtitle": "Kur'an kurumları, okullar ve bağımsız eğitimciler için özel olarak tasarlanmış eksiksiz araç seti.",
+        "multilingual": {
+            "title": "Çok Dilli",
+            "description": "İngilizce ve Türkçe arayüzlerinin yanında Arapça için tam RTL desteği. Küresel topluluğunuza hizmet edin."
+        },
+        "analytics": {
+            "title": "Akıllı Analitik",
+            "description": "Yöneticiler, öğretmenler ve öğrenciler için uygulanabilir içerikler ve ilerleme takibi ile gelişmiş panolar."
+        },
+        "recitation": {
+            "title": "Tilavet İş Akışı",
+            "description": "İyileştirme için ayrıntılı hatırlatıcılarla hataları eklemek, değerlendirmek ve izlemek için kapsamlı araçlar."
+        },
+        "gamification": {
+            "title": "Oyunlaştırma",
+            "description": "Motivasyonu ve sağlıklı rekabeti artırmak için öğrenciler ve halkalar için entegre liderlik tabloları."
+        },
+        "telegram": {
+            "title": "Telegram Entegrasyonu",
+            "description": "Öğrencilere ve velilere doğrudan iletilen otomatik bildirimler ve ilerleme raporları."
+        },
+        "security": {
+            "title": "Güvenli ve Hızlı",
+            "description": "Kurumsal düzeyde güvenlik ve tam veri bütünlüğü ile yüksek performans için tasarlandı."
+        }
+    },
+    "organizations": {
+        "label": "Çoklu Kiracı",
+        "title": "Kurumunuz, Alanınız",
+        "subtitle": "Kur'an okulunuz veya derneğiniz için özel, markalı bir ortam oluşturun. Güçlü platformumuzdan yararlanırken öğrencilerinizi, öğretmenlerinizi ve halkalarınızı bağımsız olarak yönetin.",
+        "workspace": {
+            "title": "Özel Çalışma Alanı",
+            "description": "Her kurum, tam veri ayrımı ile kendi izole ortamını alır."
+        },
+        "branding": {
+            "title": "Özel Markalama",
+            "description": "Tam markalı bir deneyim için logonuzu, renklerinizi ve alan adınızı uygulayın."
+        },
+        "roles": {
+            "title": "Rol Yönetimi",
+            "description": "Yöneticileri, öğretmenleri ve öğrencileri ayrıntılı izinlerle yönetin."
+        },
+        "data": {
+            "title": "Veri Egemenliği",
+            "description": "Verileriniz sizin kalır. Gizlilik ve erişim üzerinde tam kontrol."
+        },
+        "students": "Öğrenciler",
+        "teachers": "Öğretmenler",
+        "circles": "Halkalar",
+        "admin": "Yönetici",
+        "teacher": "Öğretmen"
+    },
+    "experience": {
+        "label": "Kullanıcı Deneyimi",
+        "title": "Öğrenciler ve Öğretmenler İçin Tasarlandı",
+        "subtitle": "Kur'an eğitimi yönetimini herkes için zahmetsiz hale getiren sezgisel arayüzler.",
+        "student": {
+            "badge": "Öğrenci Portalı",
+            "title": "Basit ve Motive Edici",
+            "description": "Öğrenciler ilerlemelerini takip edebilir, ödevlerini görüntüleyebilir ve oyunlaştırılmış başarılarla motive kalabilir.",
+            "features": [
+                "Cüz ilerlemesi ile kişisel pano",
+                "Yaklaşan tilavet oturumlarını görüntüle",
+                "Hataları ve iyileştirmeleri takip et",
+                "Rozetler kazan ve sıralamada yüksel"
+            ],
+            "welcome": "Tekrar hoş geldiniz",
+            "level": "Seviye 12 Hafız",
+            "points": "puan",
+            "progress": "İlerleme Özeti"
+        },
+        "teacher": {
+            "badge": "Öğretmen Arayüzü",
+            "title": "Verimli ve Kapsamlı",
+            "description": "Öğretmenler hızla tilavetleri derecelendirebilir, öğrenci ilerlemesini takip edebilir ve halkalarını kolayca yönetebilir.",
+            "features": [
+                "Hata kategorilendirmesi ile hızlı derecelendirme",
+                "Toplu öğrenci yönetimi",
+                "Otomatik ilerleme raporları"
+            ],
+            "recentEvals": "Son Değerlendirmeler",
+            "viewAll": "Tümünü Gör",
+            "completed": "Tamamlandı",
+            "hifzDetails": "Hıfz Detayları",
+            "revisionDetails": "Tekrar Detayları",
+            "content": "İçerik",
+            "pages": "Sayfalar",
+            "reminders": "Hatırlatıcılar",
+            "mistakes": "Hatalar",
+            "minorMistakes": "Küçük Hatalar",
+            "totalScore": "Toplam Puan"
+        }
+    },
+    "socialProof": {
+        "badge": "Kanıtlanmış ve Güvenilir",
+        "title": "Dünya Çapında Kur'an Kurumları Tarafından Güvenilir",
+        "subtitle": "Hafız, kanıtlanmış stabilite ve sürekli iyileştirmelerle birden fazla ülkedeki kurumlara aktif olarak hizmet vermektedir.",
+        "institutions": "Aktif Kurum",
+        "students": "Yönetilen Öğrenci",
+        "uptime": "Çalışma Süresi",
+        "rating": "Kullanıcı Puanı"
+    },
+    "cta": {
+        "title": "Kur'an Kurumunuzu Dönüştürmeye Hazır mısınız?",
+        "subtitle": "Kur'an eğitim programlarını verimli bir şekilde yönetmek için Hafız'ı zaten kullanan 50'den fazla kuruma katılın.",
+        "demo": "Hemen Başlayın",
+        "contact": "Satış ile İletişime Geçin",
+        "trial": "14 günlük ücretsiz deneme - Kredi kartı gerekmez - Tam destek dahil"
+    },
+    "contact": {
+        "title": "İletişime Geç",
+        "subtitle": "Kur'an kurumunuzu dijitalleştirmeye hazır mısınız? Başlamak için lütfen bizimle iletişime geçmekten çekinmeyin.",
+        "namePlaceholder": "Adınız",
+        "emailPlaceholder": "E-posta Adresiniz",
+        "messagePlaceholder": "Mesajınız",
+        "sendWhatsapp": "WhatsApp ile Gönder",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "whatsapp": {
+            "template": "Merhaba, benim adım {name}. E-posta adresim {email}. Mesaj: {message}"
+        }
+    },
+    "footer": {
+        "description": "Kur'an kurumlarını modern, veri odaklı yönetim araçlarıyla güçlendirme.",
+        "rights": "Tüm hakları saklıdır.",
+        "product": "Ürün",
+        "company": "Şirket",
+        "legal": "Yasal",
+        "featuresLink": "Özellikler",
+        "pricing": "Fiyatlandırma",
+        "docs": "Dokümantasyon",
+        "changelog": "Değişiklik Günlüğü",
+        "about": "Hakkımızda",
+        "blog": "Blog",
+        "careers": "Kariyer",
+        "contactLink": "İletişim",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Hizmet Şartları",
+        "cookies": "Çerez Politikası",
+        "experience": "Deneyim"
+    }
+}
