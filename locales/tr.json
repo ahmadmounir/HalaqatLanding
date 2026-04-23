@@ -136,6 +136,59 @@
         "uptime": "Çalışma Süresi",
         "rating": "Kullanıcı Puanı"
     },
+    "pricing": {
+        "title": "Her Kur'an Kurumu İçin Esnek Fiyatlandırma",
+        "subtitle": "Faturalandırma dönemini seçin ve yalnızca kurumunuzun ihtiyaç duyduğu kadar ödeyin. Tüm paketlerde Hafiz'in temel yönetim araçları bulunur.",
+        "periodToggle": {
+            "annualLabel": "Yıllık Plan",
+            "annualDuration": "12 Ay",
+            "semesterLabel": "Dönemlik Plan",
+            "semesterDuration": "6 Ay",
+            "ariaLabel": "Faturalandırma dönemini değiştir"
+        },
+        "periodNames": {
+            "annual": "Yıllık Plan",
+            "semester": "Dönemlik Plan"
+        },
+        "currencySymbol": "$",
+        "mostPopular": "En Popüler",
+        "freeLabel": "Ücretsiz",
+        "equivalentToMonthly": "Aylık karşılığı: {amount}",
+        "addOnsLabel": "Ek Hizmetler",
+        "oneTimeFee": "tek seferlik",
+        "perYear": "yıllık",
+        "perSemester": "dönemlik",
+        "noAddOns": "Yok",
+        "startNow": "Hemen Başla",
+        "plans": {
+            "starter": {
+                "name": "Başlangıç",
+                "students": "0-20 Öğrenci",
+                "description": "Dijital takibe yeni başlayan küçük halkalar için ideal."
+            },
+            "basic": {
+                "name": "Temel",
+                "students": "21-50 Öğrenci",
+                "description": "Daha güçlü takip isteyen büyüyen kurumlar için mükemmel."
+            },
+            "pro": {
+                "name": "Profesyonel",
+                "students": "51-150 Öğrenci",
+                "description": "Aktif okullar için gelişmiş iş akışları ve performans içgörüleri."
+            },
+            "enterprise": {
+                "name": "Kurumsal",
+                "students": "151-300 Öğrenci",
+                "description": "Büyük kurumlar için kapsamlı ölçek ve destek."
+            }
+        },
+        "addOnItems": {
+            "whatsapp": "WhatsApp Entegrasyonu",
+            "priority": "Öncelikli Destek (6 Saat Yanıt + WhatsApp)",
+            "landing": "Özel Landing Page"
+        },
+        "whatsappTemplate": "Merhaba, {period} için {planName} paketine abone olmak istiyorum. Ek hizmetler: {addOns}. Toplam: {total}"
+    },
     "cta": {
         "title": "Kur'an Kurumunuzu Dönüştürmeye Hazır mısınız?",
         "subtitle": "Kur'an eğitim programlarını verimli bir şekilde yönetmek için Hafız'ı zaten kullanan 50'den fazla kuruma katılın.",

@@ -11,11 +11,10 @@ export function Footer() {
   const footerLinks = {
     [t.footer.product]: [
       { label: t.footer.featuresLink, href: "#features" },
-      { label: t.footer.experience, href: "#experience" }
+      { label: t.footer.pricing, href: "#pricing" },
+      { label: t.footer.experience, href: "#experience" },
     ],
-    [t.footer.company]: [
-      { label: t.footer.contactLink, href: "#contact" },
-    ],
+    [t.footer.company]: [{ label: t.footer.contactLink, href: "#contact" }],
     [t.footer.legal]: [
       { label: t.footer.privacy, href: "#" },
       { label: t.footer.terms, href: "#" },
@@ -49,19 +48,14 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto max-w-6xl px-4">
-        <div
-          className={`grid gap-8 md:grid-cols-2 lg:grid-cols-5`}
-        >
+        <div className={`grid gap-8 md:grid-cols-2 lg:grid-cols-5`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Link
-              href="/"
-              className={`mb-4 flex items-center gap-2`}
-            >
+            <Link href="/" className={`mb-4 flex items-center gap-2`}>
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary"

@@ -7,7 +7,7 @@ import { FeaturesSection } from "@/components/features-section";
 import { OrganizationsSection } from "@/components/organizations-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { SocialProofSection } from "@/components/social-proof-section";
-import { CTASection } from "@/components/cta-section";
+import { PricingSection } from "@/components/pricing-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 
@@ -21,6 +21,7 @@ export default function Home() {
         <OrganizationsSection />
         <ExperienceSection />
         <SocialProofSection />
+        <PricingSection />
         <ContactSection />
         <Footer />
       </main>

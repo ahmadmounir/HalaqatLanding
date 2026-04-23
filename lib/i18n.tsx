@@ -14,6 +14,8 @@ import tr from "@/locales/tr.json";
 export type Language = "en" | "ar" | "tr";
 export type Translations = typeof en;
 
+const LANGUAGE_STORAGE_KEY = "hafiz-language";
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -31,12 +33,31 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
+function isLanguage(value: string): value is Language {
+  return value === "en" || value === "ar" || value === "tr";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (storedLanguage && isLanguage(storedLanguage)) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    }
   }, [language]);
 
   const value = {

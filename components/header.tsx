@@ -22,6 +22,8 @@ const languages: { code: Language; label: string; flag: string }[] = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t, isRTL } = useLanguage();
+  const selectedLanguage =
+    languages.find((lang) => lang.code === language) ?? languages[0];
 
   return (
     <motion.header
@@ -74,7 +76,7 @@ export function Header() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-1.5">
                 <Globe className="h-4 w-4" />
-                <span>{languages.find((l) => l.code === language)?.flag}</span>
+                <span>{selectedLanguage.flag}</span>
                 <ChevronDown className="h-3 w-3 opacity-50" />
               </Button>
             </DropdownMenuTrigger>
@@ -97,17 +99,43 @@ export function Header() {
           </a>
         </div>
 
-        <button
-          className="flex items-center justify-center md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
-          ) : (
-            <Menu className="h-6 w-6 text-foreground" />
-          )}
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="gap-1 px-2">
+                <Globe className="h-4 w-4" />
+                <span className="text-xs font-semibold uppercase">
+                  {selectedLanguage.flag}
+                </span>
+                <ChevronDown className="h-3 w-3 opacity-50" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align={isRTL ? "start" : "end"}>
+              {languages.map((lang) => (
+                <DropdownMenuItem
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className={language === lang.code ? "bg-muted" : ""}
+                >
+                  <span className="font-medium">{lang.flag}</span>
+                  <span className={isRTL ? "mr-2" : "ml-2"}>{lang.label}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <button
+            className="flex items-center justify-center"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -141,19 +169,6 @@ export function Header() {
               >
                 {t.nav.experience}
               </Link>
-
-              <div className="flex items-center gap-2 border-t border-border pt-4">
-                {languages.map((lang) => (
-                  <Button
-                    key={lang.code}
-                    variant={language === lang.code ? "default" : "ghost"}
-                    size="sm"
-                    onClick={() => setLanguage(lang.code)}
-                  >
-                    {lang.flag}
-                  </Button>
-                ))}
-              </div>
 
               <div className="flex flex-col gap-2 pt-2">
                 <a target="_blank" href="https://hafiz.pluto4host.com/">

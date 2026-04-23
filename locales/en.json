@@ -136,6 +136,59 @@
         "uptime": "Uptime",
         "rating": "User Rating"
     },
+    "pricing": {
+        "title": "Flexible Pricing for Every Quranic Institution",
+        "subtitle": "Choose the billing period and only pay for what your institution needs. Every plan includes core Hafiz management tools.",
+        "periodToggle": {
+            "annualLabel": "Annual Plan",
+            "annualDuration": "12 Months",
+            "semesterLabel": "Semester Plan",
+            "semesterDuration": "6 Months",
+            "ariaLabel": "Toggle billing period"
+        },
+        "periodNames": {
+            "annual": "Annual Plan",
+            "semester": "Semester Plan"
+        },
+        "currencySymbol": "$",
+        "mostPopular": "Most Popular",
+        "freeLabel": "Free",
+        "equivalentToMonthly": "Equivalent to {amount} / Month",
+        "addOnsLabel": "Add-ons",
+        "oneTimeFee": "one-time",
+        "perYear": "per year",
+        "perSemester": "per semester",
+        "noAddOns": "None",
+        "startNow": "Start Now",
+        "plans": {
+            "starter": {
+                "name": "Starter",
+                "students": "0-20 Students",
+                "description": "Best for small halaqat getting started with digital tracking."
+            },
+            "basic": {
+                "name": "Basic",
+                "students": "21-50 Students",
+                "description": "Perfect for growing institutions that need stronger oversight."
+            },
+            "pro": {
+                "name": "Pro",
+                "students": "51-150 Students",
+                "description": "Advanced workflows and performance insights for active schools."
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "students": "151-300 Students",
+                "description": "Comprehensive scale and support for large organizations."
+            }
+        },
+        "addOnItems": {
+            "whatsapp": "WhatsApp Integration",
+            "priority": "Priority Support (6h Response + WhatsApp)",
+            "landing": "Custom Landing Page"
+        },
+        "whatsappTemplate": "Hello, I want to subscribe to {planName} for {period}. Add-ons: {addOns}. Total: {total}"
+    },
     "cta": {
         "title": "Ready to Transform Your Quranic Institution?",
         "subtitle": "Join over 50 institutions already using Hafiz to manage their Quranic education programs efficiently.",
