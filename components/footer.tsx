@@ -16,8 +16,8 @@ export function Footer() {
     ],
     [t.footer.company]: [{ label: t.footer.contactLink, href: "#contact" }],
     [t.footer.legal]: [
-      { label: t.footer.privacy, href: "#" },
-      { label: t.footer.terms, href: "#" },
+      { label: t.footer.privacy, href: "/privacy" },
+      { label: t.footer.terms, href: "/terms" },
     ],
   };
 
