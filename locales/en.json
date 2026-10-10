@@ -1,231 +1,342 @@
 {
     "nav": {
+        "brand": "Hafiz",
+        "roles": "Who it's for",
         "features": "Features",
-        "organizations": "For Organizations",
-        "experience": "Experience",
+        "students": "For students",
+        "pricing": "Pricing",
+        "faq": "Questions",
         "login": "Log in",
-        "demo": "Get Started",
-        "brand": "Hafiz Platform"
+        "cta": "Start free",
+        "menu": "Menu",
+        "language": "Language"
     },
     "hero": {
-        "badge": "Used by 50+ Institutions",
-        "title": "Empowering Quranic Institutions with",
-        "titleHighlight": "Data-Driven Management",
-        "subtitle": "Hafiz provides a secure digital workspace that bridges seamless assessment with dynamic motivation. Focus on your ultimate mission nurturing a generation of proficient Quran memorizers.",
-        "ctaPrimary": "Get Started",
-        "ctaSecondary": "Explore Features"
+        "eyebrow": "For Quran schools and halaqat",
+        "title": "Every recitation, every student,",
+        "titleAccent": "in one place.",
+        "subtitle": "Hafiz helps your teachers record memorization and revision, shows you how each halaqa is doing, and sends reminders automatically.",
+        "ctaPrimary": "Start free",
+        "ctaSecondary": "See how it works",
+        "note": "Free for up to 20 students. No card needed."
     },
-    "dashboard": {
-        "url": "app.hafiz.com",
-        "activeStudents": "Active Students",
-        "halaqat": "Halaqat",
-        "avgProgress": "Avg. Progress",
-        "thisMonth": "+12% this month",
-        "newCircles": "6 new circles",
-        "improvement": "+5% improvement",
-        "weeklyProgress": "Weekly Recitation Progress",
-        "last7Days": "Last 7 days",
-        "hifzPages": "Hifz Pages",
-        "revisionPages": "Revision Pages",
-        "accuracy": "Accuracy",
-        "absences": "Absences",
-        "nextRecitation": "Next Recitation"
+    "stats": {
+        "organizations": "organizations use Hafiz",
+        "students": "students followed",
+        "languages": "each person chooses their language",
+        "languagesValue": "Multi-language"
     },
-    "features": {
-        "label": "Key Features",
-        "title": "Everything You Need to Manage Quranic Education",
-        "subtitle": "A complete suite of tools designed specifically for Quranic institutions, schools, and independent educators.",
-        "multilingual": {
-            "title": "Multilingual",
-            "description": "Full RTL support for Arabic alongside English and Turkish interfaces. Serve your global community."
-        },
-        "analytics": {
-            "title": "Smart Analytics",
-            "description": "Advanced dashboards for Admins, Teachers, and Students with actionable insights and progress tracking."
-        },
-        "recitation": {
-            "title": "Recitation Workflow",
-            "description": "Comprehensive tools to add, evaluate, and track mistakes with detailed reminders for improvement."
-        },
-        "gamification": {
-            "title": "Gamification",
-            "description": "Integrated leaderboards for students and Halaqat to boost motivation and healthy competition."
-        },
-        "telegram": {
-            "title": "Telegram Integration",
-            "description": "Automated notifications and progress reports delivered directly to students and parents."
-        },
-        "security": {
-            "title": "Secure & Fast",
-            "description": "Built for high performance with enterprise-grade security and complete data integrity."
-        }
-    },
-    "organizations": {
-        "label": "Multi-Tenancy",
-        "title": "Your Institution, Your Space",
-        "subtitle": "Create a private, branded environment for your Quranic school or association. Manage your own students, teachers, and Halaqat circles independently while benefiting from our powerful platform.",
-        "workspace": {
-            "title": "Private Workspace",
-            "description": "Each institution gets their own isolated environment with complete data separation."
-        },
-        "branding": {
-            "title": "Custom Branding",
-            "description": "Apply your logo, colors, and domain for a fully branded experience."
-        },
-        "roles": {
-            "title": "Role Management",
-            "description": "Manage administrators, teachers, and students with granular permissions."
-        },
-        "data": {
-            "title": "Data Sovereignty",
-            "description": "Your data stays yours. Complete control over privacy and access."
-        },
-        "students": "Students",
-        "teachers": "Teachers",
-        "circles": "Circles",
-        "admin": "Admin",
-        "teacher": "Teacher"
-    },
-    "experience": {
-        "label": "User Experience",
-        "title": "Designed for Students & Teachers",
-        "subtitle": "Intuitive interfaces that make Quranic education management effortless for everyone.",
-        "student": {
-            "badge": "Student Portal",
-            "title": "Simple & Motivating",
-            "description": "Students can track their progress, view assignments, and stay motivated with gamified achievements.",
-            "features": [
-                "Personal dashboard with Juz progress",
-                "View upcoming recitation sessions",
-                "Track mistakes and improvements",
-                "Earn badges and climb leaderboards"
-            ],
-            "welcome": "Welcome back",
-            "level": "Level 12 Hafiz",
-            "points": "pts",
-            "progress": "Progress Overview"
+    "roles": {
+        "label": "Who it's for",
+        "title": "One app. A clear view for each person.",
+        "subtitle": "Managers, teachers and students each see what they need, and nothing more.",
+        "admin": {
+            "tab": "Manager",
+            "title": "See the whole school",
+            "points": [
+                "Students, teachers and halaqat on one dashboard",
+                "Statistics for every season, ready to export to Excel",
+                "Roles and an activity log, so you know who changed what"
+            ]
         },
         "teacher": {
-            "badge": "Teacher Interface",
-            "title": "Efficient & Comprehensive",
-            "description": "Teachers can quickly grade recitations, track student progress, and manage their Halaqat with ease.",
-            "features": [
-                "Quick grading with error categorization",
-                "Bulk student management",
-                "Automated progress reports"
-            ],
-            "recentEvals": "Recent Evaluations",
-            "viewAll": "View All",
-            "completed": "Completed",
-            "hifzDetails": "Hifz Details",
-            "revisionDetails": "Revision Details",
-            "content": "Content",
-            "pages": "Pages",
-            "reminders": "Reminders",
-            "mistakes": "Mistakes",
-            "minorMistakes": "Minor Mistakes",
-            "totalScore": "Total Score"
+            "tab": "Teacher",
+            "title": "Grade on the Mushaf page",
+            "points": [
+                "Open the page and tap a word to mark a reminder or a mistake",
+                "The score is counted for you",
+                "Get automatic notifications about your students"
+            ]
+        },
+        "student": {
+            "tab": "Student",
+            "title": "Know what to prepare",
+            "points": [
+                "See the next session and what to recite",
+                "Follow your pages, accuracy and attendance",
+                "Get automatic reminders"
+            ]
         }
     },
-    "socialProof": {
-        "badge": "Proven & Reliable",
-        "title": "Trusted by Quranic Institutions Worldwide",
-        "subtitle": "Hafiz is actively serving institutions across multiple countries with proven stability and continuous improvements.",
-        "institutions": "Active Institutions",
-        "students": "Students Managed",
-        "uptime": "Uptime",
-        "rating": "User Rating"
+    "features": {
+        "label": "Features",
+        "title": "Everything a Quran school needs",
+        "subtitle": "Simple tools that work together. Nothing to install.",
+        "groups": {
+            "teaching": "Teaching",
+            "progress": "Progress",
+            "organization": "Your organization"
+        },
+        "items": {
+            "recitation": {
+                "title": "Recitation log",
+                "description": "Memorization and revision for every session, with reminders, mistakes and a score."
+            },
+            "mushaf": {
+                "title": "Grading on the Mushaf",
+                "description": "Teachers mark mistakes on the page itself. Students see where they went wrong."
+            },
+            "exams": {
+                "title": "Revision exams",
+                "description": "Create a revision exam for a student in a few taps."
+            },
+            "statistics": {
+                "title": "Statistics",
+                "description": "Progress by student, halaqa and teacher. Compare up to four seasons side by side."
+            },
+            "seasons": {
+                "title": "Seasons that stay as they were",
+                "description": "When a season ends, its results are saved. Later changes never rewrite old numbers."
+            },
+            "leaderboards": {
+                "title": "Leaderboards",
+                "description": "Rank students and halaqat, then share the result as an image."
+            },
+            "roles": {
+                "title": "Roles and activity log",
+                "description": "Owner, admin, teacher and student each have their own access. Changes are recorded."
+            },
+            "security": {
+                "title": "High security",
+                "description": "Your data is protected and kept apart from every other organization."
+            },
+            "languages": {
+                "title": "Multi-language support",
+                "description": "Each person uses Hafiz in their own language, in light or dark mode, on phone and computer."
+            }
+        }
+    },
+    "reminders": {
+        "label": "Notifications",
+        "title": "Automatic notifications",
+        "subtitle": "Hafiz sends reminders to students and teachers by itself. Nobody has to press a button.",
+        "points": {
+            "student": {
+                "title": "For students",
+                "description": "Students get reminders about their recitation sessions."
+            },
+            "teacher": {
+                "title": "For teachers",
+                "description": "Teachers get notified about what needs their attention."
+            },
+            "wording": {
+                "title": "In your own words",
+                "description": "Edit each message for your school, and switch any of them off."
+            },
+            "log": {
+                "title": "Nothing gets lost",
+                "description": "The message log shows what was sent, to whom, and how it arrived."
+            }
+        },
+        "channelsTitle": "Reaches everyone",
+        "channelsText": "No one needs Telegram to get a message.",
+        "channels": {
+            "app": "In the app",
+            "browser": "Browser notification",
+            "telegram": "Telegram"
+        }
+    },
+    "students": {
+        "label": "Student statistics",
+        "title": "Every student can see their own progress",
+        "subtitle": "A personal statistics page shows students what they have memorized, where they are weak, and how far they are from their goal.",
+        "items": {
+            "map": {
+                "title": "Quran map",
+                "description": "See which parts of the Quran you have memorized."
+            },
+            "weak": {
+                "title": "Weak spots",
+                "description": "The surahs that need revision most."
+            },
+            "goals": {
+                "title": "Goals",
+                "description": "Set a goal and see if you are on track."
+            },
+            "recap": {
+                "title": "Season recap",
+                "description": "A summary of your season to save and share."
+            },
+            "seasons": {
+                "title": "Season by season",
+                "description": "Compare your results across seasons."
+            },
+            "look": {
+                "title": "Your own look",
+                "description": "Two home designs and four colors to choose from."
+            }
+        }
     },
     "pricing": {
-        "title": "Flexible Pricing for Every Quranic Institution",
-        "subtitle": "Choose the billing period and only pay for what your institution needs. Every plan includes core Hafiz management tools.",
-        "periodToggle": {
-            "annualLabel": "Annual Plan",
-            "annualDuration": "12 Months",
-            "semesterLabel": "Semester Plan",
-            "semesterDuration": "6 Months",
-            "ariaLabel": "Toggle billing period"
+        "label": "Pricing",
+        "title": "Plans that grow with your school",
+        "subtitle": "Every plan includes every feature.",
+        "period": {
+            "annual": "Yearly",
+            "semester": "6 months",
+            "ariaLabel": "Payment period"
         },
         "periodNames": {
-            "annual": "Annual Plan",
-            "semester": "Semester Plan"
+            "annual": "one year",
+            "semester": "6 months"
         },
         "currencySymbol": "$",
-        "mostPopular": "Most Popular",
+        "recommended": "Recommended",
         "freeLabel": "Free",
-        "equivalentToMonthly": "Equivalent to {amount} / Month",
-        "addOnsLabel": "Add-ons",
-        "oneTimeFee": "one-time",
+        "freeNote": "No payment needed",
+        "perMonth": "about {amount} a month",
         "perYear": "per year",
-        "perSemester": "per semester",
+        "perSemester": "per 6 months",
+        "support": {
+            "title": "Add priority support",
+            "description": "A reply within 6 hours and a direct WhatsApp line."
+        },
         "noAddOns": "None",
-        "startNow": "Start Now",
+        "startNow": "Start now",
+        "startFree": "Start free",
         "plans": {
             "starter": {
                 "name": "Starter",
-                "students": "0-20 Students",
-                "description": "Best for small halaqat getting started with digital tracking."
+                "students": "Up to 20 students",
+                "description": "For one halaqa that is just starting."
             },
             "basic": {
                 "name": "Basic",
-                "students": "21-50 Students",
-                "description": "Perfect for growing institutions that need stronger oversight."
+                "students": "21 to 50 students",
+                "description": "For a small school with a few halaqat."
             },
             "pro": {
                 "name": "Pro",
-                "students": "51-150 Students",
-                "description": "Advanced workflows and performance insights for active schools."
+                "students": "51 to 150 students",
+                "description": "For an active school with many teachers."
             },
             "enterprise": {
-                "name": "Enterprise",
-                "students": "151-300 Students",
-                "description": "Comprehensive scale and support for large organizations."
+                "name": "Large",
+                "students": "151 to 300 students",
+                "description": "For large schools and associations."
             }
         },
+        "includedTitle": "Every plan includes",
+        "included": [
+            "Recitation log and grading on the Mushaf",
+            "Statistics, leaderboards and Excel export",
+            "Automatic reminders",
+            "App, browser and Telegram notifications",
+            "Student statistics, goals and Quran map",
+            "Roles and activity log",
+            "Multi-language support",
+            "Your own private space"
+        ],
+        "larger": "More than 300 students?",
+        "largerCta": "Talk to us",
         "addOnItems": {
-            "whatsapp": "WhatsApp Integration",
-            "priority": "Priority Support (6h Response + WhatsApp)",
-            "landing": "Custom Landing Page"
+            "priority": "Priority support (reply within 6 hours + WhatsApp)"
         },
-        "whatsappTemplate": "Hello, I want to subscribe to {planName} for {period}. Add-ons: {addOns}. Total: {total}"
+        "whatsappTemplate": "Hello, I want to subscribe to the {planName} plan for {period}. Add-ons: {addOns}. Total: {total}"
     },
-    "cta": {
-        "title": "Ready to Transform Your Quranic Institution?",
-        "subtitle": "Join over 50 institutions already using Hafiz to manage their Quranic education programs efficiently.",
-        "demo": "Get Started",
-        "contact": "Contact Sales",
-        "trial": "Free 14-day trial - No credit card required - Full support included"
+    "faq": {
+        "label": "Questions",
+        "title": "Common questions",
+        "items": [
+            {
+                "question": "How do we start?",
+                "answer": "Choose a plan and send us a message on WhatsApp. We open your organization's space and help you add your halaqat, teachers and students."
+            },
+            {
+                "question": "Do students need Telegram?",
+                "answer": "No. Every message appears inside the app, and students can also turn on browser notifications. Telegram is one more option for those who use it."
+            },
+            {
+                "question": "Is our data separate from other schools?",
+                "answer": "Yes. Each organization has its own private space. Other organizations cannot see your students, teachers or results."
+            },
+            {
+                "question": "What happens when a season ends?",
+                "answer": "Hafiz saves the season's results as they are. If a student leaves or a halaqa changes later, the old season still shows the same numbers."
+            },
+            {
+                "question": "Which languages does Hafiz support?",
+                "answer": "Hafiz supports several languages, including Arabic, English and Turkish. Each person chooses their own language."
+            }
+        ]
     },
     "contact": {
-        "title": "Contact Us",
-        "subtitle": "Ready to digitize your Quranic institution? Feel free to reach out and get started.",
-        "namePlaceholder": "Your Name",
-        "emailPlaceholder": "Your Email",
-        "messagePlaceholder": "Your Message",
-        "sendWhatsapp": "Chat on WhatsApp",
-        "linkedin": "LinkedIn",
-        "github": "GitHub",
+        "label": "Contact",
+        "title": "Talk to us",
+        "subtitle": "Tell us about your school. We will answer your questions and set up your space with you.",
+        "name": "Your name",
+        "email": "Your email",
+        "message": "Your message",
+        "messagePlaceholder": "How many students and halaqat do you have?",
+        "sendWhatsapp": "Send on WhatsApp",
+        "emailLabel": "Or write to",
         "whatsapp": {
             "template": "Hello, my name is {name}. My email is {email}. Message: {message}"
         }
     },
     "footer": {
-        "description": "Empowering Quranic institutions with modern, data-driven management tools.",
+        "description": "Quran school management, made simple.",
         "rights": "All rights reserved.",
         "product": "Product",
-        "company": "Company",
+        "company": "Contact",
         "legal": "Legal",
-        "featuresLink": "Features",
-        "pricing": "Pricing",
-        "docs": "Documentation",
-        "changelog": "Changelog",
-        "about": "About Us",
-        "blog": "Blog",
-        "careers": "Careers",
-        "contactLink": "Contact",
+        "contactLink": "Talk to us",
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
-        "cookies": "Cookie Policy",
-        "experience": "Experience"
+        "follow": "Follow Hafiz"
+    },
+    "mock": {
+        "school": "Al-Noor School",
+        "dashboard": "Dashboard",
+        "students": "Students",
+        "teachers": "Teachers",
+        "halaqat": "Halaqat",
+        "statistics": "Statistics",
+        "messages": "Messages",
+        "attendance": "Attendance",
+        "halaqaProgress": "Halaqat this season",
+        "halaqaNames": [
+            "Abu Bakr",
+            "Omar",
+            "Al-Fatih",
+            "Uthman"
+        ],
+        "seasonCompare": "Season comparison",
+        "seasonNames": [
+            "Autumn 2025",
+            "Spring 2026"
+        ],
+        "pages": "Pages",
+        "accuracy": "Accuracy",
+        "saved": "Saved",
+        "export": "Export",
+        "studentName": "Yusuf",
+        "memorization": "Memorization",
+        "revision": "Revision",
+        "page": "Page {n}",
+        "score": "Score",
+        "reminder": "Reminder",
+        "minor": "Minor mistake",
+        "mistake": "Mistake",
+        "submit": "Submit",
+        "nextSession": "Next session",
+        "tomorrow": "Tomorrow",
+        "pagesCount": "{n} pages",
+        "surahA": "An-Nisa 1–6",
+        "surahB": "Al-Anfal",
+        "greeting": "Peace be upon you, Yusuf",
+        "memorized": "Memorized",
+        "today": "Today",
+        "msgStudent": "Yusuf, your session is tomorrow. Memorization: An-Nisa 1–6. Revision: Al-Anfal.",
+        "msgTeacher": "3 students in Abu Bakr halaqa have no plan for tomorrow.",
+        "delivered": "Delivered",
+        "toStudent": "To a student",
+        "toTeacher": "To a teacher",
+        "quranMap": "Quran map",
+        "juz": "Juz",
+        "goal": "Goal",
+        "goalText": "Finish Juz 5 this season",
+        "onTrack": "On track",
+        "themeColor": "Theme color"
     }
 }

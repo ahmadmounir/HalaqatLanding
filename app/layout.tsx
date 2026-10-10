@@ -1,30 +1,27 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Noto_Sans_Arabic } from 'next/font/google'
+import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-const _notoSansArabic = Noto_Sans_Arabic({ subsets: ["arabic"], weight: ["400", "500", "600", "700"] });
+const plex = IBM_Plex_Sans({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex',
+  display: 'swap',
+})
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex-arabic',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Hafiz - Modern Quranic Education Management SaaS',
-  description: 'Hafiz is a professional, multilingual, and secure multi-tenant platform designed to streamline student tracking, grading, and motivation for Quranic memorization institutions.',
-  keywords: ['Quran Management System', 'Islamic School SaaS', 'Quran Hifz Tracker', 'Quranic Education', 'Halaqat Management'],
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/hafiz.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/hafiz.png',
-        media: '(prefers-color-scheme: dark)',
-      }
-    ],
-    apple: '/hafiz.png',
-  },
+  title: 'Hafiz — Quran school management',
+  description:
+    'Hafiz helps Quran schools and halaqat record every recitation, follow each student, and send reminders automatically. With multi-language support.',
+  keywords: ['Quran school management', 'Hifz tracker', 'Halaqat management', 'Quran memorization', 'Quran teachers'],
 }
 
 export default function RootLayout({
@@ -33,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className='scroll-smooth'>
-      <body className="font-sans antialiased ">
+    <html lang="en" className={`${plex.variable} ${plexArabic.variable}`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

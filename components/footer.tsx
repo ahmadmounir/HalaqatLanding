@@ -1,108 +1,111 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+import { Instagram, Mail } from "lucide-react";
+import { CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/contact";
 import { useLanguage } from "@/lib/i18n";
+import { Logo } from "@/components/brand/logo";
+import { APP_URL } from "@/components/header";
 
 export function Footer() {
   const { t } = useLanguage();
 
-  const footerLinks = {
-    [t.footer.product]: [
-      { label: t.footer.featuresLink, href: "#features" },
-      { label: t.footer.pricing, href: "#pricing" },
-      { label: t.footer.experience, href: "#experience" },
-    ],
-    [t.footer.company]: [{ label: t.footer.contactLink, href: "#contact" }],
-    [t.footer.legal]: [
-      { label: t.footer.privacy, href: "/privacy" },
-      { label: t.footer.terms, href: "/terms" },
-    ],
-  };
+  const columns = [
+    {
+      title: t.footer.product,
+      links: [
+        { label: t.nav.features, href: "/#features" },
+        { label: t.nav.students, href: "/#students" },
+        { label: t.nav.pricing, href: "/#pricing" },
+        { label: t.nav.faq, href: "/#faq" },
+      ],
+    },
+    {
+      title: t.footer.company,
+      links: [
+        { label: t.footer.contactLink, href: "/#contact" },
+        { label: t.nav.login, href: APP_URL },
+      ],
+    },
+    {
+      title: t.footer.legal,
+      links: [
+        { label: t.footer.privacy, href: "/privacy" },
+        { label: t.footer.terms, href: "/terms" },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    {
+      label: "Email",
+      href: `mailto:${CONTACT_EMAIL}`,
+      icon: Mail,
+      external: false,
+    },
+    {
+      label: "Instagram",
+      href: INSTAGRAM_URL,
+      icon: Instagram,
+      external: true,
+    },
+  ];
 
   return (
-    <footer className="border-t border-border bg-background py-12 md:py-16 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 -z-10 opacity-[0.02]">
-        <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern
-              id="footer-pattern"
-              x="0"
-              y="0"
-              width="60"
-              height="60"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M30 0L60 30L30 60L0 30Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#footer-pattern)" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className={`grid gap-8 md:grid-cols-2 lg:grid-cols-5`}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2"
-          >
-            <Link href="/" className={`mb-4 flex items-center gap-2`}>
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary"
-              >
-                <BookOpen className="h-5 w-5 text-primary-foreground" />
-              </motion.div>
-              <span className="text-xl font-semibold tracking-tight text-foreground">
-                {t.nav.brand}
-              </span>
+    <footer className="bg-ink text-white">
+      <div className="container-page py-14 md:py-16">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div>
+            <Link href="/" aria-label={t.nav.brand}>
+              <Logo name={t.nav.brand} tone="light" />
             </Link>
-            <p className="mb-4 max-w-xs text-muted-foreground">
+            <p className="mt-4 max-w-xs text-[0.9375rem] leading-relaxed text-white/65">
               {t.footer.description}
             </p>
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} {t.nav.brand}. {t.footer.rights}
-            </p>
-          </motion.div>
+          </div>
 
-          {Object.entries(footerLinks).map(
-            ([category, links], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: categoryIndex * 0.1 }}
+          {columns.map((column) => (
+            <div key={column.title}>
+              <h3 className="text-sm font-medium text-gold">{column.title}</h3>
+              <ul className="mt-4 space-y-3">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="link-underline pb-0.5 text-[0.9375rem] text-white/75 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-col-reverse items-start gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-white/50">
+            © {new Date().getFullYear()} {t.nav.brand}. {t.footer.rights}
+          </p>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                title={link.label}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-[color,border-color,background-color,transform] duration-300 ease-brand hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-ink"
               >
-                <h3 className="mb-4 font-semibold text-foreground">
-                  {category}
-                </h3>
-                <ul className="space-y-3">
-                  {links.map((link) => (
-                    <li key={link.label}>
-                      <motion.div whileHover={{ x: 3 }}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                          {link.label}
-                        </Link>
-                      </motion.div>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ),
-          )}
+                <link.icon
+                  className="h-[1.125rem] w-[1.125rem]"
+                  strokeWidth={1.8}
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

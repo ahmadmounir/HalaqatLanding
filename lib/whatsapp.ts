@@ -1,3 +1,5 @@
+import { WHATSAPP_NUMBER } from "@/lib/contact"
+
 export interface WhatsAppContactPayload {
   name: string
   email: string
@@ -16,7 +18,7 @@ export interface WhatsAppSubscriptionPayload {
 }
 
 function getSanitizedWhatsAppNumber(): string | null {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+  const whatsappNumber = WHATSAPP_NUMBER
 
   if (!whatsappNumber) {
     console.error("WhatsApp number not configured")

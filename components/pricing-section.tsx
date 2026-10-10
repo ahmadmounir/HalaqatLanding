@@ -2,25 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { ArrowRight, Check } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useLanguage } from "@/lib/i18n";
 import { buildWhatsAppSubscriptionUrl } from "@/lib/whatsapp";
+import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { SectionHeading } from "@/components/section-heading";
 import { cn } from "@/lib/utils";
 
 type BillingPeriod = "annual" | "semester";
 type PlanId = "starter" | "basic" | "pro" | "enterprise";
-type AddOnId = "whatsapp" | "priority" | "landing";
 
 interface PlanPricing {
   id: PlanId;
@@ -29,324 +20,265 @@ interface PlanPricing {
   highlighted?: boolean;
 }
 
-interface AddOnPricing {
-  id: AddOnId;
-  annualPrice: number;
-  semesterPrice: number;
-  oneTime?: boolean;
-}
-
+// Prices in US dollars for the whole period.
 const PLANS: PlanPricing[] = [
   { id: "starter", annualPrice: 0, semesterPrice: 0 },
-  { id: "basic", annualPrice: 150, semesterPrice: 95 },
-  { id: "pro", annualPrice: 350, semesterPrice: 220, highlighted: true },
-  { id: "enterprise", annualPrice: 600, semesterPrice: 380 },
+  { id: "basic", annualPrice: 300, semesterPrice: 190 },
+  { id: "pro", annualPrice: 500, semesterPrice: 315, highlighted: true },
+  { id: "enterprise", annualPrice: 900, semesterPrice: 565 },
 ];
 
-const ADD_ONS: AddOnPricing[] = [
-//   { id: "whatsapp", annualPrice: 200, semesterPrice: 125 },
-  { id: "priority", annualPrice: 150, semesterPrice: 95 },
-  { id: "landing", annualPrice: 150, semesterPrice: 150, oneTime: true },
-];
+const PRIORITY_SUPPORT = { annualPrice: 200, semesterPrice: 125 };
 
-const DEFAULT_ADD_ON_SELECTIONS: Record<PlanId, Record<AddOnId, boolean>> = {
-  starter: { whatsapp: false, priority: false, landing: false },
-  basic: { whatsapp: false, priority: false, landing: false },
-  pro: { whatsapp: false, priority: false, landing: false },
-  enterprise: { whatsapp: false, priority: false, landing: false },
-};
+const PERIODS: BillingPeriod[] = ["annual", "semester"];
 
-function getAddOnPrice(addOn: AddOnPricing, period: BillingPeriod) {
-  if (addOn.oneTime) {
-    return addOn.annualPrice;
-  }
-  return period === "annual" ? addOn.annualPrice : addOn.semesterPrice;
-}
-
-function formatAmount(
-  value: number,
-  formatter: Intl.NumberFormat,
-  symbol: string,
-) {
-  return `${symbol}${formatter.format(value)}`;
-}
+// Invisible marks that keep a price left-to-right inside Arabic text.
+const LTR_START = "\u2066";
+const LTR_END = "\u2069";
 
 export function PricingSection() {
-  const { t, language, isRTL } = useLanguage();
-  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("annual");
-  const [selectedAddOnsByPlan, setSelectedAddOnsByPlan] = useState(
-    DEFAULT_ADD_ON_SELECTIONS,
-  );
+  const { t, language } = useLanguage();
+  const [period, setPeriod] = useState<BillingPeriod>("annual");
+  const [prioritySupport, setPrioritySupport] = useState(false);
 
-  const numberFormatter = useMemo(() => {
-    const locale =
-      language === "tr" ? "tr-TR" : language === "ar" ? "ar" : "en-US";
-    return new Intl.NumberFormat(locale, {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-    });
+  const formatter = useMemo(() => {
+    const locale = language === "tr" ? "tr-TR" : "en-US";
+    return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
   }, [language]);
+  // Isolated as left-to-right so the symbol stays in front of the number in Arabic.
+  const money = (value: number) =>
+    `${LTR_START}${t.pricing.currencySymbol}${formatter.format(value)}${LTR_END}`;
 
-  const monthsInPeriod = billingPeriod === "annual" ? 12 : 6;
-  const selectedPeriodName =
-    billingPeriod === "annual"
-      ? t.pricing.periodNames.annual
-      : t.pricing.periodNames.semester;
-
-  const toggleAddOn = (
-    planId: PlanId,
-    addOnId: AddOnId,
-    checked: boolean | "indeterminate",
-  ) => {
-    setSelectedAddOnsByPlan((previous) => ({
-      ...previous,
-      [planId]: {
-        ...previous[planId],
-        [addOnId]: checked === true,
-      },
-    }));
-  };
+  const months = period === "annual" ? 12 : 6;
+  const supportPrice =
+    period === "annual"
+      ? PRIORITY_SUPPORT.annualPrice
+      : PRIORITY_SUPPORT.semesterPrice;
+  const periodSuffix =
+    period === "annual" ? t.pricing.perYear : t.pricing.perSemester;
 
   return (
-    <section
-      id="pricing"
-      className="relative overflow-hidden border-t border-border py-20 md:py-28"
-    >
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-muted/20 to-background" />
-
-      <div className="container mx-auto max-w-6xl px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-10 text-center"
-        >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-            {t.pricing.title}
-          </h2>
-          <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-            {t.pricing.subtitle}
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          className={cn(
-            "mx-auto mb-10 flex w-full max-w-2xl items-center justify-center gap-4 rounded-2xl border border-border bg-card/80 p-4",
-          )}
-        >
-          <div className="text-center">
-            <p
-              className={cn(
-                "text-sm font-semibold",
-                billingPeriod === "annual"
-                  ? "text-foreground"
-                  : "text-muted-foreground",
-              )}
-            >
-              {t.pricing.periodToggle.annualLabel}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              {t.pricing.periodToggle.annualDuration}
-            </p>
-          </div>
-
-          <Switch
-            checked={billingPeriod === "semester"}
-            onCheckedChange={(checked) =>
-              setBillingPeriod(checked ? "semester" : "annual")
-            }
-            aria-label={t.pricing.periodToggle.ariaLabel}
+    <section id="pricing" className="section">
+      <div className="container-page">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            label={t.pricing.label}
+            title={t.pricing.title}
+            subtitle={t.pricing.subtitle}
           />
 
-          <div className="text-center">
-            <p
-              className={cn(
-                "text-sm font-semibold",
-                billingPeriod === "semester"
-                  ? "text-foreground"
-                  : "text-muted-foreground",
-              )}
+          <Reveal>
+            <div
+              role="radiogroup"
+              aria-label={t.pricing.period.ariaLabel}
+              className="inline-flex rounded-full border border-line bg-surface p-1"
             >
-              {t.pricing.periodToggle.semesterLabel}
-            </p>
-            <p className="text-xs text-muted-foreground">
-              {t.pricing.periodToggle.semesterDuration}
-            </p>
-          </div>
-        </motion.div>
+              {PERIODS.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  role="radio"
+                  aria-checked={period === item}
+                  onClick={() => setPeriod(item)}
+                  className={cn(
+                    "relative h-10 rounded-full px-5 text-[0.9375rem] font-medium transition-colors duration-200",
+                    period === item
+                      ? "text-white"
+                      : "text-muted-foreground hover:text-ink",
+                  )}
+                >
+                  {period === item && (
+                    <motion.span
+                      layoutId="period-pill"
+                      className="absolute inset-0 rounded-full bg-ink"
+                      transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative">{t.pricing.period[item]}</span>
+                </button>
+              ))}
+            </div>
+          </Reveal>
+        </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-          {PLANS.map((plan, index) => {
-            const planText = t.pricing.plans[plan.id];
+        <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PLANS.map((plan) => {
+            const text = t.pricing.plans[plan.id];
             const basePrice =
-              billingPeriod === "annual"
-                ? plan.annualPrice
-                : plan.semesterPrice;
-
-            const selectedAddOns = ADD_ONS.filter(
-              (addOn) => selectedAddOnsByPlan[plan.id][addOn.id],
-            );
-
-            const addOnTotal = selectedAddOns.reduce(
-              (sum, addOn) => sum + getAddOnPrice(addOn, billingPeriod),
-              0,
-            );
-
-            const totalPrice = basePrice + addOnTotal;
-            const monthlyEquivalent = totalPrice / monthsInPeriod;
-
-            const selectedAddOnNames = selectedAddOns.map(
-              (addOn) => t.pricing.addOnItems[addOn.id],
-            );
+              period === "annual" ? plan.annualPrice : plan.semesterPrice;
+            const isFree = basePrice === 0;
+            const withSupport = prioritySupport && !isFree;
+            const total = basePrice + (withSupport ? supportPrice : 0);
 
             const whatsappUrl = buildWhatsAppSubscriptionUrl({
               template: t.pricing.whatsappTemplate,
-              planName: planText.name,
-              period: selectedPeriodName,
-              addOns: selectedAddOnNames,
+              planName: text.name,
+              period: t.pricing.periodNames[period],
+              addOns: withSupport ? [t.pricing.addOnItems.priority] : [],
               noAddOnsLabel: t.pricing.noAddOns,
-              totalPrice,
+              totalPrice: total,
               currencySymbol: t.pricing.currencySymbol,
             });
 
             return (
-              <motion.div
-                key={plan.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay: index * 0.06, duration: 0.35 }}
-                className="h-full"
-              >
-                <Card
+              <StaggerItem key={plan.id} className="h-full">
+                <div
                   className={cn(
-                    "relative flex h-full flex-col border-border/70 bg-card/80 backdrop-blur",
-                    plan.highlighted &&
-                      "border-primary shadow-lg shadow-primary/10",
+                    "flex h-full flex-col rounded-2xl border p-6 transition-[transform,box-shadow] duration-300 ease-brand hover:-translate-y-1",
+                    plan.highlighted
+                      ? "border-ink bg-ink text-white shadow-lift"
+                      : "border-line bg-surface hover:shadow-card",
                   )}
                 >
-                  <CardHeader className="space-y-3 pb-0">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <CardTitle className="text-2xl">
-                          {planText.name}
-                        </CardTitle>
-                        <CardDescription className="mt-2 text-sm">
-                          {planText.students}
-                        </CardDescription>
-                      </div>
-                      {plan.highlighted ? (
-                        <Badge>{t.pricing.mostPopular}</Badge>
-                      ) : null}
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {planText.description}
-                    </p>
-                  </CardHeader>
-
-                  <CardContent className="space-y-5 pt-2">
-                    <div className="rounded-xl border border-border/70 bg-background/60 p-4">
-                      <AnimatePresence mode="wait" initial={false}>
-                        <motion.div
-                          key={`${billingPeriod}-${totalPrice}`}
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ duration: 0.22 }}
-                        >
-                          <p className="text-3xl font-bold tracking-tight text-foreground">
-                            {totalPrice === 0
-                              ? t.pricing.freeLabel
-                              : formatAmount(
-                                  totalPrice,
-                                  numberFormatter,
-                                  t.pricing.currencySymbol,
-                                )}
-                          </p>
-                          <p className="mt-1 text-xs text-muted-foreground">
-                            {t.pricing.equivalentToMonthly.replace(
-                              "{amount}",
-                              formatAmount(
-                                monthlyEquivalent,
-                                numberFormatter,
-                                t.pricing.currencySymbol,
-                              ),
-                            )}
-                          </p>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-
-                    <div className="space-y-3">
-                      <p className="text-sm font-semibold text-foreground">
-                        {t.pricing.addOnsLabel}
-                      </p>
-
-                      {ADD_ONS.map((addOn) => {
-                        const addOnPrice = getAddOnPrice(addOn, billingPeriod);
-                        const addOnSuffix = addOn.oneTime
-                          ? t.pricing.oneTimeFee
-                          : billingPeriod === "annual"
-                            ? t.pricing.perYear
-                            : t.pricing.perSemester;
-
-                        return (
-                          <label
-                            key={`${plan.id}-${addOn.id}`}
-                            className="flex cursor-pointer items-start gap-3 rounded-xl border border-border/60 p-3 transition-colors hover:bg-muted/35"
-                          >
-                            <Checkbox
-                              checked={selectedAddOnsByPlan[plan.id][addOn.id]}
-                              onCheckedChange={(checked) =>
-                                toggleAddOn(plan.id, addOn.id, checked)
-                              }
-                              className="mt-0.5"
-                            />
-                            <div>
-                              <p className="text-sm font-medium text-foreground">
-                                {t.pricing.addOnItems[addOn.id]}
-                              </p>
-                              <p className="text-xs text-muted-foreground">
-                                +
-                                {formatAmount(
-                                  addOnPrice,
-                                  numberFormatter,
-                                  t.pricing.currencySymbol,
-                                )}{" "}
-                                {addOnSuffix}
-                              </p>
-                            </div>
-                          </label>
-                        );
-                      })}
-                    </div>
-                  </CardContent>
-
-                  <CardFooter className="mt-auto">
-                    {whatsappUrl ? (
-                      <Button asChild className="w-full">
-                        <a
-                          href={whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {t.pricing.startNow}
-                        </a>
-                      </Button>
-                    ) : (
-                      <Button className="w-full" disabled>
-                        {t.pricing.startNow}
-                      </Button>
+                  <div className="flex items-center justify-between gap-2">
+                    <h3
+                      className={cn(
+                        "text-lg font-semibold",
+                        plan.highlighted ? "text-white" : "text-ink",
+                      )}
+                    >
+                      {text.name}
+                    </h3>
+                    {plan.highlighted ? (
+                      <span className="rounded-full bg-gold px-2.5 py-1 text-xs font-medium text-ink">
+                        {t.pricing.recommended}
+                      </span>
+                    ) : null}
+                  </div>
+                  <p
+                    className={cn(
+                      "mt-1 text-sm font-medium",
+                      plan.highlighted ? "text-gold" : "text-gold-ink",
                     )}
-                  </CardFooter>
-                </Card>
-              </motion.div>
+                  >
+                    {text.students}
+                  </p>
+
+                  <div className="mt-6 h-[4.5rem]">
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.div
+                        key={`${period}-${total}`}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.22, ease: EASE }}
+                      >
+                        <p className="flex items-baseline gap-2">
+                          <span
+                            className={cn(
+                              "text-4xl font-semibold tabular-nums tracking-tight",
+                              plan.highlighted ? "text-white" : "text-ink",
+                            )}
+                          >
+                            {isFree ? t.pricing.freeLabel : money(total)}
+                          </span>
+                          {!isFree && (
+                            <span
+                              className={cn(
+                                "text-sm",
+                                plan.highlighted
+                                  ? "text-white/65"
+                                  : "text-muted-foreground",
+                              )}
+                            >
+                              {periodSuffix}
+                            </span>
+                          )}
+                        </p>
+                        <p
+                          className={cn(
+                            "mt-1.5 text-sm",
+                            plan.highlighted
+                              ? "text-white/65"
+                              : "text-muted-foreground",
+                          )}
+                        >
+                          {isFree
+                            ? t.pricing.freeNote
+                            : t.pricing.perMonth.replace(
+                                "{amount}",
+                                money(Math.round(total / months)),
+                              )}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  <p
+                    className={cn(
+                      "mt-5 flex-1 text-[0.9375rem] leading-relaxed",
+                      plan.highlighted ? "text-white/75" : "text-muted-foreground",
+                    )}
+                  >
+                    {text.description}
+                  </p>
+
+                  <a
+                    href={whatsappUrl ?? "#contact"}
+                    {...(whatsappUrl
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className={cn(
+                      "btn group mt-6 w-full",
+                      plan.highlighted ? "btn-gold" : "btn-secondary",
+                    )}
+                  >
+                    {isFree ? t.pricing.startFree : t.pricing.startNow}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
+                  </a>
+                </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
+
+        <Reveal className="mt-4">
+          <label className="flex cursor-pointer items-center justify-between gap-6 rounded-2xl border border-line bg-surface px-6 py-5">
+            <span>
+              <span className="block font-semibold text-ink">
+                {t.pricing.support.title}
+                <span className="ms-2 font-normal tabular-nums text-muted-foreground">
+                  +{money(supportPrice)} {periodSuffix}
+                </span>
+              </span>
+              <span className="mt-1 block text-[0.9375rem] text-muted-foreground">
+                {t.pricing.support.description}
+              </span>
+            </span>
+            <Switch
+              checked={prioritySupport}
+              onCheckedChange={setPrioritySupport}
+              aria-label={t.pricing.support.title}
+              className="scale-125 data-[state=checked]:bg-green"
+            />
+          </label>
+        </Reveal>
+
+        <Reveal className="mt-14 grid gap-8 border-t border-line pt-10 lg:grid-cols-[12rem_1fr]">
+          <h3 className="subheading">{t.pricing.includedTitle}</h3>
+          <div>
+            <ul className="grid gap-x-10 gap-y-3.5 sm:grid-cols-2">
+              {t.pricing.included.map((item) => (
+                <li key={item} className="flex gap-3 text-[0.9375rem] text-ink">
+                  <Check
+                    className="mt-0.5 h-4 w-4 shrink-0 text-green"
+                    strokeWidth={2.5}
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-[0.9375rem] text-muted-foreground">
+              {t.pricing.larger}{" "}
+              <a
+                href="#contact"
+                className="link-underline pb-0.5 font-medium text-ink"
+              >
+                {t.pricing.largerCta}
+              </a>
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

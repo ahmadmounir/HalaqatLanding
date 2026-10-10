@@ -1,30 +1,35 @@
 "use client";
 
+import { MotionConfig } from "framer-motion";
 import { LanguageProvider } from "@/lib/i18n";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
+import { RolesSection } from "@/components/roles-section";
 import { FeaturesSection } from "@/components/features-section";
-import { OrganizationsSection } from "@/components/organizations-section";
-import { ExperienceSection } from "@/components/experience-section";
-import { SocialProofSection } from "@/components/social-proof-section";
+import { RemindersSection } from "@/components/reminders-section";
+import { StudentsSection } from "@/components/students-section";
 import { PricingSection } from "@/components/pricing-section";
+import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <LanguageProvider>
-      <main className="min-h-screen">
+      <MotionConfig reducedMotion="user">
         <Header />
-        <HeroSection />
-        <FeaturesSection />
-        <OrganizationsSection />
-        <ExperienceSection />
-        <SocialProofSection />
-        <PricingSection />
-        <ContactSection />
+        <main>
+          <HeroSection />
+          <RolesSection />
+          <FeaturesSection />
+          <RemindersSection />
+          <StudentsSection />
+          <PricingSection />
+          <FaqSection />
+          <ContactSection />
+        </main>
         <Footer />
-      </main>
+      </MotionConfig>
     </LanguageProvider>
   );
 }
