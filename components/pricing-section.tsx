@@ -5,9 +5,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useLanguage } from "@/lib/i18n";
-import { buildWhatsAppSubscriptionUrl } from "@/lib/whatsapp";
+import {
+  buildWhatsAppMessageUrl,
+  buildWhatsAppSubscriptionUrl,
+} from "@/lib/whatsapp";
 import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { SectionHeading } from "@/components/section-heading";
+import { SIGNUP_URL } from "@/components/header";
 import { cn } from "@/lib/utils";
 
 type BillingPeriod = "annual" | "semester";
@@ -18,6 +22,8 @@ interface PlanPricing {
   annualPrice: number;
   semesterPrice: number;
   highlighted?: boolean;
+  /** No price on the page: priced with the organization, so the button opens a conversation. */
+  contactOnly?: boolean;
 }
 
 // Prices in US dollars for the whole period.
@@ -25,7 +31,7 @@ const PLANS: PlanPricing[] = [
   { id: "starter", annualPrice: 0, semesterPrice: 0 },
   { id: "basic", annualPrice: 300, semesterPrice: 190 },
   { id: "pro", annualPrice: 500, semesterPrice: 315, highlighted: true },
-  { id: "enterprise", annualPrice: 900, semesterPrice: 565 },
+  { id: "enterprise", annualPrice: 0, semesterPrice: 0, contactOnly: true },
 ];
 
 const PRIORITY_SUPPORT = { annualPrice: 200, semesterPrice: 125 };
@@ -106,19 +112,27 @@ export function PricingSection() {
             const text = t.pricing.plans[plan.id];
             const basePrice =
               period === "annual" ? plan.annualPrice : plan.semesterPrice;
-            const isFree = basePrice === 0;
-            const withSupport = prioritySupport && !isFree;
+            const isCustom = plan.contactOnly === true;
+            const isFree = basePrice === 0 && !isCustom;
+            const withSupport = prioritySupport && !isFree && !isCustom;
             const total = basePrice + (withSupport ? supportPrice : 0);
 
-            const whatsappUrl = buildWhatsAppSubscriptionUrl({
-              template: t.pricing.whatsappTemplate,
-              planName: text.name,
-              period: t.pricing.periodNames[period],
-              addOns: withSupport ? [t.pricing.addOnItems.priority] : [],
-              noAddOnsLabel: t.pricing.noAddOns,
-              totalPrice: total,
-              currencySymbol: t.pricing.currencySymbol,
-            });
+            // Free: straight to the sign-up page of the app. Enterprise: a conversation, no price.
+            // The paid plans: a WhatsApp message with the plan, the period and the total.
+            const ctaUrl = isFree
+              ? `${SIGNUP_URL}?plan=free&lang=${language}`
+              : isCustom
+                ? buildWhatsAppMessageUrl(t.pricing.enterpriseWhatsappMessage)
+                : buildWhatsAppSubscriptionUrl({
+                    template: t.pricing.whatsappTemplate,
+                    planName: text.name,
+                    period: t.pricing.periodNames[period],
+                    addOns: withSupport ? [t.pricing.addOnItems.priority] : [],
+                    noAddOnsLabel: t.pricing.noAddOns,
+                    totalPrice: total,
+                    currencySymbol: t.pricing.currencySymbol,
+                  });
+            const opensNewTab = !isFree && ctaUrl !== null;
 
             return (
               <StaggerItem key={plan.id} className="h-full">
@@ -170,9 +184,13 @@ export function PricingSection() {
                               plan.highlighted ? "text-white" : "text-ink",
                             )}
                           >
-                            {isFree ? t.pricing.freeLabel : money(total)}
+                            {isCustom
+                              ? t.pricing.customLabel
+                              : isFree
+                                ? t.pricing.freeLabel
+                                : money(total)}
                           </span>
-                          {!isFree && (
+                          {!isFree && !isCustom && (
                             <span
                               className={cn(
                                 "text-sm",
@@ -193,7 +211,9 @@ export function PricingSection() {
                               : "text-muted-foreground",
                           )}
                         >
-                          {isFree
+                          {isCustom
+                            ? t.pricing.customNote
+                            : isFree
                             ? t.pricing.freeNote
                             : t.pricing.perMonth.replace(
                                 "{amount}",
@@ -214,8 +234,8 @@ export function PricingSection() {
                   </p>
 
                   <a
-                    href={whatsappUrl ?? "#contact"}
-                    {...(whatsappUrl
+                    href={ctaUrl ?? "#contact"}
+                    {...(opensNewTab
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                     className={cn(
@@ -223,7 +243,11 @@ export function PricingSection() {
                       plan.highlighted ? "btn-gold" : "btn-secondary",
                     )}
                   >
-                    {isFree ? t.pricing.startFree : t.pricing.startNow}
+                    {isCustom
+                      ? t.pricing.contactSales
+                      : isFree
+                        ? t.pricing.startFree
+                        : t.pricing.startNow}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
                   </a>
                 </div>

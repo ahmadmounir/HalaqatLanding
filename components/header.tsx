@@ -11,6 +11,9 @@ import { EASE } from "@/components/motion";
 import { cn } from "@/lib/utils";
 
 export const APP_URL = "https://hafiz.pluto4host.com/";
+// Where a new organization signs up (the free plan's button): an account with a verified email, then a request
+// that the platform team approves.
+export const SIGNUP_URL = `${APP_URL}signup`;
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

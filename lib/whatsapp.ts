@@ -58,6 +58,16 @@ export function openWhatsAppContact(payload: WhatsAppContactPayload): boolean {
   return true
 }
 
+/** A chat with Hafiz, the given text already typed in. Null when no number is configured. */
+export function buildWhatsAppMessageUrl(message: string): string | null {
+  const sanitizedNumber = getSanitizedWhatsAppNumber()
+  if (!sanitizedNumber) {
+    return null
+  }
+
+  return `https://wa.me/${sanitizedNumber}?text=${encodeURIComponent(message)}`
+}
+
 export function buildWhatsAppSubscriptionUrl(
   payload: WhatsAppSubscriptionPayload,
 ): string | null {

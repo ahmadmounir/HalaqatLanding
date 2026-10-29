@@ -184,6 +184,10 @@
         "recommended": "Recommended",
         "freeLabel": "Free",
         "freeNote": "No payment needed",
+        "customLabel": "Custom",
+        "customNote": "Priced with you, for what your organization needs",
+        "contactSales": "Contact us",
+        "enterpriseWhatsappMessage": "Hello, I would like to ask about the Enterprise plan for our organization.",
         "perMonth": "about {amount} a month",
         "perYear": "per year",
         "perSemester": "per 6 months",
@@ -211,9 +215,9 @@
                 "description": "For an active school with many teachers."
             },
             "enterprise": {
-                "name": "Large",
-                "students": "151 to 300 students",
-                "description": "For large schools and associations."
+                "name": "Enterprise",
+                "students": "More than 150 students",
+                "description": "For associations, companies and large institutions."
             }
         },
         "includedTitle": "Every plan includes",
@@ -227,7 +231,7 @@
             "Multi-language support",
             "Your own private space"
         ],
-        "larger": "More than 300 students?",
+        "larger": "Not sure which plan fits?",
         "largerCta": "Talk to us",
         "addOnItems": {
             "priority": "Priority support (reply within 6 hours + WhatsApp)"
@@ -240,7 +244,7 @@
         "items": [
             {
                 "question": "How do we start?",
-                "answer": "Choose a plan and send us a message on WhatsApp. We open your organization's space and help you add your halaqat, teachers and students."
+                "answer": "With the free plan: create your account, confirm your email and send your organization's details; we open its space once we have reviewed the request. For the other plans, send us a message on WhatsApp. Either way, we help you add your halaqat, teachers and students."
             },
             {
                 "question": "Do students need Telegram?",

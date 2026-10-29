@@ -184,6 +184,10 @@
         "recommended": "Önerilen",
         "freeLabel": "Ücretsiz",
         "freeNote": "Ödeme gerekmez",
+        "customLabel": "Size özel",
+        "customNote": "Fiyat, kurumunuzun ihtiyacına göre birlikte belirlenir",
+        "contactSales": "Bize ulaşın",
+        "enterpriseWhatsappMessage": "Merhaba, kurumumuz için Kurumsal paket hakkında bilgi almak istiyorum.",
         "perMonth": "ayda yaklaşık {amount}",
         "perYear": "yıllık",
         "perSemester": "6 aylık",
@@ -211,9 +215,9 @@
                 "description": "Çok öğretmenli, hareketli bir kurs için."
             },
             "enterprise": {
-                "name": "Büyük",
-                "students": "151–300 öğrenci",
-                "description": "Büyük kurslar ve dernekler için."
+                "name": "Kurumsal",
+                "students": "150'den fazla öğrenci",
+                "description": "Dernekler, şirketler ve büyük kurumlar için."
             }
         },
         "includedTitle": "Her pakette var",
@@ -227,7 +231,7 @@
             "Çoklu dil desteği",
             "Kurumunuza özel alan"
         ],
-        "larger": "300'den fazla öğrenciniz mi var?",
+        "larger": "Hangi paketin uygun olduğundan emin değil misiniz?",
         "largerCta": "Bize yazın",
         "addOnItems": {
             "priority": "Öncelikli destek (6 saat içinde yanıt + WhatsApp)"
@@ -240,7 +244,7 @@
         "items": [
             {
                 "question": "Nasıl başlarız?",
-                "answer": "Bir paket seçin ve bize WhatsApp'tan yazın. Kurumunuzun alanını açar; halkaları, öğretmenleri ve öğrencileri eklemenize yardım ederiz."
+                "answer": "Ücretsiz paketle: hesabınızı oluşturun, e-postanızı doğrulayın ve kurumunuzun bilgilerini gönderin; başvuruyu inceledikten sonra kurumunuzun alanını açarız. Diğer paketler için bize WhatsApp'tan yazın. Her iki durumda da halkaları, öğretmenleri ve öğrencileri eklemenize yardım ederiz."
             },
             {
                 "question": "Öğrencilerin Telegram'a ihtiyacı var mı?",
