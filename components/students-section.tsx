@@ -17,7 +17,7 @@ export function StudentsSection() {
       id="students"
       className="section relative overflow-hidden bg-ink text-white"
     >
-      <LogoMark className="pointer-events-none absolute -bottom-40 -start-32 h-[36rem] w-[36rem] text-white/[0.035]" />
+      <LogoMark className="pointer-events-none absolute -bottom-40 -start-32 h-[36rem] w-[36rem] text-white/[0.028]" />
 
       <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>

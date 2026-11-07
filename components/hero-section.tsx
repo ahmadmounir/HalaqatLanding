@@ -18,7 +18,7 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-10 md:pb-24 md:pt-16">
-      <LogoMark className="pointer-events-none absolute -end-40 -top-24 -z-10 h-[44rem] w-[44rem] text-ink/[0.035]" />
+      <LogoMark className="pointer-events-none absolute -end-40 -top-24 -z-10 h-[44rem] w-[44rem] text-ink/[0.022]" />
 
       <div className="container-page">
         <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.08fr] lg:gap-12">
