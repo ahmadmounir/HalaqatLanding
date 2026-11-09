@@ -3,8 +3,15 @@
 /** The landing page's own address (no trailing slash). Every canonical / share URL is built from it. */
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://alhafiz.app").replace(/\/+$/, "");
 
-/** The app (sign-in, the organizations' portal). */
-export const PORTAL_URL = (process.env.NEXT_PUBLIC_PORTAL_URL || "https://portal.alhafiz.app").replace(/\/+$/, "");
+/**
+ * The app (sign-in, the organizations' portal). Still the old address: the app signs in with a SameSite cookie, so
+ * https://portal.alhafiz.app only works once the API also has an alhafiz.app address (api.alhafiz.app). Switch this
+ * to the new portal then; the API already accepts it (CORS).
+ */
+export const PORTAL_URL = (process.env.NEXT_PUBLIC_PORTAL_URL || "https://hafiz.pluto4host.com").replace(/\/+$/, "");
+
+/** The sign-in page itself (the portal's "/" opens the public mushaf for visitors). */
+export const LOGIN_URL = `${PORTAL_URL}/auth/login`;
 
 /** Where a new organization signs up (the free plan's button): an account with a verified email, then a request
  *  that the platform team approves. */

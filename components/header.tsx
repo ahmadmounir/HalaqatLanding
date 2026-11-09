@@ -8,11 +8,11 @@ import { useLanguage } from "@/lib/i18n";
 import { Logo } from "@/components/brand/logo";
 import { LanguageMenu } from "@/components/language-menu";
 import { EASE } from "@/components/motion";
-import { PORTAL_URL } from "@/lib/site";
+import { LOGIN_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-/** Sign-in: the app (the organizations' portal). */
-export const APP_URL = `${PORTAL_URL}/`;
+/** Sign-in: the app's login page. */
+export const APP_URL = LOGIN_URL;
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
