@@ -11,7 +11,7 @@ export function LegalPage({
 }: {
   documentType: LegalDocumentType;
 }) {
-  const { language, t } = useLanguage();
+  const { language, t, href } = useLanguage();
   const localeContent = legalContent[language];
   const document = localeContent[documentType];
 
@@ -19,7 +19,7 @@ export function LegalPage({
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-line bg-paper/85 backdrop-blur-md">
         <div className="container-page flex h-16 items-center justify-between">
-          <Link href="/" aria-label={t.nav.brand}>
+          <Link href={href()} aria-label={t.nav.brand}>
             <Logo name={t.nav.brand} />
           </Link>
           <LanguageMenu />
@@ -37,7 +37,7 @@ export function LegalPage({
             </p>
           </div>
           <Link
-            href="/"
+            href={href()}
             className="link-underline pb-0.5 text-sm font-medium text-green"
           >
             {localeContent.backToHome}
@@ -49,9 +49,6 @@ export function LegalPage({
             <h2 className="text-xl font-semibold">{document.aboutTitle}</h2>
             <p className="mt-3 text-sm leading-7 text-muted-foreground md:text-base">
               {document.aboutText}
-            </p>
-            <p className="mt-3 text-sm font-medium leading-7 md:text-base">
-              {document.mandatorySentence}
             </p>
           </section>
 

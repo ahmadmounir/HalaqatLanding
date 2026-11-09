@@ -8,17 +8,16 @@ import { useLanguage } from "@/lib/i18n";
 import { Logo } from "@/components/brand/logo";
 import { LanguageMenu } from "@/components/language-menu";
 import { EASE } from "@/components/motion";
+import { PORTAL_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-export const APP_URL = "https://hafiz.pluto4host.com/";
-// Where a new organization signs up (the free plan's button): an account with a verified email, then a request
-// that the platform team approves.
-export const SIGNUP_URL = `${APP_URL}signup`;
+/** Sign-in: the app (the organizations' portal). */
+export const APP_URL = `${PORTAL_URL}/`;
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, href } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -45,7 +44,7 @@ export function Header() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link href="/" aria-label={t.nav.brand} className="shrink-0">
+        <Link href={href()} aria-label={t.nav.brand} className="shrink-0">
           <Logo name={t.nav.brand} />
         </Link>
 
