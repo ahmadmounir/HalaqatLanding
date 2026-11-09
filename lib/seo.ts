@@ -137,7 +137,7 @@ export function homeStructuredData(language: Language) {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
         inLanguage: language,
-        mainEntity: t.faq.items.map((item) => ({
+        mainEntity: t.lp.faq.items.map((item) => ({
           "@type": "Question",
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },

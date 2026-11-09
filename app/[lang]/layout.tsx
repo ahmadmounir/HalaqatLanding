@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Almarai, IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers";
 import { LANGUAGES, LANGUAGE_INFO, SITE_URL, isLanguage } from "@/lib/site";
@@ -17,6 +17,14 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-plex-arabic",
+  display: "swap",
+});
+
+// Headings: the face of the wordmark «حافظ» / HAFIZ.
+const almarai = Almarai({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700", "800"],
+  variable: "--font-almarai",
   display: "swap",
 });
 
@@ -71,8 +79,12 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   if (!isLanguage(lang)) notFound();
 
   return (
-    <html lang={lang} dir={LANGUAGE_INFO[lang].dir} className={`${plex.variable} ${plexArabic.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang={lang} dir={LANGUAGE_INFO[lang].dir} className={`${plex.variable} ${plexArabic.variable} ${almarai.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Sections rise in as they scroll into view, only when scripts run (content stays visible without them). */}
+        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }} />
+      </head>
+      <body>
         <Providers language={lang}>{children}</Providers>
         <Analytics />
       </body>

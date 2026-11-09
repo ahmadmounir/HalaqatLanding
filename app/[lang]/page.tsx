@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Header } from "@/components/header";
-import { HeroSection } from "@/components/hero-section";
-import { RolesSection } from "@/components/roles-section";
-import { FeaturesSection } from "@/components/features-section";
-import { RemindersSection } from "@/components/reminders-section";
-import { StudentsSection } from "@/components/students-section";
-import { PricingSection } from "@/components/pricing-section";
-import { FaqSection } from "@/components/faq-section";
-import { ContactSection } from "@/components/contact-section";
-import { Footer } from "@/components/footer";
+import { SiteHeader } from "@/components/lp/site-header";
+import { Hero } from "@/components/lp/hero";
+import { Messages } from "@/components/lp/messages";
+import { Admin } from "@/components/lp/admin";
+import { Apps } from "@/components/lp/apps";
+import { Pricing } from "@/components/lp/pricing";
+import { Faq } from "@/components/lp/faq";
+import { Finale } from "@/components/lp/finale";
+import { SiteFooter } from "@/components/lp/site-footer";
+import { Rise } from "@/components/lp/rise";
 import { homeStructuredData, jsonLd, pageMetadata } from "@/lib/seo";
 import { isLanguage } from "@/lib/site";
 
@@ -26,18 +26,18 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(homeStructuredData(lang)) }} />
-      <Header />
-      <main>
-        <HeroSection />
-        <RolesSection />
-        <FeaturesSection />
-        <RemindersSection />
-        <StudentsSection />
-        <PricingSection />
-        <FaqSection />
-        <ContactSection />
+      <SiteHeader />
+      <main id="top">
+        <Hero />
+        <Messages />
+        <Admin />
+        <Apps />
+        <Pricing />
+        <Faq />
+        <Finale />
       </main>
-      <Footer />
+      <SiteFooter />
+      <Rise />
     </>
   );
 }

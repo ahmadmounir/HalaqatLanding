@@ -1,347 +1,6 @@
 {
     "nav": {
-        "brand": "Hafız",
-        "roles": "Kimler için",
-        "features": "Özellikler",
-        "students": "Öğrenciler için",
-        "pricing": "Fiyatlar",
-        "faq": "Sorular",
-        "login": "Giriş yap",
-        "cta": "Ücretsiz başla",
-        "menu": "Menü",
-        "language": "Dil"
-    },
-    "hero": {
-        "eyebrow": "Kur'an kursları ve halkalar için",
-        "title": "Her tilavet, her öğrenci",
-        "titleAccent": "tek bir yerde.",
-        "subtitle": "Hafız, öğretmenlerinizin hıfz ve tekrarı kaydetmesine yardım eder, her halkanın durumunu gösterir ve hatırlatmaları otomatik gönderir.",
-        "ctaPrimary": "Ücretsiz başla",
-        "ctaSecondary": "Nasıl çalıştığını gör",
-        "note": "20 öğrenciye kadar ücretsiz. Kart gerekmez."
-    },
-    "stats": {
-        "organizations": "kurum Hafız kullanıyor",
-        "students": "öğrenci takip ediliyor",
-        "languages": "herkes kendi dilini seçer",
-        "languagesValue": "Çok dilli"
-    },
-    "roles": {
-        "label": "Kimler için",
-        "title": "Tek uygulama. Herkes için sade bir ekran.",
-        "subtitle": "Yönetici, öğretmen ve öğrenci yalnızca kendine gereken şeyi görür.",
-        "admin": {
-            "tab": "Yönetici",
-            "title": "Bütün kursu görün",
-            "points": [
-                "Öğrenciler, öğretmenler ve halkalar tek panelde",
-                "Her sezon için istatistikler, Excel'e aktarmaya hazır",
-                "Roller ve işlem kaydı: kimin neyi değiştirdiğini bilirsiniz"
-            ]
-        },
-        "teacher": {
-            "tab": "Öğretmen",
-            "title": "Mushaf sayfasında değerlendirin",
-            "points": [
-                "Sayfayı açın, kelimeye dokunup uyarı ya da hata işaretleyin",
-                "Puan sizin için hesaplanır",
-                "Öğrencilerinizle ilgili otomatik bildirimler alın"
-            ]
-        },
-        "student": {
-            "tab": "Öğrenci",
-            "title": "Neye hazırlanacağını bil",
-            "points": [
-                "Sonraki dersini ve okuyacağın yeri gör",
-                "Sayfalarını, doğruluğunu ve devamını takip et",
-                "Otomatik hatırlatmalar al"
-            ]
-        }
-    },
-    "features": {
-        "label": "Özellikler",
-        "title": "Bir Kur'an kursunun ihtiyacı olan her şey",
-        "subtitle": "Birlikte çalışan sade araçlar. Kurulum gerekmez.",
-        "groups": {
-            "teaching": "Eğitim",
-            "progress": "İlerleme",
-            "organization": "Kurumunuz"
-        },
-        "items": {
-            "recitation": {
-                "title": "Tilavet kaydı",
-                "description": "Her ders için hıfz ve tekrar; uyarılar, hatalar ve puanla birlikte."
-            },
-            "mushaf": {
-                "title": "Mushaf üzerinde değerlendirme",
-                "description": "Öğretmen hataları sayfanın üzerinde işaretler. Öğrenci nerede hata yaptığını görür."
-            },
-            "exams": {
-                "title": "Tekrar sınavları",
-                "description": "Bir öğrenci için birkaç dokunuşla tekrar sınavı oluşturun."
-            },
-            "statistics": {
-                "title": "İstatistikler",
-                "description": "Öğrenci, halka ve öğretmene göre ilerleme. Dört sezona kadar yan yana karşılaştırın."
-            },
-            "seasons": {
-                "title": "Olduğu gibi kalan sezonlar",
-                "description": "Sezon bitince sonuçları kaydedilir. Sonraki değişiklikler eski rakamları bozmaz."
-            },
-            "leaderboards": {
-                "title": "Sıralamalar",
-                "description": "Öğrencileri ve halkaları sıralayın, sonucu görsel olarak paylaşın."
-            },
-            "roles": {
-                "title": "Roller ve işlem kaydı",
-                "description": "Kurum sahibi, yönetici, öğretmen ve öğrencinin yetkileri ayrıdır. Değişiklikler kaydedilir."
-            },
-            "security": {
-                "title": "Yüksek güvenlik",
-                "description": "Verileriniz korunur ve diğer kurumlardan ayrı tutulur."
-            },
-            "languages": {
-                "title": "Çoklu dil desteği",
-                "description": "Herkes Hafız'ı kendi dilinde kullanır; açık ya da koyu temada, telefonda ve bilgisayarda."
-            }
-        }
-    },
-    "reminders": {
-        "label": "Bildirimler",
-        "title": "Otomatik bildirimler",
-        "subtitle": "Hafız, öğrencilere ve öğretmenlere hatırlatmaları kendiliğinden gönderir. Kimsenin bir düğmeye basması gerekmez.",
-        "points": {
-            "student": {
-                "title": "Öğrenciler için",
-                "description": "Öğrencilere tilavet dersleriyle ilgili hatırlatmalar gider."
-            },
-            "teacher": {
-                "title": "Öğretmenler için",
-                "description": "Öğretmenlere ilgilenmeleri gereken konular bildirilir."
-            },
-            "wording": {
-                "title": "Kendi cümlelerinizle",
-                "description": "Her mesajın metnini kurumunuza göre düzenleyin, istemediğinizi kapatın."
-            },
-            "log": {
-                "title": "Hiçbir şey kaybolmaz",
-                "description": "Mesaj kaydı neyin, kime ve hangi yolla gittiğini gösterir."
-            }
-        },
-        "channelsTitle": "Herkese ulaşır",
-        "channelsText": "Mesaj almak için kimsenin Telegram'a ihtiyacı yok.",
-        "channels": {
-            "app": "Uygulama içinde",
-            "browser": "Tarayıcı bildirimi",
-            "telegram": "Telegram"
-        }
-    },
-    "students": {
-        "label": "Öğrenci istatistikleri",
-        "title": "Her öğrenci kendi ilerlemesini görür",
-        "subtitle": "Kişisel istatistik sayfası öğrenciye neyi ezberlediğini, nerede zayıf olduğunu ve hedefine ne kadar kaldığını gösterir.",
-        "items": {
-            "map": {
-                "title": "Kur'an haritası",
-                "description": "Kur'an'ın hangi bölümlerini ezberlediğini gör."
-            },
-            "weak": {
-                "title": "Zayıf yerler",
-                "description": "En çok tekrar isteyen sureler."
-            },
-            "goals": {
-                "title": "Hedefler",
-                "description": "Bir hedef koy, yolunda mısın gör."
-            },
-            "recap": {
-                "title": "Sezon özeti",
-                "description": "Kaydedip paylaşabileceğin bir sezon özeti."
-            },
-            "seasons": {
-                "title": "Sezon sezon",
-                "description": "Sonuçlarını sezonlar arasında karşılaştır."
-            },
-            "look": {
-                "title": "Kendi görünümün",
-                "description": "İki ana sayfa tasarımı ve dört renk seçeneği."
-            }
-        }
-    },
-    "pricing": {
-        "label": "Fiyatlar",
-        "title": "Kursunuzla birlikte büyüyen paketler",
-        "subtitle": "Her pakette bütün özellikler var.",
-        "period": {
-            "annual": "Yıllık",
-            "semester": "6 aylık",
-            "ariaLabel": "Ödeme dönemi"
-        },
-        "periodNames": {
-            "annual": "bir yıl",
-            "semester": "6 ay"
-        },
-        "currencySymbol": "$",
-        "recommended": "Önerilen",
-        "freeLabel": "Ücretsiz",
-        "freeNote": "Ödeme gerekmez",
-        "customLabel": "Size özel",
-        "customNote": "Fiyat, kurumunuzun ihtiyacına göre birlikte belirlenir",
-        "contactSales": "Bize ulaşın",
-        "enterpriseWhatsappMessage": "Merhaba, kurumumuz için Kurumsal paket hakkında bilgi almak istiyorum.",
-        "perMonth": "ayda yaklaşık {amount}",
-        "perYear": "yıllık",
-        "perSemester": "6 aylık",
-        "support": {
-            "title": "Öncelikli destek ekle",
-            "description": "6 saat içinde yanıt ve doğrudan WhatsApp hattı."
-        },
-        "noAddOns": "Yok",
-        "startNow": "Hemen başla",
-        "startFree": "Ücretsiz başla",
-        "plans": {
-            "starter": {
-                "name": "Başlangıç",
-                "students": "20 öğrenciye kadar",
-                "description": "Yeni başlayan tek bir halka için."
-            },
-            "basic": {
-                "name": "Temel",
-                "students": "21–50 öğrenci",
-                "description": "Birkaç halkası olan küçük bir kurs için."
-            },
-            "pro": {
-                "name": "Profesyonel",
-                "students": "51–150 öğrenci",
-                "description": "Çok öğretmenli, hareketli bir kurs için."
-            },
-            "enterprise": {
-                "name": "Kurumsal",
-                "students": "150'den fazla öğrenci",
-                "description": "Dernekler, şirketler ve büyük kurumlar için."
-            }
-        },
-        "includedTitle": "Her pakette var",
-        "included": [
-            "Tilavet kaydı ve Mushaf üzerinde değerlendirme",
-            "İstatistikler, sıralamalar ve Excel'e aktarma",
-            "Otomatik hatırlatmalar",
-            "Uygulama, tarayıcı ve Telegram bildirimleri",
-            "Öğrenci istatistikleri, hedefler ve Kur'an haritası",
-            "Roller ve işlem kaydı",
-            "Çoklu dil desteği",
-            "Kurumunuza özel alan"
-        ],
-        "larger": "Hangi paketin uygun olduğundan emin değil misiniz?",
-        "largerCta": "Bize yazın",
-        "addOnItems": {
-            "priority": "Öncelikli destek (6 saat içinde yanıt + WhatsApp)"
-        },
-        "whatsappTemplate": "Merhaba, {period} için {planName} paketine abone olmak istiyorum. Ek hizmetler: {addOns}. Toplam: {total}"
-    },
-    "faq": {
-        "label": "Sorular",
-        "title": "Sık sorulan sorular",
-        "items": [
-            {
-                "question": "Nasıl başlarız?",
-                "answer": "Ücretsiz paketle: hesabınızı oluşturun, e-postanızı doğrulayın ve kurumunuzun bilgilerini gönderin; başvuruyu inceledikten sonra kurumunuzun alanını açarız. Diğer paketler için bize WhatsApp'tan yazın. Her iki durumda da halkaları, öğretmenleri ve öğrencileri eklemenize yardım ederiz."
-            },
-            {
-                "question": "Öğrencilerin Telegram'a ihtiyacı var mı?",
-                "answer": "Hayır. Her mesaj uygulamanın içinde görünür; öğrenci tarayıcı bildirimlerini de açabilir. Telegram, kullananlar için ek bir seçenektir."
-            },
-            {
-                "question": "Verilerimiz diğer kurslardan ayrı mı?",
-                "answer": "Evet. Her kurumun kendine özel bir alanı vardır. Başka kurumlar öğrencilerinizi, öğretmenlerinizi ya da sonuçlarınızı göremez."
-            },
-            {
-                "question": "Sezon bitince ne olur?",
-                "answer": "Hafız sezonun sonuçlarını olduğu gibi kaydeder. Sonradan bir öğrenci ayrılsa ya da bir halka değişse bile eski sezon aynı rakamları gösterir."
-            },
-            {
-                "question": "Hafız hangi dilleri destekliyor?",
-                "answer": "Hafız birden çok dili destekler; Arapça, İngilizce ve Türkçe bunların arasındadır. Herkes kendi dilini seçer."
-            }
-        ]
-    },
-    "contact": {
-        "label": "İletişim",
-        "title": "Bize yazın",
-        "subtitle": "Kursunuzu anlatın. Sorularınızı yanıtlar, alanınızı sizinle birlikte kurarız.",
-        "name": "Adınız",
-        "email": "E-posta adresiniz",
-        "message": "Mesajınız",
-        "messagePlaceholder": "Kaç öğrenciniz ve kaç halkanız var?",
-        "sendWhatsapp": "WhatsApp ile gönder",
-        "emailLabel": "Ya da şuraya yazın:",
-        "whatsapp": {
-            "template": "Merhaba, benim adım {name}. E-posta adresim {email}. Mesaj: {message}"
-        }
-    },
-    "footer": {
-        "description": "Kur'an kursu yönetimi, sade haliyle.",
-        "rights": "Tüm hakları saklıdır.",
-        "product": "Ürün",
-        "company": "İletişim",
-        "legal": "Yasal",
-        "contactLink": "Bize yazın",
-        "privacy": "Gizlilik Politikası",
-        "terms": "Hizmet Şartları",
-        "follow": "Hafız'ı takip edin"
-    },
-    "mock": {
-        "school": "Nur Kur'an Kursu",
-        "dashboard": "Panel",
-        "students": "Öğrenciler",
-        "teachers": "Öğretmenler",
-        "halaqat": "Halkalar",
-        "statistics": "İstatistikler",
-        "messages": "Mesajlar",
-        "attendance": "Devam",
-        "halaqaProgress": "Bu sezon halkalar",
-        "halaqaNames": [
-            "Ebu Bekir",
-            "Ömer",
-            "Fatih",
-            "Osman"
-        ],
-        "seasonCompare": "Sezon karşılaştırması",
-        "seasonNames": [
-            "Güz 2025",
-            "Bahar 2026"
-        ],
-        "pages": "Sayfa",
-        "accuracy": "Doğruluk",
-        "saved": "Kaydedildi",
-        "export": "Dışa aktar",
-        "studentName": "Yusuf",
-        "memorization": "Hıfz",
-        "revision": "Tekrar",
-        "page": "Sayfa {n}",
-        "score": "Puan",
-        "reminder": "Uyarı",
-        "minor": "Küçük hata",
-        "mistake": "Hata",
-        "submit": "Gönder",
-        "nextSession": "Sonraki ders",
-        "tomorrow": "Yarın",
-        "pagesCount": "{n} sayfa",
-        "surahA": "Nisâ 1–6",
-        "surahB": "Enfâl",
-        "greeting": "Selamün aleyküm Yusuf",
-        "memorized": "Ezberlenen",
-        "today": "Bugün",
-        "msgStudent": "Yusuf, dersin yarın. Hıfz: Nisâ 1–6. Tekrar: Enfâl.",
-        "msgTeacher": "Ebu Bekir halkasında 3 öğrencinin yarın için planı yok.",
-        "delivered": "İletildi",
-        "toStudent": "Öğrenciye",
-        "toTeacher": "Öğretmene",
-        "quranMap": "Kur'an haritası",
-        "juz": "Cüz",
-        "goal": "Hedef",
-        "goalText": "Bu sezon 5. cüzü bitir",
-        "onTrack": "Yolunda",
-        "themeColor": "Tema rengi"
+        "brand": "Hafız"
     },
     "seo": {
         "siteName": "Hafız",
@@ -361,5 +20,242 @@
             "Hafız"
         ],
         "appCategory": "Kur'an kursu yönetimi"
+    },
+    "lp": {
+        "nav": {
+            "home": "Hafız — ana sayfa",
+            "sections": "Sayfa bölümleri",
+            "grade": "Değerlendirme",
+            "messages": "Mesajlar",
+            "admin": "Yönetim",
+            "apps": "Öğrenci ve veliler",
+            "pricing": "Fiyatlar",
+            "login": "Giriş yap",
+            "start": "Ücretsiz başla",
+            "language": "Dil"
+        },
+        "hero": {
+            "title1": "Her tilavet,",
+            "title2": "Mushaf sayfasında.",
+            "lead": "Öğretmen kelimeye dokunarak değerlendirir, yönetim her halkayı takip eder, veli çocuğunun ilerlemesini görür.",
+            "cta": "Ücretsiz başla",
+            "try": "Değerlendirmeyi dene",
+            "note": "20 öğrenciye kadar ücretsiz.",
+            "tap": "Bir kelimeye dokunun ve değerlendirin.",
+            "panelTap": "Sayfadaki bir kelimeye dokunun ve değerlendirin; tıpkı öğretmen gibi.",
+            "student": "Yusuf Ahmed",
+            "assignment": "Hıfz · Nebe 1–30",
+            "outOf": "100 üzerinden",
+            "pass": "Geçme notu 80",
+            "none": "Kesinti yok",
+            "deducted": "−{n} puan",
+            "reset": "Baştan başla",
+            "score": "Puan {n}",
+            "surah": "Nebe Suresi",
+            "page": "Sayfa 582",
+            "pageAria": "Mushaf sayfa 582, Nebe Suresi",
+            "marks": {
+                "r": "Hatırlatma",
+                "m": "Küçük hata",
+                "x": "Hata",
+                "clear": "Kaldır"
+            },
+            "ayah": "Ayet {n}",
+            "menuAria": "Kelimeyi değerlendir"
+        },
+        "messages": {
+            "title": "Kendiliğinden giden mesajlar",
+            "intro": "Seçenekleri değiştirin, mesajı izleyin.",
+            "who": "Kime gider?",
+            "student": "Öğrenci",
+            "parent": "Veli",
+            "boy": "Yusuf",
+            "girl": "Meryem",
+            "aboutBoy": "Yusuf hakkında",
+            "aboutGirl": "Meryem hakkında",
+            "kind": "Hangi mesaj?",
+            "reminder": "Tilavet hatırlatması",
+            "result": "Tilavet sonucu",
+            "missed": "Bugün gelmedi",
+            "lang": "Okuyanın dilinde.",
+            "channels": "Uygulamada ve ötesinde.",
+            "inApp": "Uygulama içinde",
+            "always": "Her zaman",
+            "telegram": "Telegram",
+            "browser": "Tarayıcı bildirimleri",
+            "browserChip": "Tarayıcı"
+        },
+        "admin": {
+            "title": "Yönetim her halkayı görür",
+            "lead": "Öğrenciler, öğretmenler, halkalar ve istatistikler tek panelde.",
+            "alt1": "Hafız’da bir kursun ana sayfası: öğrenci, öğretmen ve halka sayıları, halka ve öğrenci sıralamaları",
+            "alt2": "Hafız’da öğrenci ekleme penceresi",
+            "season": "Sezonlar sonuçlarını korur",
+            "seasonNote": "Geçmiş sezon rakamlarını korur.",
+            "facts": [
+                "Halka ve öğrenci sıralamaları",
+                "Excel'e aktarma",
+                "Her kurum için özel alan"
+            ]
+        },
+        "apps": {
+            "title": "Her öğrencinin ve velinin elinde",
+            "lead": "Tarayıcıdan yüklenen bir telefon uygulaması.",
+            "prev": "Önceki ekran",
+            "next": "Sonraki ekran",
+            "rowAria": "Öğrenci ve veli uygulamasından ekranlar",
+            "screens": [
+                {
+                    "name": "Ana sayfa",
+                    "text": "İlerleme, sayfalar ve sıradaki tilavet.",
+                    "alt": "Öğrenci uygulamasının ana ekranı"
+                },
+                {
+                    "name": "Mushaf'taki hatalar",
+                    "text": "Öğretmenin işaretlediği her kelime, yerinde.",
+                    "alt": "Öğretmenin değerlendirmesiyle renklenmiş kelimeler olan bir Mushaf sayfası"
+                },
+                {
+                    "name": "Hedefler",
+                    "text": "Net bir hedef ve ne kadar kaldığı.",
+                    "alt": "Hedefler ekranı"
+                },
+                {
+                    "name": "Sezon belgesi",
+                    "text": "Sezon sonunda öğrencinin adına bir gelişim belgesi.",
+                    "alt": "Sezon gelişim belgesi"
+                },
+                {
+                    "name": "Veliler",
+                    "text": "Çocuğunun tilavetleri ve sonuçları, danışmana mesaj.",
+                    "alt": "Veli ekranı: çocuğunun istatistikleri"
+                },
+                {
+                    "name": "Okumadan önce dinle",
+                    "text": "Sekiz kâri; indirdikten sonra internetsiz.",
+                    "alt": "Kâri seçimi"
+                },
+                {
+                    "name": "Bir ayet paylaş",
+                    "text": "Uzun basarak her ayetin güzel bir görseli.",
+                    "alt": "Paylaşıma hazır bir ayet görseli"
+                }
+            ]
+        },
+        "pricing": {
+            "title": "Kursunuzla büyüyen paketler",
+            "sub": "Her pakette tüm özellikler var; fark yalnızca öğrenci sayısında.",
+            "plansAria": "Paketler",
+            "periodAria": "Abonelik süresi",
+            "year": "Yıllık",
+            "half": "6 ay",
+            "perYear": "yıllık",
+            "perHalf": "6 aylık",
+            "free": "Ücretsiz",
+            "custom": "Size özel",
+            "recommended": "Önerilen",
+            "plans": {
+                "starter": {
+                    "name": "Başlangıç",
+                    "students": "20 öğrenciye kadar"
+                },
+                "basic": {
+                    "name": "Temel",
+                    "students": "21–50 öğrenci"
+                },
+                "pro": {
+                    "name": "Profesyonel",
+                    "students": "51–150 öğrenci"
+                },
+                "enterprise": {
+                    "name": "Kurumsal",
+                    "students": "150'den fazla öğrenci"
+                }
+            },
+            "subscribe": "WhatsApp ile abone ol",
+            "contact": "Bize ulaşın",
+            "startFree": "Ücretsiz başla",
+            "afterWa": "WhatsApp hazır bir mesajla açılır.",
+            "afterFree": "Hesap oluşturun; ardından kurumunuzun başvurusunu inceleriz.",
+            "periodNames": {
+                "annual": "bir yıl",
+                "semester": "6 ay"
+            },
+            "waSubscribe": "Merhaba, {plan} paketine {period} süreyle abone olmak istiyorum. Toplam: {total}",
+            "waEnterprise": "Merhaba, kurumumuz için Kurumsal paket hakkında bilgi almak istiyorum.",
+            "includedAria": "Her paket içerir",
+            "included": [
+                "Mushaf üzerinde değerlendirme",
+                "İstatistikler ve dışa aktarma",
+                "Otomatik hatırlatmalar",
+                "Öğrenci ve veli uygulaması",
+                "Çoklu dil",
+                "Kurumunuza özel alan"
+            ]
+        },
+        "faq": {
+            "title": "Sık sorulan sorular",
+            "more": "Cevabınızı bulamadınız mı?",
+            "ask": "WhatsApp'tan sorun",
+            "items": [
+                {
+                    "question": "Nasıl başlarız?",
+                    "answer": "Hesap oluşturup kurumunuzun bilgilerini gönderin; başvuruyu inceledikten sonra alanını açar, halka ve öğrencileri eklemenize yardım ederiz."
+                },
+                {
+                    "question": "Öğrencilerin Telegram'a ihtiyacı var mı?",
+                    "answer": "Hayır. Her mesaj uygulamanın içinde görünür; Telegram ek bir seçenektir."
+                },
+                {
+                    "question": "Veliler çocuklarını takip edebilir mi?",
+                    "answer": "Evet. Hesaplarından çocuklarının tilavetlerini ve sonuçlarını görür, her tilavetin sonucunu alırlar."
+                },
+                {
+                    "question": "Mushaf internetsiz çalışır mı?",
+                    "answer": "Evet, fihristten indirildikten sonra."
+                },
+                {
+                    "question": "Verilerimiz başkalarından ayrı mı?",
+                    "answer": "Evet. Her kurumun kendine ait, başkalarının göremediği bir alanı vardır."
+                },
+                {
+                    "question": "Hafız hangi dilleri destekliyor?",
+                    "answer": "Arapça, İngilizce ve Türkçe dahil birkaç dil; herkes kendi dilini seçer."
+                }
+            ]
+        },
+        "finale": {
+            "title1": "Halkanızı",
+            "title2": "bugün başlatın.",
+            "text": "20 öğrenciye kadar ücretsiz; başlarken size yardım ederiz.",
+            "dialogTitle": "Kurumunuzu kaydedin",
+            "org": "Kurum adı",
+            "orgExample": "Nur Camii halkaları",
+            "size": "Öğrenci sayısı",
+            "small": "20'ye kadar",
+            "large": "20'den fazla",
+            "start": "Ücretsiz başla",
+            "whatsapp": "WhatsApp'tan yazın",
+            "waMessage": "Merhaba, {name} kurumunu Hafız'a kaydetmek istiyorum. 20'den fazla öğrencimiz var.",
+            "fallbackName": "kurumumuzu",
+            "haveAccount": "Hesabınız var mı?",
+            "login": "Giriş yap"
+        },
+        "footer": {
+            "about": "Kur'an hafızlık halkaları için bir platform: tilavetler, takip ve mesajlar tek yerde.",
+            "product": "Platform",
+            "start": "Başlayın",
+            "legal": "Yasal",
+            "language": "Dil",
+            "signup": "Hesap oluştur",
+            "login": "Giriş yap",
+            "faq": "Sorular",
+            "privacy": "Gizlilik Politikası",
+            "terms": "Hizmet Şartları",
+            "rights": "Tüm hakları saklıdır.",
+            "whatsapp": "WhatsApp",
+            "email": "E-posta",
+            "instagram": "Instagram"
+        }
     }
 }

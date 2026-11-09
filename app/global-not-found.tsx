@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { LogoTile } from "@/components/brand/logo";
 import { LANGUAGES, LANGUAGE_INFO, localePath } from "@/lib/site";
 import "./globals.css";
 
@@ -22,20 +21,20 @@ const MESSAGES = [
 export default function GlobalNotFound() {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
-        <main className="flex min-h-dvh flex-col items-center justify-center gap-8 px-4 text-center">
-          <LogoTile className="h-16 w-16" />
-          <p className="text-5xl font-semibold tracking-tight text-ink">404</p>
-          <div className="space-y-2">
+      <body>
+        <main className="nf">
+          <img src="/icon.svg" alt="" width={72} height={72} />
+          <strong>404</strong>
+          <div>
             {MESSAGES.map((message) => (
-              <p key={message.lang} lang={message.lang} dir={LANGUAGE_INFO[message.lang].dir} className="text-muted-foreground">
+              <p key={message.lang} lang={message.lang} dir={LANGUAGE_INFO[message.lang].dir}>
                 {message.text}
               </p>
             ))}
           </div>
-          <nav className="flex flex-wrap justify-center gap-3">
+          <nav>
             {LANGUAGES.map((language) => (
-              <a key={language} href={localePath(language)} lang={language} className="btn btn-sm btn-secondary">
+              <a key={language} href={localePath(language)} lang={language}>
                 {LANGUAGE_INFO[language].label}
               </a>
             ))}

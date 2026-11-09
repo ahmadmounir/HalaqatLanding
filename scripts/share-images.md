@@ -1,5 +1,9 @@
 # Share pictures (`public/og/hafiz-{ar,en,tr}.jpg`)
 
+> **Out of date since the 2026-11-09 redesign:** the pictures and `share-card.js` were made from the previous hero
+> (the dashboard mock). The hero is now the mushaf page on the green stage (`components/lp/hero.tsx`); point
+> `share-card.js` at `.stage` before making new pictures, and give them new file names (WhatsApp caches).
+
 The picture WhatsApp, Telegram, X, LinkedIn and Facebook show under a link to the site (`og:image`, 1200 × 630).
 It is the hero itself — the logo, the eyebrow, the headline, the dashboard and the message card — laid out on one
 card in each language, so it changes whenever the hero changes. Make them again after such a change:
