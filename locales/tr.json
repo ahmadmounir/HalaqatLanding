@@ -342,5 +342,24 @@
         "goalText": "Bu sezon 5. cüzü bitir",
         "onTrack": "Yolunda",
         "themeColor": "Tema rengi"
+    },
+    "seo": {
+        "siteName": "Hafız",
+        "title": "Hafız — Kur'an kursu ve halka yönetim platformu",
+        "description": "Her tilaveti kaydedin, Mushaf sayfasında değerlendirin, her öğrencinin hıfz ve tekrarını takip edin, hatırlatmaları otomatik gönderin. 20 öğrenciye kadar ücretsiz.",
+        "shareTitle": "Hafız — her tilavet, her öğrenci tek bir yerde",
+        "shareDescription": "Kur'an kursu ve halka yönetimi: tilavetler, Mushaf üzerinde değerlendirme, istatistikler ve otomatik hatırlatmalar. 20 öğrenciye kadar ücretsiz.",
+        "imageAlt": "Hafız: bir Kur'an kursunun paneli ve öğrenciye giden bir hatırlatma",
+        "keywords": [
+            "Kur'an kursu yönetimi",
+            "hafızlık takip",
+            "hıfz takip uygulaması",
+            "Kur'an ezber takibi",
+            "halka yönetimi",
+            "Kur'an hocası uygulaması",
+            "hafızlık programı",
+            "Hafız"
+        ],
+        "appCategory": "Kur'an kursu yönetimi"
     }
 }

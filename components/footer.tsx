@@ -4,34 +4,35 @@ import Link from "next/link";
 import { Instagram, Mail } from "lucide-react";
 import { CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/contact";
 import { useLanguage } from "@/lib/i18n";
+import { LANGUAGES, LANGUAGE_INFO, localePath } from "@/lib/site";
 import { Logo } from "@/components/brand/logo";
 import { APP_URL } from "@/components/header";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, href, language: current, setLanguage } = useLanguage();
 
   const columns = [
     {
       title: t.footer.product,
       links: [
-        { label: t.nav.features, href: "/#features" },
-        { label: t.nav.students, href: "/#students" },
-        { label: t.nav.pricing, href: "/#pricing" },
-        { label: t.nav.faq, href: "/#faq" },
+        { label: t.nav.features, href: `${href()}#features` },
+        { label: t.nav.students, href: `${href()}#students` },
+        { label: t.nav.pricing, href: `${href()}#pricing` },
+        { label: t.nav.faq, href: `${href()}#faq` },
       ],
     },
     {
       title: t.footer.company,
       links: [
-        { label: t.footer.contactLink, href: "/#contact" },
+        { label: t.footer.contactLink, href: `${href()}#contact` },
         { label: t.nav.login, href: APP_URL },
       ],
     },
     {
       title: t.footer.legal,
       links: [
-        { label: t.footer.privacy, href: "/privacy" },
-        { label: t.footer.terms, href: "/terms" },
+        { label: t.footer.privacy, href: href("/privacy") },
+        { label: t.footer.terms, href: href("/terms") },
       ],
     },
   ];
@@ -56,7 +57,7 @@ export function Footer() {
       <div className="container-page py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" aria-label={t.nav.brand}>
+            <Link href={href()} aria-label={t.nav.brand}>
               <Logo name={t.nav.brand} tone="light" />
             </Link>
             <p className="mt-4 max-w-xs text-[0.9375rem] leading-relaxed text-white/65">
@@ -84,9 +85,34 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col-reverse items-start gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} {t.nav.brand}. {t.footer.rights}
-          </p>
+          <div className="flex flex-col gap-3">
+            {/* Plain links to every language: people switch here, crawlers find each language's page. */}
+            <nav aria-label={t.nav.language} className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+              {LANGUAGES.map((language) => (
+                <a
+                  key={language}
+                  href={localePath(language)}
+                  lang={language}
+                  hrefLang={language}
+                  aria-current={language === current ? "page" : undefined}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setLanguage(language);
+                  }}
+                  className={
+                    language === current
+                      ? "text-gold"
+                      : "link-underline pb-0.5 text-white/65 transition-colors hover:text-white"
+                  }
+                >
+                  {LANGUAGE_INFO[language].label}
+                </a>
+              ))}
+            </nav>
+            <p className="text-sm text-white/50">
+              © {new Date().getFullYear()} {t.nav.brand}. {t.footer.rights}
+            </p>
+          </div>
           <div className="flex items-center gap-3">
             {socialLinks.map((link) => (
               <a

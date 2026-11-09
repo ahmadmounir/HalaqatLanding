@@ -11,7 +11,7 @@ import {
 } from "@/lib/whatsapp";
 import { EASE, Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { SectionHeading } from "@/components/section-heading";
-import { SIGNUP_URL } from "@/components/header";
+import { SIGNUP_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type BillingPeriod = "annual" | "semester";
