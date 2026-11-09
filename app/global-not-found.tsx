@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { LogoTile } from "@/components/brand/logo";
 import { LANGUAGES, LANGUAGE_INFO, localePath } from "@/lib/site";
 import "./globals.css";
 
-const plex = IBM_Plex_Sans({ subsets: ["latin", "latin-ext"], weight: ["400", "600"], variable: "--font-plex" });
-const plexArabic = IBM_Plex_Sans_Arabic({ subsets: ["arabic"], weight: ["400", "600"], variable: "--font-plex-arabic" });
+// No next/font here: on Netlify's build, Turbopack failed on a Google font loaded by this file ("next/font/google
+// queries have exactly one entry", 2026-11-09) while the same fonts in app/[lang]/layout.tsx built fine. The 404 page
+// uses the system font (the rest of the stack in globals.css).
 
 export const metadata: Metadata = {
   title: "404 — Hafiz",
@@ -21,7 +21,7 @@ const MESSAGES = [
 /** Any address the site does not have (the root layout is per language, so this one stands alone, in all three). */
 export default function GlobalNotFound() {
   return (
-    <html lang="en" className={`${plex.variable} ${plexArabic.variable}`}>
+    <html lang="en">
       <body className="font-sans antialiased">
         <main className="flex min-h-dvh flex-col items-center justify-center gap-8 px-4 text-center">
           <LogoTile className="h-16 w-16" />
