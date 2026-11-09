@@ -9,6 +9,11 @@
 @font-face { font-family: "qcf-surah"; src: url("https://hafiz-audio-worker.ahmadmallak2004.workers.dev/mushaf/qcf/misc/surah-header.woff2") format("woff2"); font-display: block; }
 
 :root {
+  /* The bundled font families (Fontsource, imported in app/[lang]/layout.tsx) */
+  --font-almarai: "Almarai";
+  --font-plex-arabic: "IBM Plex Sans Arabic";
+  --font-plex: "IBM Plex Sans";
+
   /* Brand («صوت المصحف»): deep green ink, gold spine, warm paper */
   --bg: #faf8f3;
   --surface: #ffffff;

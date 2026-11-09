@@ -1,32 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Almarai, IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers";
 import { LANGUAGES, LANGUAGE_INFO, SITE_URL, isLanguage } from "@/lib/site";
+// The fonts ship with the site (Fontsource packages) instead of next/font/google: on Netlify, Turbopack failed twice
+// while fetching Google's font files at build time ("next/font/google queries have exactly one entry", 2026-11-09),
+// never locally. Almarai = the wordmark's face (headings), IBM Plex Sans Arabic / IBM Plex Sans = text.
+import "@fontsource/almarai/400.css";
+import "@fontsource/almarai/700.css";
+import "@fontsource/almarai/800.css";
+import "@fontsource/ibm-plex-sans-arabic/400.css";
+import "@fontsource/ibm-plex-sans-arabic/500.css";
+import "@fontsource/ibm-plex-sans-arabic/600.css";
+import "@fontsource/ibm-plex-sans-arabic/700.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
 import "../globals.css";
-
-const plex = IBM_Plex_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex",
-  display: "swap",
-});
-
-const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex-arabic",
-  display: "swap",
-});
-
-// Headings: the face of the wordmark «حافظ» / HAFIZ.
-const almarai = Almarai({
-  subsets: ["arabic", "latin"],
-  weight: ["400", "700", "800"],
-  variable: "--font-almarai",
-  display: "swap",
-});
 
 // Only /ar, /en and /tr exist; any other first segment is a 404 (global-not-found).
 export const dynamicParams = false;
@@ -79,7 +70,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   if (!isLanguage(lang)) notFound();
 
   return (
-    <html lang={lang} dir={LANGUAGE_INFO[lang].dir} className={`${plex.variable} ${plexArabic.variable} ${almarai.variable}`} suppressHydrationWarning>
+    <html lang={lang} dir={LANGUAGE_INFO[lang].dir} suppressHydrationWarning>
       <head>
         {/* Sections rise in as they scroll into view, only when scripts run (content stays visible without them). */}
         <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }} />

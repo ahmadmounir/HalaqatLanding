@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { LANGUAGES, LANGUAGE_INFO, localePath } from "@/lib/site";
+// The bundled fonts (never next/font/google: it broke Netlify's build, see app/[lang]/layout.tsx).
+import "@fontsource/almarai/800.css";
+import "@fontsource/ibm-plex-sans-arabic/400.css";
+import "@fontsource/ibm-plex-sans/400.css";
 import "./globals.css";
-
-// No next/font here: on Netlify's build, Turbopack failed on a Google font loaded by this file ("next/font/google
-// queries have exactly one entry", 2026-11-09) while the same fonts in app/[lang]/layout.tsx built fine. The 404 page
-// uses the system font (the rest of the stack in globals.css).
 
 export const metadata: Metadata = {
   title: "404 — Hafiz",
