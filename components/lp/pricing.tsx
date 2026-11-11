@@ -19,76 +19,80 @@ const PRICES: Record<PlanId, { annual: number; semester: number } | "free" | "cu
   enterprise: "custom",
 };
 const ORDER: PlanId[] = ["starter", "basic", "pro", "enterprise"];
+const PERIODS: Period[] = ["annual", "semester"];
 
 const waLink = (text: string) => `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
 const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
 
-/** Plan names as one list; the card shows the chosen one's price and its button. */
+/** Four plan cards side by side; one switch moves every paid price between a year and 6 months. */
 export function Pricing() {
   const { t, language } = useLanguage();
   const p = t.lp.pricing;
-  const [plan, setPlan] = useState<PlanId>("pro");
   const [period, setPeriod] = useState<Period>("annual");
-
-  const price = PRICES[plan];
-  const paid = typeof price === "object";
-  const total = paid ? price[period] : 0;
-
-  let cta = { label: p.startFree, href: `${SIGNUP_URL}?plan=free&lang=${language}`, after: p.afterFree, external: false };
-  if (price === "custom") cta = { label: p.contact, href: waLink(p.waEnterprise), after: p.afterWa, external: true };
-  if (paid)
-    cta = {
-      label: p.subscribe,
-      href: waLink(fill(p.waSubscribe, { plan: p.plans[plan].name, period: p.periodNames[period], total: usd(total) })),
-      after: p.afterWa,
-      external: true,
-    };
 
   return (
     <section className="pricing" id="pricing" aria-labelledby="pricing-title">
-      <h2 id="pricing-title" data-rise>{p.title}</h2>
-      <p className="pricing-sub" data-rise style={{ ["--d" as string]: "80ms" }}>{p.sub}</p>
-      <div className="plans" role="tablist" aria-label={p.plansAria}>
-        {ORDER.map((id) => (
-          <button
-            key={id}
-            className="plan-name"
-            role="tab"
-            aria-selected={plan === id}
-            aria-controls="plan-stage"
-            onClick={() => setPlan(id)}
-          >
-            {p.plans[id].name}
-            {id === "pro" && <small>{p.recommended}</small>}
+      <div className="pricing-head">
+        <h2 id="pricing-title" data-rise>{p.title}</h2>
+        <p className="pricing-sub" data-rise style={{ ["--d" as string]: "80ms" }}>{p.sub}</p>
+      </div>
+
+      <div className="period" role="radiogroup" aria-label={p.periodAria} data-period={period}>
+        <span className="period-thumb" aria-hidden="true" />
+        {PERIODS.map((v) => (
+          <button key={v} type="button" role="radio" aria-checked={period === v} onClick={() => setPeriod(v)}>
+            {v === "annual" ? p.year : p.half}
+            {v === "annual" && <small>{p.saving}</small>}
           </button>
         ))}
       </div>
-      <div className="plan-stage" id="plan-stage" role="tabpanel">
-        <div className="seg" role="group" aria-label={p.periodAria} hidden={!paid}>
-          {(["annual", "semester"] as Period[]).map((v) => (
-            <button key={v} type="button" aria-pressed={period === v} onClick={() => setPeriod(v)}>
-              {v === "annual" ? p.year : p.half}
-            </button>
-          ))}
-        </div>
-        <div className="plan-body" key={`${plan}-${period}`}>
-          <div className="price">
-            {paid ? (
-              <>
-                <strong>{usd(total)}</strong>
-                <span>{period === "annual" ? p.perYear : p.perHalf}</span>
-              </>
-            ) : (
-              <strong className="word">{price === "free" ? p.free : p.custom}</strong>
-            )}
-          </div>
-          <p className="plan-students">{p.plans[plan].students}</p>
-        </div>
-        <a className="btn btn-ink" href={cta.href} {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-          {cta.label}
-        </a>
-        <p className="plan-after">{cta.after}</p>
-      </div>
+
+      <ul className="plan-cards">
+        {ORDER.map((id) => {
+          const price = PRICES[id];
+          const paid = typeof price === "object";
+          const total = paid ? price[period] : 0;
+          const plan = p.plans[id];
+          const featured = id === "pro";
+
+          let cta = { label: p.startFree, href: `${SIGNUP_URL}?plan=free&lang=${language}`, external: false };
+          if (price === "custom") cta = { label: p.contact, href: waLink(p.waEnterprise), external: true };
+          if (paid)
+            cta = {
+              label: p.subscribe,
+              href: waLink(fill(p.waSubscribe, { plan: plan.name, period: p.periodNames[period], total: usd(total) })),
+              external: true,
+            };
+
+          return (
+            <li key={id} className={featured ? "plan-card is-featured" : "plan-card"}>
+              <div className="plan-top">
+                <h3>{plan.name}</h3>
+                {featured && <span className="plan-badge">{p.recommended}</span>}
+              </div>
+              <p className="plan-students">{plan.students}</p>
+              <p className="plan-price" key={paid ? period : id}>
+                {paid ? (
+                  <>
+                    <strong className="ltr">{usd(total)}</strong>
+                    <span>{period === "annual" ? p.perYear : p.perHalf}</span>
+                  </>
+                ) : (
+                  <strong className="word">{price === "free" ? p.free : p.custom}</strong>
+                )}
+              </p>
+              <a
+                className={`btn ${featured ? "btn-gold" : paid ? "btn-ink" : "btn-line"}`}
+                href={cta.href}
+                {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {cta.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
       <ul className="included" aria-label={p.includedAria}>
         {p.included.map((item) => (
           <li key={item}>

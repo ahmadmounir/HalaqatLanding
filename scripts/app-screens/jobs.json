@@ -1,0 +1,143 @@
+[
+ {
+  "name": "staff-grading",
+  "role": "Teacher",
+  "path": "/quran?mode=evaluate&logId=log-grade&studentId=stu-yusuf",
+  "wait": 6000,
+  "steps": [
+   {
+    "tapXY": [
+     195,
+     300
+    ],
+    "after": 1200
+   },
+   {
+    "hold": "span.mushaf-word[data-location=\"67:5:5\"]",
+    "ms": 700,
+    "after": 1200
+   }
+  ]
+ },
+ {
+  "name": "staff-assign",
+  "role": "Teacher",
+  "path": "/students/stu-yusuf",
+  "wait": 2500,
+  "steps": [
+   {
+    "click": "button:has(svg.lucide-file-plus)",
+    "after": 2000
+   },
+   {
+    "click": "[role=dialog] input[placeholder=\"اختر السورة\"]",
+    "nth": 0,
+    "after": 600
+   },
+   {
+    "type": "القلم",
+    "after": 800
+   },
+   {
+    "clickText": "68. القلم",
+    "closest": "button",
+    "after": 800
+   },
+   {
+    "click": "[role=dialog] input[placeholder=\"اختر السورة\"]",
+    "nth": 1,
+    "after": 600
+   },
+   {
+    "type": "القلم",
+    "after": 800
+   },
+   {
+    "clickText": "68. القلم",
+    "closest": "button",
+    "after": 800
+   },
+   {
+    "click": "[role=dialog] input[placeholder=\"اختر السورة\"]",
+    "nth": 2,
+    "after": 600
+   },
+   {
+    "type": "التكوير",
+    "after": 800
+   },
+   {
+    "clickText": "81. التكوير",
+    "closest": "button",
+    "after": 800
+   },
+   {
+    "click": "[role=dialog] input[placeholder=\"اختر السورة\"]",
+    "nth": 3,
+    "after": 600
+   },
+   {
+    "type": "الإنفطار",
+    "after": 800
+   },
+   {
+    "clickText": "82. الإنفطار",
+    "closest": "button",
+    "after": 800
+   },
+   {
+    "eval": "document.activeElement && document.activeElement.blur()",
+    "after": 400
+   },
+   {
+    "eval": "document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0 }); window.scrollTo(0, 0)",
+    "after": 900
+   }
+  ]
+ },
+ {
+  "name": "staff-record",
+  "role": "Teacher",
+  "path": "/students/stu-yusuf",
+  "wait": 2500
+ },
+ {
+  "name": "staff-dashboard",
+  "role": "Admin",
+  "path": "/",
+  "wait": 2500
+ },
+ {
+  "name": "staff-leaderboard",
+  "role": "Admin",
+  "path": "/statistics?tab=leaderboards",
+  "wait": 3500,
+  "steps": [
+   {
+    "eval": "window.scrollTo(0, 0)"
+   },
+   {
+    "scrollTo": 1036,
+    "after": 900
+   }
+  ]
+ },
+ {
+  "name": "staff-join",
+  "role": "Admin",
+  "path": "/join-requests",
+  "wait": 2500,
+  "steps": [
+   {
+    "eval": "document.querySelector('input[aria-label=\"رابط التسجيل\"]').value = 'https://portal.alhafiz.app/join/al-noor'",
+    "after": 300
+   }
+  ]
+ },
+ {
+  "name": "staff-messages",
+  "role": "Admin",
+  "path": "/message-logs",
+  "wait": 2500
+ }
+]

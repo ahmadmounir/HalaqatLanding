@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/i18n";
 import { LANGUAGES, LANGUAGE_INFO, LOGIN_URL, SIGNUP_URL, isLanguage, localePath, type Language } from "@/lib/site";
+import { Check, Globe } from "@/components/lp/icons";
 
 const SHORT: Record<Language, string> = { ar: "ع", en: "EN", tr: "TR" };
 
@@ -31,7 +32,7 @@ export function SiteHeader() {
   const links = [
     { hash: "#grade", label: nav.grade },
     { hash: "#messages", label: nav.messages },
-    { hash: "#admin", label: nav.admin },
+    { hash: "#staff", label: nav.staff },
     { hash: "#apps", label: nav.apps },
     { hash: "#pricing", label: nav.pricing },
   ];
@@ -49,6 +50,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <div className="nav-end">
+        <LanguageMenu />
         <div className="lang" role="group" aria-label={nav.language}>
           {LANGUAGES.map((lang) => (
             <a
@@ -75,5 +77,65 @@ export function SiteHeader() {
         </a>
       </div>
     </header>
+  );
+}
+
+/** On a phone the three language links do not fit in the bar: one button opens them as a small menu. */
+function LanguageMenu() {
+  const { t, language, setLanguage } = useLanguage();
+  const page = usePagePart();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Closes on a tap outside it and on Escape
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="lang-menu" ref={ref}>
+      <button
+        type="button"
+        className="lang-btn"
+        aria-label={t.lp.nav.language}
+        aria-expanded={open}
+        aria-controls="lang-list"
+        onClick={() => setOpen((o) => !o)}
+      >
+        <Globe />
+      </button>
+      <ul id="lang-list" className="lang-list" hidden={!open}>
+        {LANGUAGES.map((lang) => (
+          <li key={lang}>
+            <a
+              href={localePath(lang, page)}
+              lang={lang}
+              hrefLang={lang}
+              aria-current={lang === language ? "page" : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                setLanguage(lang);
+              }}
+            >
+              {LANGUAGE_INFO[lang].label}
+              {lang === language && <Check />}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

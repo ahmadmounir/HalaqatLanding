@@ -26,6 +26,9 @@ export const ChevronLeft = (p: IconProps) => (
 export const Check = (p: IconProps) => (
   <svg {...base} strokeWidth={2.6} {...p}><path d="M20 6 9 17l-5-5" /></svg>
 );
+export const Globe = (p: IconProps) => (
+  <svg {...base} strokeWidth={1.8} {...p}><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" /></svg>
+);
 export const Tap = (p: IconProps) => (
   <svg {...base} {...p}><path d="M9 11V6a3 3 0 0 1 6 0v5" /><path d="M5 13a7 7 0 0 0 14 0v-2H5z" /></svg>
 );

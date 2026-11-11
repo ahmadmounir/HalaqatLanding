@@ -40,7 +40,7 @@ export function SiteFooter() {
           <ul>
             <li><a href={`${href()}#grade`}>{nav.grade}</a></li>
             <li><a href={`${href()}#messages`}>{nav.messages}</a></li>
-            <li><a href={`${href()}#admin`}>{nav.admin}</a></li>
+            <li><a href={`${href()}#staff`}>{nav.staff}</a></li>
             <li><a href={`${href()}#pricing`}>{nav.pricing}</a></li>
           </ul>
         </nav>

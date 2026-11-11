@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/lp/site-header";
 import { Hero } from "@/components/lp/hero";
 import { Messages } from "@/components/lp/messages";
+import { Staff } from "@/components/lp/staff";
 import { Admin } from "@/components/lp/admin";
 import { Apps } from "@/components/lp/apps";
 import { Pricing } from "@/components/lp/pricing";
@@ -30,6 +31,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <main id="top">
         <Hero />
         <Messages />
+        <Staff />
         <Admin />
         <Apps />
         <Pricing />

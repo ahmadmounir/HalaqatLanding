@@ -27,7 +27,7 @@
             "sections": "Sayfa bölümleri",
             "grade": "Değerlendirme",
             "messages": "Mesajlar",
-            "admin": "Yönetim",
+            "staff": "Yönetim ve öğretmenler",
             "apps": "Öğrenci ve veliler",
             "pricing": "Fiyatlar",
             "login": "Giriş yap",
@@ -84,6 +84,50 @@
             "telegram": "Telegram",
             "browser": "Tarayıcı bildirimleri",
             "browserChip": "Tarayıcı"
+        },
+        "staff": {
+            "title": "Her öğretmenin ve yöneticinin elinde",
+            "lead": "Öğretmen Mushaf üzerinde değerlendirir, yönetim telefonundan takip eder.",
+            "prev": "Önceki ekran",
+            "next": "Sonraki ekran",
+            "rowAria": "Öğretmenlerin ve yönetimin gördüğü haliyle uygulama ekranları",
+            "screens": [
+                {
+                    "name": "Mushaf üzerinde değerlendirme",
+                    "text": "Hatırlatma ya da hata kelimenin üzerinde; puan kendiliğinden hesaplanır.",
+                    "alt": "Değerlendirme modunda Mülk suresinden bir sayfa; bir kelimenin üzerinde hatırlatma ve hata menüsü açık"
+                },
+                {
+                    "name": "Tilavet planı",
+                    "text": "Her öğrenciye ezber ve tekrar, halkanın günlerinde.",
+                    "alt": "Tilavet kaydı ekleme penceresi: tarih, ezber ve tekrar"
+                },
+                {
+                    "name": "Her öğrencinin kaydı",
+                    "text": "Her tilavet tarihi ve puanıyla, tamamlama oranıyla birlikte.",
+                    "alt": "Bir öğrencinin tilavet kaydı: tamamlama oranı, devamsızlık ve puanlı tilavetler"
+                },
+                {
+                    "name": "Yönetim ana sayfası",
+                    "text": "Kurumun rakamları ve halka sıralaması telefonda.",
+                    "alt": "Yönetim ana sayfası: öğrenci, öğretmen ve halka sayıları ile halka sıralaması"
+                },
+                {
+                    "name": "Sıralamalar",
+                    "text": "Öğrenciler notlara ya da puanlara göre sıralanır, her tilavetle güncellenir.",
+                    "alt": "Notlara göre öğrenci sıralaması"
+                },
+                {
+                    "name": "Kayıt bağlantısı",
+                    "text": "Öğrenci kendisi başvurur; yönetim kabul eder ya da reddeder.",
+                    "alt": "Kurumun kayıt bağlantısı ve karar bekleyen katılım başvuruları"
+                },
+                {
+                    "name": "Otomatik mesajlar",
+                    "text": "Her otomatik mesaj kime, hangi kanaldan ulaştı.",
+                    "alt": "Mesaj kaydı: bildirimleri kimin aldığı, Telegram ve tarayıcı bildirimiyle giden mesajlar"
+                }
+            ]
         },
         "admin": {
             "title": "Yönetim her halkayı görür",
@@ -145,10 +189,10 @@
         "pricing": {
             "title": "Kursunuzla büyüyen paketler",
             "sub": "Her pakette tüm özellikler var; fark yalnızca öğrenci sayısında.",
-            "plansAria": "Paketler",
             "periodAria": "Abonelik süresi",
             "year": "Yıllık",
-            "half": "6 ay",
+            "half": "6 aylık",
+            "saving": "Avantajlı",
             "perYear": "yıllık",
             "perHalf": "6 aylık",
             "free": "Ücretsiz",
@@ -175,8 +219,6 @@
             "subscribe": "WhatsApp ile abone ol",
             "contact": "Bize ulaşın",
             "startFree": "Ücretsiz başla",
-            "afterWa": "WhatsApp hazır bir mesajla açılır.",
-            "afterFree": "Hesap oluşturun; ardından kurumunuzun başvurusunu inceleriz.",
             "periodNames": {
                 "annual": "bir yıl",
                 "semester": "6 ay"

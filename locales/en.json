@@ -28,7 +28,7 @@
             "sections": "Page sections",
             "grade": "Grading",
             "messages": "Messages",
-            "admin": "Administration",
+            "staff": "Admins & teachers",
             "apps": "Students & parents",
             "pricing": "Pricing",
             "login": "Log in",
@@ -85,6 +85,50 @@
             "telegram": "Telegram",
             "browser": "Browser notifications",
             "browserChip": "Browser"
+        },
+        "staff": {
+            "title": "In every teacher's and administrator's hand",
+            "lead": "Teachers grade on the Mushaf; the administration follows from its phone.",
+            "prev": "Previous screen",
+            "next": "Next screen",
+            "rowAria": "Screens from the app as teachers and administrators see it",
+            "screens": [
+                {
+                    "name": "Grading on the Mushaf",
+                    "text": "A reminder or a mistake on the word itself; the score adds up by itself.",
+                    "alt": "A page of Surat Al-Mulk in grading mode, with the reminder and mistake menu open on a word"
+                },
+                {
+                    "name": "The recitation plan",
+                    "text": "Memorization and review for each student, on the halaqa's days.",
+                    "alt": "The add-recitation window: date, memorization and review"
+                },
+                {
+                    "name": "Every student's record",
+                    "text": "Each recitation with its date and score, and the completion rate.",
+                    "alt": "A student's recitation record: completion rate, absences and graded recitations"
+                },
+                {
+                    "name": "The administration home",
+                    "text": "The organization's numbers and halaqa ranking, on the phone.",
+                    "alt": "The administration home: students, teachers and halaqat, with the halaqa ranking"
+                },
+                {
+                    "name": "Leaderboards",
+                    "text": "Students ranked by marks or points, updated with every recitation.",
+                    "alt": "The students leaderboard by marks"
+                },
+                {
+                    "name": "Registration link",
+                    "text": "Students sign up themselves; the administration accepts or declines.",
+                    "alt": "The organization's registration link and join requests awaiting a decision"
+                },
+                {
+                    "name": "Automatic messages",
+                    "text": "Who received each automatic message, and through which channel.",
+                    "alt": "The message log: who gets notifications, and messages sent by Telegram and browser notification"
+                }
+            ]
         },
         "admin": {
             "title": "The administration sees every halaqa",
@@ -146,10 +190,10 @@
         "pricing": {
             "title": "Plans that grow with your school",
             "sub": "Every plan has every feature; only the number of students differs.",
-            "plansAria": "Plans",
             "periodAria": "Subscription period",
-            "year": "Year",
+            "year": "Yearly",
             "half": "6 months",
+            "saving": "Best value",
             "perYear": "per year",
             "perHalf": "every 6 months",
             "free": "Free",
@@ -176,8 +220,6 @@
             "subscribe": "Subscribe on WhatsApp",
             "contact": "Contact us",
             "startFree": "Start free",
-            "afterWa": "Opens WhatsApp with the message ready.",
-            "afterFree": "Create an account; we then review your organization's request.",
             "periodNames": {
                 "annual": "one year",
                 "semester": "6 months"

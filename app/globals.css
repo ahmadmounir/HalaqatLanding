@@ -108,6 +108,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; color: var(--ink); l
 .nav { position: sticky; top: 0; z-index: 50; height: var(--nav-h); display: flex; align-items: center; gap: 28px; padding: 0 var(--margin); background: var(--bg); transition: box-shadow 220ms var(--ease); }
 .nav.is-stuck { box-shadow: 0 1px 0 rgb(13 52 41 / 0.08), 0 10px 24px -18px rgb(13 52 41 / 0.35); } /* taste-skill-ignore: the sticky bar (a real overlay) */
 section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
+.nav .logo { flex: none; }
 .nav .logo img { height: 44px; width: auto; }
 .nav-links { display: flex; gap: 26px; margin-inline-start: 8px; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; transition: color 160ms; }
@@ -116,6 +117,18 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .lang { display: flex; gap: 12px; font-size: 14px; font-weight: 600; }
 .lang a { text-decoration: none; color: var(--muted); }
 .lang a[aria-current] { color: var(--ink); }
+/* The phone's language button and its menu (the links above do not fit there) */
+.lang-menu { position: relative; display: none; }
+.lang-btn { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 999px; background: var(--sand); color: var(--ink); font-weight: 700; font-size: 13px; cursor: pointer; transition: background-color 160ms; }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { background: var(--tint); }
+.lang-btn svg { width: 19px; height: 19px; }
+.lang-list { position: absolute; top: calc(100% + 10px); inset-inline-end: 0; z-index: 60; min-width: 170px; margin: 0; padding: 6px; list-style: none; background: var(--surface); border-radius: 16px;
+  box-shadow: 0 18px 40px -12px rgb(13 52 41 / 0.45), 0 2px 6px rgb(13 52 41 / 0.12); } /* taste-skill-ignore: an open menu over the page */
+@media (prefers-reduced-motion: no-preference) { .lang-list:not([hidden]) { animation: pop 180ms var(--ease); } }
+.lang-list a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: 10px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 15px; }
+.lang-list a:hover { background: #f3efe6; }
+.lang-list a[aria-current] { background: var(--tint); }
+.lang-list svg { width: 16px; height: 16px; color: var(--gold-ink); flex: none; }
 .nav .btn { min-height: 44px; padding: 0 20px; font-size: 14px; }
 
 /* ── Hero: the mushaf page on a shaped green stage ── */
@@ -284,33 +297,42 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .arrow:active { transform: scale(0.94); }
 .arrow:disabled { opacity: 0.3; cursor: default; background: rgb(243 236 220 / 0.12); color: var(--on-ink); }
 .arrow svg { width: 22px; height: 22px; }
+/* The staff row is the same row; only its cut corner sits on the other side */
+.apps-staff { clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut)); }
 
-/* ── Pricing: plan names, one live figure ── */
-.pricing { padding: var(--section) var(--margin) 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
-.pricing h2 { grid-column: 1 / -1; font-size: var(--s-l); line-height: 1.3; }
-.pricing-sub { grid-column: 1 / -1; margin-top: 12px; color: var(--muted); }
-.plans { grid-column: 1 / span 6; margin-top: 36px; display: flex; flex-direction: column; align-items: flex-start; }
-.plan-name { border: 0; background: none; padding: 4px 0; cursor: pointer; font-family: var(--display); font-weight: 800; font-size: var(--s-xl); line-height: 1.3; color: #77837d; display: inline-flex; align-items: center; gap: 0.3em; transition: color 220ms var(--ease); text-align: start; }
-.plan-name::before { content: ""; width: 0.26em; height: 0.26em; border-radius: 50%; background: var(--gold-deep); opacity: 0; transform: scale(0.96); transition: opacity 220ms var(--ease), transform 260ms var(--ease); flex: none; }
-.plan-name:hover { color: var(--muted); }
-.plan-name[aria-selected="true"] { color: var(--ink); }
-.plan-name[aria-selected="true"]::before { opacity: 1; transform: none; }
-.plan-name small { font-family: var(--text-face); font-size: 14px; font-weight: 600; color: var(--gold-ink); background: var(--tint); border-radius: 99px; padding: 4px 12px; }
-.plan-stage { grid-column: 8 / -1; margin-top: 44px; background: var(--surface); border-radius: 22px; padding: clamp(24px, 3vw, 36px); }
-.plan-body { margin-top: 24px; transition: opacity 200ms ease; }
-.plan-body.is-swap { opacity: 0; }
-.plan-stage .seg { margin-top: 0; }
-.price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.price strong { font-family: var(--display); font-weight: 800; font-size: var(--s-xl); line-height: 1.1; color: var(--ink); direction: ltr; unicode-bidi: isolate; }
-.price strong.word { font-size: var(--s-l); line-height: 1.3; direction: rtl; }
-.price span { color: var(--muted); }
-.plan-students { margin-top: 10px; font-weight: 700; color: var(--ink); }
-.plan-stage .btn { margin-top: 24px; width: 100%; }
-.plan-after { margin-top: 10px; text-align: center; font-size: 14px; color: var(--muted); }
-.included { grid-column: 1 / -1; margin-top: 44px; display: flex; flex-wrap: wrap; gap: 10px; }
-.included li { list-style: none; display: inline-flex; align-items: center; gap: 8px; background: var(--sand); border-radius: 99px; padding: 10px 16px; font-weight: 600; color: var(--ink); font-size: 15px; }
+/* ── Pricing: four cards, one switch for the period ── */
+.pricing { padding: var(--section) var(--margin) 0; text-align: center; }
+.pricing-head { max-width: 640px; margin: 0 auto; }
+.pricing h2 { font-size: var(--s-l); line-height: 1.3; }
+.pricing-sub { margin-top: 12px; color: var(--muted); }
+.period { position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; margin-top: 28px; padding: 5px; border-radius: 999px; background: var(--sand); }
+.period-thumb { position: absolute; top: 5px; bottom: 5px; inset-inline-start: 5px; width: calc(50% - 5px); border-radius: 999px; background: var(--ink); transition: transform 360ms var(--ease); }
+.period[data-period="semester"] .period-thumb { transform: translateX(100%); }
+[dir="rtl"] .period[data-period="semester"] .period-thumb { transform: translateX(-100%); }
+.period button { position: relative; z-index: 1; min-height: 46px; min-width: 128px; padding: 0 20px; border: 0; border-radius: 999px; background: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; font-weight: 700; font-size: 15px; color: var(--ink); transition: color 240ms var(--ease); }
+.period button[aria-checked="true"] { color: var(--on-ink); }
+.period small { font-size: 12px; font-weight: 700; line-height: 1.6; color: var(--gold-ink); background: var(--tint); border-radius: 99px; padding: 1px 8px; transition: background-color 240ms, color 240ms; }
+.period button[aria-checked="true"] small { background: var(--spine); color: var(--ink); }
+.plan-cards { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--col-gap); text-align: start; }
+.plan-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid rgb(13 52 41 / 0.09); border-radius: 22px; padding: 28px 24px 24px; }
+.plan-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.plan-card h3 { font-size: var(--s-m); line-height: 1.35; font-weight: 800; }
+.plan-badge { flex: none; font-size: 12.5px; font-weight: 700; color: var(--ink); background: var(--spine); border-radius: 99px; padding: 3px 10px; }
+.plan-students { margin-top: 4px; color: var(--muted); font-size: 15px; }
+.plan-price { margin: 28px 0; min-height: 58px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; }
+.plan-price strong { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 3.4vw, 50px); line-height: 1.15; color: var(--ink); }
+.plan-price strong.word { font-size: clamp(28px, 2.3vw, 34px); line-height: 1.3; }
+.plan-price span { color: var(--muted); font-size: 15px; }
+.plan-card .btn { margin-top: auto; width: 100%; }
+.btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px rgb(13 52 41 / 0.25); }
+.btn-line:hover { background: rgb(13 52 41 / 0.04); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.plan-card.is-featured { background-color: var(--ink); background-image: var(--girih-gold); background-size: 132px 96px; border-color: transparent; color: var(--on-ink); clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%); }
+.is-featured h3 { color: var(--on-ink); }
+.is-featured .plan-students, .is-featured .plan-price span { color: var(--on-ink-muted); }
+.is-featured .plan-price strong { color: var(--spine); }
+.included { list-style: none; margin: 30px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; }
+.included li { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink); font-size: 15px; }
 .included li svg { width: 16px; height: 16px; color: var(--gold-ink); flex: none; }
-.included { padding: 0; }
 
 /* ── Questions ── */
 .faq { padding: var(--section) var(--margin) 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
@@ -384,7 +406,7 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
   .js [data-rise].is-in { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .admin-photo img, .row figure, .apps-caption { transition: none; }
+  .admin-photo img, .row figure, .apps-caption, .period-thumb { transition: none; }
 }
 
 /* ── Tablet ── */
@@ -397,7 +419,7 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
   .msg-out { grid-column: 7 / -1; }
   .admin-photo { grid-column: 1 / -1; }
   .admin-side { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; margin-top: 16px; }
-  .plans, .plan-stage { grid-column: 1 / -1; }
+  .plan-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .faq-head { grid-column: 1 / -1; position: static; margin-bottom: 28px; }
   .faq-list { grid-column: 1 / -1; }
   .finale-words, .dialog { grid-column: 1 / -1; }
@@ -410,11 +432,14 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 @media (max-width: 760px) {
   :root { --s-body: 16px; --s-xl: 9.6vw; --s-l: 7.8vw; --s-m: 20px; --cut: 44px; --nav-h: 62px; }
   body { font-size: 16px; }
-  .nav { gap: 12px; }
-  .nav .logo img { height: 32px; }
+  .nav { gap: 10px; }
+  .nav .logo img { height: 28px; }
   .lang { display: none; }
-  .nav .btn { min-height: 40px; padding: 0 16px; }
-  .nav-end { gap: 14px; }
+  .lang-menu { display: block; }
+  .nav-end .link, .nav .btn { white-space: nowrap; }
+  .nav-end .link { font-size: 14px; }
+  .nav .btn { min-height: 40px; padding: 0 14px; font-size: 13.5px; }
+  .nav-end { gap: 8px; }
   .hero { padding-top: 24px; display: block; }
   .hero-lead { position: static; }
   .hero-lead { padding-top: 16px; }
@@ -454,9 +479,19 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
   .apps-foot { gap: 12px; }
   .arrow { width: 48px; height: 48px; }
 
-  .plans { margin-top: 24px; }
-  .plan-stage { margin-top: 20px; padding: 20px; }
-  .included { margin-top: 32px; }
+  .period { display: grid; width: 100%; margin-top: 22px; }
+  .period button { min-width: 0; padding: 0 10px; }
+  .plan-cards { grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
+  .plan-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "top price" "students price" "btn btn"; column-gap: 12px; padding: 20px; }
+  .plan-top { grid-area: top; justify-content: flex-start; }
+  .plan-students { grid-area: students; }
+  .plan-price { grid-area: price; margin: 0; min-height: 0; align-self: center; flex-direction: column; align-items: flex-end; gap: 0; text-align: end; }
+  .plan-price strong { font-size: 36px; }
+  .plan-price strong.word { font-size: 24px; }
+  .plan-price span { font-size: 13px; }
+  .plan-card .btn { grid-area: btn; margin-top: 18px; min-height: 48px; }
+  .included { margin-top: 24px; gap: 8px 16px; }
+  .included li { font-size: 14px; }
 
   .faq summary { font-size: 17px; min-height: 64px; padding: 14px 20px; }
   .faq details p { padding: 0 20px 20px; font-size: 16px; }
@@ -468,11 +503,17 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
   .f-bottom { flex-direction: column; align-items: flex-start; }
 }
 
+@media (max-width: 370px) {
+  .nav .logo img { height: 26px; }
+}
+
 /* ── English and Turkish: Latin text first, the layout mirrors ── */
 :root:lang(en), :root:lang(tr) { --text-face: var(--font-plex), var(--font-plex-arabic), system-ui, sans-serif; }
 [dir="ltr"] .stage { clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut)); }
 [dir="ltr"] .apps { clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut)); }
+[dir="ltr"] .apps-staff { clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%); }
 [dir="ltr"] .season { clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px); }
+[dir="ltr"] .plan-card.is-featured { clip-path: polygon(34px 0, 100% 0, 100% 100%, 0 100%, 0 34px); }
 [dir="ltr"] .finale { clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%); }
 [dir="ltr"] .arrow svg, [dir="ltr"] .btn .flip { transform: scaleX(-1); }
 [dir="ltr"] .admin-photo img { object-position: top left; }
@@ -504,8 +545,9 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 /* The admin picture: the two real screens crossfade slowly (no script) */
 @media (prefers-reduced-motion: no-preference) {
   .admin-photo img + img { animation: xfade 11.2s ease-in-out infinite; }
-  .plan-body { animation: card-in 220ms var(--ease); }
+  .plan-price { animation: price-in 300ms var(--ease); }
 }
+@keyframes price-in { from { opacity: 0; transform: translateY(8px); } }
 @keyframes xfade { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
 
 /* English and Turkish run longer than Arabic: their two headline lines get a little less size on a phone */
