@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "@/components/lp/icons";
+import { Kicker } from "@/components/lp/kicker";
 
 /** One phone screen: the picture's file and its size in pixels (the frame crops it from the top). */
 export interface PhoneShot {
@@ -12,6 +13,7 @@ export interface PhoneShot {
 
 /** The texts of a row, from locales/*.json: one caption per shot, in the same order. */
 export interface PhoneRowTexts {
+  kicker: string;
   title: string;
   lead: string;
   prev: string;
@@ -96,7 +98,10 @@ export function PhoneRow({ id, texts, shots, className }: { id: string; texts: P
   return (
     <section className={className ? `apps ${className}` : "apps"} id={id} aria-labelledby={titleId}>
       <div className="apps-head">
-        <h2 id={titleId} data-rise>{texts.title}</h2>
+        <h2 id={titleId} data-rise>
+          <Kicker>{texts.kicker}</Kicker>
+          {texts.title}
+        </h2>
         <p data-rise style={{ ["--d" as string]: "80ms" }}>{texts.lead}</p>
       </div>
       <div
@@ -129,7 +134,7 @@ export function PhoneRow({ id, texts, shots, className }: { id: string; texts: P
       >
         {shots.map((s, i) => (
           <figure key={s.src} className={i === current ? "is-lit" : undefined}>
-            <img src={s.src} width={s.w} height={s.h} alt={screens[i]?.alt ?? ""} loading={i === 0 ? undefined : "lazy"} decoding="async" />
+            <img src={s.src} width={s.w} height={s.h} alt={screens[i]?.alt ?? ""} loading="lazy" decoding="async" />
           </figure>
         ))}
       </div>

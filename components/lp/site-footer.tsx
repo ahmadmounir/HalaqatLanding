@@ -24,7 +24,7 @@ export function SiteFooter() {
       <div className="f-top">
         <div className="f-brand">
           <a href={href()} aria-label={nav.home}>
-            <img src="/lp/logo-side-onDark.svg" alt="حافظ HAFIZ" width={176} height={56} />
+            <img src="/lp/logo-side-onDark.svg" alt="حافظ HAFIZ" width={176} height={56} loading="lazy" />
           </a>
           <p>{f.about}</p>
           <div className="f-social">
@@ -36,7 +36,7 @@ export function SiteFooter() {
           </div>
         </div>
         <nav className="f-col" aria-labelledby="f-product">
-          <h3 id="f-product">{f.product}</h3>
+          <p className="f-col-title" id="f-product">{f.product}</p>
           <ul>
             <li><a href={`${href()}#grade`}>{nav.grade}</a></li>
             <li><a href={`${href()}#messages`}>{nav.messages}</a></li>
@@ -45,7 +45,7 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav className="f-col" aria-labelledby="f-start">
-          <h3 id="f-start">{f.start}</h3>
+          <p className="f-col-title" id="f-start">{f.start}</p>
           <ul>
             <li><a href={`${SIGNUP_URL}?plan=free&lang=${language}`}>{f.signup}</a></li>
             <li><a href={LOGIN_URL}>{f.login}</a></li>
@@ -53,14 +53,14 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav className="f-col" aria-labelledby="f-legal">
-          <h3 id="f-legal">{f.legal}</h3>
+          <p className="f-col-title" id="f-legal">{f.legal}</p>
           <ul>
             <li><a href={href("/privacy")}>{f.privacy}</a></li>
             <li><a href={href("/terms")}>{f.terms}</a></li>
           </ul>
         </nav>
         <nav className="f-col" aria-labelledby="f-lang">
-          <h3 id="f-lang">{f.language}</h3>
+          <p className="f-col-title" id="f-lang">{f.language}</p>
           <ul>
             {LANGUAGES.map((lang) => (
               <li key={lang}>

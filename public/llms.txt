@@ -1,0 +1,35 @@
+# Hafiz (حافظ · Hafız) — alhafiz.app
+
+> Hafiz is a cloud platform for running Quran memorization (hifz) circles (halaqat) and Quran schools. Teachers grade each recitation on the Mushaf page with a tap on the word, administrators follow every circle and student, parents see their child's memorization and revision, and reminders go out automatically. In Arabic, English and Turkish. Free for up to 20 students.
+
+Not to be confused with other products named «حافظ» / Hafiz: this one is the Quran school management platform at alhafiz.app.
+
+## Pages
+
+- [Hafiz in Arabic](https://alhafiz.app/ar): منصة إدارة حلقات ومدارس تحفيظ القرآن الكريم
+- [Hafiz in English](https://alhafiz.app/en): Quran school and halaqa management platform
+- [Hafız in Turkish](https://alhafiz.app/tr): Kur'an kursu ve hafızlık takip platformu
+- [Privacy policy](https://alhafiz.app/en/privacy)
+- [Terms of service](https://alhafiz.app/en/terms)
+
+## Key facts
+
+- Grading on the Mushaf page: reminder (−1), minor mistake (−2) or mistake (−4) on the word itself; the score is out of 100 and 80 passes.
+- The Mushaf is the Madinah Mushaf (1421 AH print) in the King Fahd Complex script; it works offline once downloaded, with eight reciters to listen to.
+- Automatic messages to students and parents: always inside the app, and optionally by browser notifications or Telegram, in the reader's own language.
+- One dashboard for administrators: students, teachers, halaqat, statistics, seasons whose results are kept, rankings, export to Excel.
+- A phone app for students and parents, installed from the browser (PWA).
+- Every organization has its own private space.
+
+## Pricing (US dollars)
+
+- Starter: free, up to 20 students, every feature.
+- Basic: 21–50 students, $360 a year or $230 for 6 months.
+- Pro: 51–150 students, $600 a year or $380 for 6 months.
+- Enterprise: more than 150 students, priced per organization.
+
+## Contact
+
+- WhatsApp: https://wa.me/905389153020
+- Email: platformhafiz@gmail.com
+- Instagram: https://www.instagram.com/hafiz_platform

@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // No "Host:" line: it is not part of the standard and Google ignores it (SEO audit 2026-11-15, T-09).
   };
 }

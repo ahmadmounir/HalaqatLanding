@@ -1,11 +1,22 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type FocusEvent as ReactFocusEvent,
+  type MouseEvent as ReactMouseEvent,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import { useLanguage } from "@/lib/i18n";
 import { SIGNUP_URL } from "@/lib/site";
 import { fill } from "@/lib/fill";
 import { PAGE_582 } from "@/lib/mushaf-page-582";
 import { ArrowForward, Person, Tap } from "@/components/lp/icons";
+import { Kicker } from "@/components/lp/kicker";
 
 type Mark = "r" | "m" | "x";
 
@@ -17,15 +28,33 @@ const START: [number, Mark][] = [[9, "r"], [40, "m"]];
 // The surah frame glyph of surah 78 in the print's surah-header font (surahHeaderGlyph in the app).
 const NABA_FRAME = String.fromCodePoint(0xfba5);
 
+/*
+ * The page first shows a picture of itself (public/lp/mushaf-582-*: the live page below, captured with the START
+ * marks), and the live page replaces it once the visitor reaches for it: a click or tap, the mouse over it, or the
+ * keyboard. The three page fonts (320 KB, public/fonts/qcf, the Complex's files unmodified) are then no longer part
+ * of the first load: on phones they cost most of the speed score (SEO audit 2026-11-15: mobile 50-59, LCP 5.7-6.5 s).
+ * They are fetched quietly once the page has loaded, so the switch is quick.
+ */
+const QCF_FAMILIES = ["qcf-p582", "qcf-p1", "qcf-surah"];
+let qcfFonts: Promise<unknown> | null = null;
+function loadQcfFonts(): Promise<unknown> {
+  qcfFonts ??= Promise.all(QCF_FAMILIES.map((family) => document.fonts.load(`20px "${family}"`))).catch((error) => {
+    qcfFonts = null; // offline or blocked: try again on the next reach
+    throw error;
+  });
+  return qcfFonts;
+}
+
 export function Hero() {
   const { t, language } = useLanguage();
   const h = t.lp.hero;
 
   return (
     <section className="hero" aria-labelledby="hero-title">
+      {/* What the product is, inside the H1 (search engines and AI answers read it), above the visual line. The
+          spaces between the spans keep the words apart in the page's text. */}
       <h1 id="hero-title">
-        <span>{h.title1}</span>
-        <span>{h.title2}</span>
+        <Kicker>{h.kicker}</Kicker> <span>{h.title1}</span> <span>{h.title2}</span>
       </h1>
       <div className="hero-lead">
         <p>{h.lead}</p>
@@ -61,8 +90,86 @@ function MushafDemo() {
   const [open, setOpen] = useState(-1);
   const [pos, setPos] = useState<{ left: number; top: number } | null>(null);
   const [bump, setBump] = useState(0);
+  const [live, setLive] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  // Where the visitor tapped the picture (0–1 of its box), to open that word once the live page is in
+  const tapAt = useRef<{ x: number; y: number } | null>(null);
+  const focusFirst = useRef(false);
+  const waking = useRef(false);
+
+  const wake = useCallback(() => {
+    if (waking.current) return;
+    waking.current = true;
+    loadQcfFonts().then(
+      () => setLive(true),
+      () => {
+        waking.current = false;
+      },
+    );
+  }, []);
+
+  // Fetch the page fonts a little after the page has loaded, when the browser is idle (never on a data-saving
+  // connection): on a slow phone they must not take bandwidth from the picture, the text fonts or the scripts.
+  // Reaching for the page (mouse over it, a tap) fetches them at once anyway.
+  useEffect(() => {
+    if ((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
+    let cancelled = false;
+    let timer = 0;
+    const idle = () => {
+      timer = window.setTimeout(() => {
+        const later = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
+        later(() => !cancelled && loadQcfFonts().catch(() => {}), { timeout: 4000 });
+      }, 3000);
+    };
+    if (document.readyState === "complete") idle();
+    else window.addEventListener("load", idle, { once: true });
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      window.removeEventListener("load", idle);
+    };
+  }, []);
+
+  // The live page is in: open the word that was tapped on the picture, or take the keyboard to the first word
+  useEffect(() => {
+    if (!live) return;
+    const tap = tapAt.current;
+    tapAt.current = null;
+    const body = bodyRef.current;
+    if (tap && body) {
+      const r = body.getBoundingClientRect();
+      const word = document.elementFromPoint(r.left + tap.x * r.width, r.top + tap.y * r.height)?.closest<HTMLElement>(".mp-w");
+      if (word) setOpen(Number(word.dataset.i));
+    } else if (focusFirst.current) {
+      focusFirst.current = false;
+      wordEl(0)?.focus({ preventScroll: true });
+    }
+  }, [live]);
+
+  // The mouse over the page or the panel wakes it at once (hover works then). A touch wakes it on the tap itself
+  // (click), never on pointerdown or focus: the picture must still be there when the tap ends, so the tap is seen.
+  const byKeyboard = (e: ReactFocusEvent<HTMLElement>) => (e.target as HTMLElement).matches?.(":focus-visible") ?? false;
+  const wakeProps = {
+    onPointerEnter: (e: ReactPointerEvent<HTMLElement>) => {
+      if (e.pointerType === "mouse") wake();
+      else loadQcfFonts().catch(() => {});
+    },
+    onClick: wake,
+    onFocus: (e: ReactFocusEvent<HTMLElement>) => {
+      if (byKeyboard(e)) wake();
+    },
+  };
+  const tapPicture = (e: ReactMouseEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    tapAt.current = { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
+    wake();
+  };
+  const keyPicture = () => {
+    focusFirst.current = true;
+    wake();
+  };
 
   // Words get a running index (end-of-ayah markers are not words)
   const lines = useMemo(() => {
@@ -141,13 +248,42 @@ function MushafDemo() {
 
   return (
     <>
-      <div className="mushaf" data-ui ref={cardRef} aria-label={h.pageAria}>
+      <div className="mushaf" data-ui ref={cardRef} aria-label={h.pageAria} {...wakeProps}>
         <div className="mp-head">
           <b>{h.surah}</b>
           <span className={`live${low ? " low" : ""}`}>{fill(h.score, { n: score })}</span>
           <span>{h.page}</span>
         </div>
+        {!live ? (
+          <div
+            className="mp-body mp-still"
+            role="button"
+            tabIndex={0}
+            aria-label={h.tap}
+            onClick={tapPicture}
+            onFocus={(e) => {
+              if (byKeyboard(e)) keyPicture();
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                keyPicture();
+              }
+            }}
+          >
+            {/* The same page with the same two marks, until the live one is in (see loadQcfFonts) */}
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/lp/mushaf-582-700.avif 700w, /lp/mushaf-582-900.avif 900w, /lp/mushaf-582-1182.avif 1182w"
+                sizes="(max-width: 760px) 86vw, 400px"
+              />
+              <img src="/lp/mushaf-582-790.webp" width={1182} height={1893} alt={h.pageAlt} fetchPriority="high" />
+            </picture>
+          </div>
+        ) : (
         <div
+          ref={bodyRef}
           className="mp-body"
           onClick={(e) => {
             const w = (e.target as HTMLElement).closest<HTMLElement>(".mp-w");
@@ -199,6 +335,7 @@ function MushafDemo() {
             );
           })}
         </div>
+        )}
         <div className="mp-folio ltr">582</div>
         <div
           className="word-menu"
@@ -226,7 +363,7 @@ function MushafDemo() {
         </div>
       </div>
 
-      <aside className="grade" data-ui aria-live="polite">
+      <aside className="grade" data-ui aria-live="polite" {...wakeProps}>
         <p className="grade-do">
           <Tap />
           {h.panelTap}

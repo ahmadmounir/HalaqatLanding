@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/lib/i18n";
 import { Lock, Sheet, Trophy } from "@/components/lp/icons";
+import { Kicker } from "@/components/lp/kicker";
 
 const FACT_ICONS = [Trophy, Sheet, Lock];
 
@@ -13,12 +14,15 @@ export function Admin() {
   return (
     <section className="admin" id="admin" aria-labelledby="admin-title">
       <div className="admin-head">
-        <h2 id="admin-title" data-rise>{a.title}</h2>
+        <h2 id="admin-title" data-rise>
+          <Kicker>{a.kicker}</Kicker>
+          {a.title}
+        </h2>
         <p className="admin-lead" data-rise style={{ ["--d" as string]: "80ms" }}>{a.lead}</p>
       </div>
       <figure className="admin-photo" data-rise style={{ ["--d" as string]: "120ms" }}>
-        <img className="is-on" src="/lp/dashboard.jpg" width={1220} height={760} alt={a.alt1} loading="lazy" />
-        <img src="/lp/dashboard-form.jpg" width={1220} height={760} alt={a.alt2} loading="lazy" />
+        <img className="is-on" src="/lp/dashboard.webp" width={1220} height={760} alt={a.alt1} loading="lazy" />
+        <img src="/lp/dashboard-form.webp" width={1220} height={760} alt={a.alt2} loading="lazy" />
       </figure>
       <div className="admin-side" data-rise style={{ ["--d" as string]: "200ms" }}>
         <div className="season" data-ui>

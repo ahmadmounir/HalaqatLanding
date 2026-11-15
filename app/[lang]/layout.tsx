@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers";
 import { LANGUAGES, LANGUAGE_INFO, SITE_URL, isLanguage } from "@/lib/site";
 // The fonts ship with the site (Fontsource packages) instead of next/font/google: on Netlify, Turbopack failed twice
@@ -71,13 +70,11 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
 
   return (
     <html lang={lang} dir={LANGUAGE_INFO[lang].dir} suppressHydrationWarning>
-      <head>
-        {/* Sections rise in as they scroll into view, only when scripts run (content stays visible without them). */}
-        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }} />
-      </head>
+      {/* Sections rise in as they scroll into view: components/lp/rise.tsx turns that on once the page's script runs, so
+          nothing is ever hidden while it loads, or without scripts. (No Vercel Analytics: the site is on Netlify, where
+          its script was a 404 on every page; Cloudflare's analytics already run.) */}
       <body>
         <Providers language={lang}>{children}</Providers>
-        <Analytics />
       </body>
     </html>
   );

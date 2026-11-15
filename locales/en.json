@@ -5,7 +5,7 @@
     "seo": {
         "siteName": "Hafiz",
         "title": "Hafiz — Quran school and halaqa management platform",
-        "description": "Record every recitation, grade on the Mushaf page, follow each student's memorization and revision, and send reminders automatically. Free for up to 20 students.",
+        "description": "Record every recitation, grade it on the Mushaf page, follow each student's hifz and revision, and send reminders automatically. Free up to 20 students.",
         "shareTitle": "Hafiz — every recitation, every student, in one place",
         "shareDescription": "Quran school and halaqa management: recitations, grading on the Mushaf, statistics and automatic reminders. Free for up to 20 students.",
         "imageAlt": "Hafiz: a Quran school's dashboard and a reminder sent to a student",
@@ -20,7 +20,9 @@
             "Islamic school software",
             "Hafiz"
         ],
-        "appCategory": "Quran school management"
+        "appCategory": "Quran school management",
+        "disambiguation": "Cloud software for running Quran memorization (hifz) circles and schools, at alhafiz.app",
+        "audience": "Quran schools and memorization circles, their teachers, students and parents"
     },
     "lp": {
         "nav": {
@@ -36,9 +38,10 @@
             "language": "Language"
         },
         "hero": {
+            "kicker": "Quran school and halaqa management platform",
             "title1": "Every recitation,",
             "title2": "on the Mushaf page.",
-            "lead": "Teachers grade with a tap on the word, the administration follows every halaqa, and parents see their child's progress.",
+            "lead": "Hafiz is a cloud platform for Quran memorization (hifz) circles and schools: teachers grade each recitation with a tap on the word in the Mushaf page, administrators follow every halaqa and student, parents see their child's memorization and revision, and reminders go out automatically.",
             "cta": "Start free",
             "try": "Try grading",
             "note": "Free for up to 20 students.",
@@ -55,6 +58,7 @@
             "surah": "Surah An-Naba",
             "page": "Page 582",
             "pageAria": "Mushaf page 582, Surah An-Naba",
+            "pageAlt": "Page 582 of the Madinah Mushaf: Surah An-Naba, verses 1 to 30, with a teacher's marks on two words: a reminder on «kallā» and a minor mistake on «al-muʿṣirāt».",
             "marks": {
                 "r": "Reminder",
                 "m": "Minor mistake",
@@ -65,6 +69,7 @@
             "menuAria": "Grade the word"
         },
         "messages": {
+            "kicker": "Automatic reminders for students and parents",
             "title": "Messages that send themselves",
             "intro": "Change the options and watch the message.",
             "who": "Who gets it?",
@@ -87,6 +92,7 @@
             "browserChip": "Browser"
         },
         "staff": {
+            "kicker": "For Quran teachers and administrators",
             "title": "In every teacher's and administrator's hand",
             "lead": "Teachers grade on the Mushaf; the administration follows from its phone.",
             "prev": "Previous screen",
@@ -131,6 +137,7 @@
             ]
         },
         "admin": {
+            "kicker": "Quran school management dashboard",
             "title": "The administration sees every halaqa",
             "lead": "Students, teachers, halaqat and statistics on one dashboard.",
             "alt1": "A school's home page in Hafiz: students, teachers and halaqat, with halaqa and student rankings",
@@ -144,6 +151,7 @@
             ]
         },
         "apps": {
+            "kicker": "Hifz tracking app for students and parents",
             "title": "In every student's and parent's hand",
             "lead": "A phone app, installed from the browser.",
             "prev": "Previous screen",
@@ -188,6 +196,7 @@
             ]
         },
         "pricing": {
+            "kicker": "Hafiz pricing",
             "title": "Plans that grow with your school",
             "sub": "Every plan has every feature; only the number of students differs.",
             "periodAria": "Subscription period",
@@ -237,33 +246,38 @@
             ]
         },
         "faq": {
+            "kicker": "About Hafiz",
             "title": "Common questions",
             "more": "Didn't find your answer?",
             "ask": "Ask us on WhatsApp",
             "items": [
                 {
                     "question": "How do we start?",
-                    "answer": "Create an account and send your organization's details; we open its space once we have reviewed the request, and help you add your halaqat and students."
+                    "answer": "Create a Hafiz account with your email and send your organization's details; we open its space once we have reviewed the request. Then you add your halaqat, teachers and students, or send students your organization's own sign-up link, and we help you set up over WhatsApp."
+                },
+                {
+                    "question": "How much does Hafiz cost?",
+                    "answer": "Hafiz is free for up to 20 students, with every feature. Basic (21 to 50 students) is $360 a year or $230 for 6 months, and Pro (51 to 150 students) is $600 a year or $380 for 6 months. For more than 150 students, Enterprise is priced per organization."
                 },
                 {
                     "question": "Do students need Telegram?",
-                    "answer": "No. Every message appears inside the app; Telegram is an extra option."
+                    "answer": "No. Every message in Hafiz appears inside the app, such as the recitation reminder and its result. Anyone who also wants messages outside the app can turn on browser notifications or Telegram."
                 },
                 {
                     "question": "Can parents follow their children?",
-                    "answer": "Yes. From their account they see their children's recitations and results, and get the result of each recitation."
+                    "answer": "Yes. Parents have their own Hafiz account where they see their children's recitations and results, get the result of each recitation automatically, and can message the halaqa's supervisor from the app."
                 },
                 {
                     "question": "Does the Mushaf work offline?",
-                    "answer": "Yes, once it is downloaded from the index."
+                    "answer": "Yes. The Mushaf in Hafiz is the Madinah Mushaf (1421 AH print) in the King Fahd Complex script; once downloaded from the index, it works without internet. You can also listen to eight reciters in it."
                 },
                 {
                     "question": "Is our data kept apart from others?",
-                    "answer": "Yes. Every organization has its own space that no one else can see."
+                    "answer": "Yes. Every organization in Hafiz has its own space that no other organization can see, and inside it each person sees what their role allows: administrators, teachers, students and parents. The connection to the platform is always encrypted."
                 },
                 {
                     "question": "Which languages does Hafiz support?",
-                    "answer": "Several, including Arabic, English and Turkish; everyone chooses their own."
+                    "answer": "Hafiz supports several languages, including Arabic, English and Turkish. Everyone chooses the app's language, and automatic messages arrive in the language of the person who reads them."
                 }
             ]
         },

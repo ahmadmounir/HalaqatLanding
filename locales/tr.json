@@ -4,8 +4,8 @@
     },
     "seo": {
         "siteName": "Hafız",
-        "title": "Hafız — Kur'an kursu ve halka yönetim platformu",
-        "description": "Her tilaveti kaydedin, Mushaf sayfasında değerlendirin, her öğrencinin hıfz ve tekrarını takip edin, hatırlatmaları otomatik gönderin. 20 öğrenciye kadar ücretsiz.",
+        "title": "Hafız — Kur'an kursu yönetimi ve hafızlık takip platformu",
+        "description": "Kur'an kursu ve hafızlık takibi: ezberi Mushaf sayfasında değerlendirin, tekrarı izleyin, hatırlatmalar otomatik gitsin. 20 öğrenciye kadar ücretsiz.",
         "shareTitle": "Hafız — her tilavet, her öğrenci tek bir yerde",
         "shareDescription": "Kur'an kursu ve halka yönetimi: tilavetler, Mushaf üzerinde değerlendirme, istatistikler ve otomatik hatırlatmalar. 20 öğrenciye kadar ücretsiz.",
         "imageAlt": "Hafız: bir Kur'an kursunun paneli ve öğrenciye giden bir hatırlatma",
@@ -19,7 +19,9 @@
             "hafızlık programı",
             "Hafız"
         ],
-        "appCategory": "Kur'an kursu yönetimi"
+        "appCategory": "Kur'an kursu yönetimi",
+        "disambiguation": "Kur'an kursları ve hafızlık halkalarını yönetmek için bulut yazılımı, alhafiz.app adresinde",
+        "audience": "Kur'an kursları ve hafızlık halkaları, öğretmenleri, öğrencileri ve velileri"
     },
     "lp": {
         "nav": {
@@ -35,9 +37,10 @@
             "language": "Dil"
         },
         "hero": {
+            "kicker": "Kur'an kursu ve hafızlık takip platformu",
             "title1": "Her tilavet,",
             "title2": "Mushaf sayfasında.",
-            "lead": "Öğretmen kelimeye dokunarak değerlendirir, yönetim her halkayı takip eder, veli çocuğunun ilerlemesini görür.",
+            "lead": "Hafız, Kur'an kursları ve hafızlık halkaları için bulut tabanlı bir yönetim platformudur: öğretmen ezberi Mushaf sayfasında kelimeye dokunarak değerlendirir ve puan kendiliğinden hesaplanır, yönetim her halkayı ve öğrenciyi tek panelden takip eder, veli çocuğunun ezberini ve tekrarını görür, hatırlatmalar otomatik gider.",
             "cta": "Ücretsiz başla",
             "try": "Değerlendirmeyi dene",
             "note": "20 öğrenciye kadar ücretsiz.",
@@ -54,6 +57,7 @@
             "surah": "Nebe Suresi",
             "page": "Sayfa 582",
             "pageAria": "Mushaf sayfa 582, Nebe Suresi",
+            "pageAlt": "Medine Mushafı'nın 582. sayfası: Nebe Suresi 1–30. ayetler ve iki kelimede öğretmen değerlendirmesi: «kellâ» üzerinde hatırlatma, «el-mu'sırât» üzerinde küçük hata.",
             "marks": {
                 "r": "Hatırlatma",
                 "m": "Küçük hata",
@@ -64,6 +68,7 @@
             "menuAria": "Kelimeyi değerlendir"
         },
         "messages": {
+            "kicker": "Öğrenci ve velilere otomatik hatırlatmalar",
             "title": "Kendiliğinden giden mesajlar",
             "intro": "Seçenekleri değiştirin, mesajı izleyin.",
             "who": "Kime gider?",
@@ -86,6 +91,7 @@
             "browserChip": "Tarayıcı"
         },
         "staff": {
+            "kicker": "Kur'an öğretmenleri ve yöneticiler için",
             "title": "Her öğretmenin ve yöneticinin elinde",
             "lead": "Öğretmen Mushaf üzerinde değerlendirir, yönetim telefonundan takip eder.",
             "prev": "Önceki ekran",
@@ -130,6 +136,7 @@
             ]
         },
         "admin": {
+            "kicker": "Kur'an kursu yönetim paneli",
             "title": "Yönetim her halkayı görür",
             "lead": "Öğrenciler, öğretmenler, halkalar ve istatistikler tek panelde.",
             "alt1": "Hafız’da bir kursun ana sayfası: öğrenci, öğretmen ve halka sayıları, halka ve öğrenci sıralamaları",
@@ -143,6 +150,7 @@
             ]
         },
         "apps": {
+            "kicker": "Öğrenci ve veliler için hafızlık takip uygulaması",
             "title": "Her öğrencinin ve velinin elinde",
             "lead": "Tarayıcıdan yüklenen bir telefon uygulaması.",
             "prev": "Önceki ekran",
@@ -187,6 +195,7 @@
             ]
         },
         "pricing": {
+            "kicker": "Hafız fiyatları",
             "title": "Kursunuzla büyüyen paketler",
             "sub": "Her pakette tüm özellikler var; fark yalnızca öğrenci sayısında.",
             "periodAria": "Abonelik süresi",
@@ -236,33 +245,38 @@
             ]
         },
         "faq": {
+            "kicker": "Hafız hakkında",
             "title": "Sık sorulan sorular",
             "more": "Cevabınızı bulamadınız mı?",
             "ask": "WhatsApp'tan sorun",
             "items": [
                 {
                     "question": "Nasıl başlarız?",
-                    "answer": "Hesap oluşturup kurumunuzun bilgilerini gönderin; başvuruyu inceledikten sonra alanını açar, halka ve öğrencileri eklemenize yardım ederiz."
+                    "answer": "E-postanızla bir Hafız hesabı oluşturup kurumunuzun bilgilerini gönderin; başvuruyu inceledikten sonra kurumunuzun alanını açarız. Ardından halkaları, öğretmenleri ve öğrencileri eklersiniz ya da öğrencilere kurumunuza özel kayıt bağlantısını gönderirsiniz; kurulumda WhatsApp üzerinden yardım ederiz."
+                },
+                {
+                    "question": "Hafız'ın fiyatı nedir?",
+                    "answer": "Hafız, 20 öğrenciye kadar tüm özellikleriyle ücretsizdir. Temel paket (21–50 öğrenci) yıllık 360 dolar veya 6 aylık 230 dolar, Profesyonel paket (51–150 öğrenci) yıllık 600 dolar veya 6 aylık 380 dolardır. 150'den fazla öğrenci için Kurumsal paket kuruma göre fiyatlandırılır."
                 },
                 {
                     "question": "Öğrencilerin Telegram'a ihtiyacı var mı?",
-                    "answer": "Hayır. Her mesaj uygulamanın içinde görünür; Telegram ek bir seçenektir."
+                    "answer": "Hayır. Hafız'daki her mesaj, ezber hatırlatması ve sonucu gibi, uygulamanın içinde görünür. Mesajları uygulama dışında da almak isteyen tarayıcı bildirimlerini veya Telegram'ı açabilir."
                 },
                 {
                     "question": "Veliler çocuklarını takip edebilir mi?",
-                    "answer": "Evet. Hesaplarından çocuklarının tilavetlerini ve sonuçlarını görür, her tilavetin sonucunu alırlar."
+                    "answer": "Evet. Velinin kendine ait bir Hafız hesabı vardır; buradan çocuklarının ezberlerini ve sonuçlarını görür, her dersin sonucu kendisine otomatik gelir ve uygulamadan halka sorumlusuna mesaj gönderebilir."
                 },
                 {
                     "question": "Mushaf internetsiz çalışır mı?",
-                    "answer": "Evet, fihristten indirildikten sonra."
+                    "answer": "Evet. Hafız'daki Mushaf, Kral Fahd Kompleksi hattıyla Medine Mushafı'dır (1421 H baskısı); fihristten bir kez indirildikten sonra internetsiz çalışır. İçinde sekiz kâriden dinleme de vardır."
                 },
                 {
                     "question": "Verilerimiz başkalarından ayrı mı?",
-                    "answer": "Evet. Her kurumun kendine ait, başkalarının göremediği bir alanı vardır."
+                    "answer": "Evet. Hafız'da her kurumun başka hiçbir kurumun göremediği kendi alanı vardır; bu alanın içinde de herkes yetkisinin izin verdiğini görür: yönetim, öğretmenler, öğrenciler ve veliler. Platformla bağlantı her zaman şifrelidir."
                 },
                 {
                     "question": "Hafız hangi dilleri destekliyor?",
-                    "answer": "Arapça, İngilizce ve Türkçe dahil birkaç dil; herkes kendi dilini seçer."
+                    "answer": "Hafız; Arapça, İngilizce ve Türkçe dahil birkaç dili destekler. Herkes uygulamanın dilini kendisi seçer ve otomatik mesajlar, okuyan kişinin dilinde gider."
                 }
             ]
         },

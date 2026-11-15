@@ -3,10 +3,12 @@
   Deep green ink, gold spine, warm paper, the app's 10-fold girih, Almarai for display and IBM Plex for text.
   Arabic is never letter-spaced; display Arabic keeps line-height >= 1.28 so the dots never touch.
 */
-/* ── The King Fahd Complex page fonts (the 1421H print), served by Hafiz's files Worker — never modified ── */
-@font-face { font-family: "qcf-p582"; src: url("https://hafiz-audio-worker.ahmadmallak2004.workers.dev/mushaf/qcf/v2/fonts/p582.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "qcf-p1"; src: url("https://hafiz-audio-worker.ahmadmallak2004.workers.dev/mushaf/qcf/v2/fonts/p1.woff2") format("woff2"); font-display: block; }
-@font-face { font-family: "qcf-surah"; src: url("https://hafiz-audio-worker.ahmadmallak2004.workers.dev/mushaf/qcf/misc/surah-header.woff2") format("woff2"); font-display: block; }
+/* ── The King Fahd Complex page fonts (the 1421H print): the Complex's files, unmodified (their terms: free use, no
+   changes), served by this site (public/fonts/qcf, a copy of the files Worker's). Nothing uses them at first paint:
+   the hero shows a picture of the page until the visitor reaches for it (components/lp/hero.tsx). ── */
+@font-face { font-family: "qcf-p582"; src: url("/fonts/qcf/p582.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "qcf-p1"; src: url("/fonts/qcf/p1.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "qcf-surah"; src: url("/fonts/qcf/surah-header.woff2") format("woff2"); font-display: block; }
 
 :root {
   /* The bundled font families (Fontsource, imported in app/[lang]/layout.tsx) */
@@ -76,6 +78,10 @@ a { color: inherit; }
 button { font: inherit; color: inherit; }
 h1, h2, h3, p { margin: 0; }
 h1, h2, h3 { font-family: var(--display); font-weight: 800; color: var(--ink); letter-spacing: normal; }
+/* What a section is about, in plain words, above its line (inside the heading: search engines read it) */
+.kicker { display: block; font-family: var(--text-face); font-size: clamp(14px, 1.1vw, 16px); font-weight: 600; line-height: 1.6; color: var(--gold-ink); margin-bottom: 10px; }
+.apps .kicker { color: var(--spine); }
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 :focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 3px; border-radius: 6px; }
 ::selection { background: var(--tint); color: var(--ink); }
 [hidden] { display: none !important; }
@@ -135,8 +141,9 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .hero { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); padding: clamp(36px, 6vh, 80px) var(--margin) 0; }
 .hero h1 { grid-column: 1 / span 7; font-size: var(--s-xl); line-height: 1.28; }
 .hero h1 span { display: block; }
+.hero h1 .kicker { font-size: clamp(15px, 1.25vw, 18px); line-height: 1.6; margin-bottom: 14px; }
 .hero-lead { grid-column: 1 / span 4; grid-row: 2; align-self: start; padding-top: 36px; position: sticky; top: calc(var(--nav-h) + 24px); z-index: 1; }
-.hero-lead p { font-size: 17px; line-height: 1.75; max-width: 34ch; }
+.hero-lead p { font-size: 17px; line-height: 1.75; max-width: 40ch; }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 28px; }
 .hero-note { margin-top: 16px; font-size: var(--s-small); color: var(--muted); }
 .stage-wrap { grid-column: 5 / -1; grid-row: 2; margin-top: clamp(28px, 5vh, 56px); margin-inline-end: calc(-1 * var(--margin)); }
@@ -170,6 +177,9 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .mp-w.x { background-color: color-mix(in oklab, var(--mark-x) 36%, transparent); }
 .mp-w.is-open { box-shadow: 0 0 0 2px var(--ink); } /* taste-skill-ignore: a product fragment (data-ui): the open word */
 .mp-end { display: inline-block; }
+.mp-still { position: relative; cursor: pointer; border-radius: 6px; }
+.mp-still picture, .mp-still img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.mp-still:focus-visible { outline: 3px solid var(--gold-deep); outline-offset: 4px; }
 .mp-folio { text-align: center; font-size: 13px; color: #7a6a45; padding-top: 2%; }
 
 /* The teacher's grading panel next to the page */
@@ -394,7 +404,7 @@ section[id], #grade { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .f-social svg { width: 20px; height: 20px; }
 .f-col { grid-column: span 2; }
 .f-col:first-of-type { grid-column: 5 / span 2; }
-.f-col h3 { font-family: var(--text-face); font-size: 14px; font-weight: 700; color: var(--spine); }
+.f-col .f-col-title { font-family: var(--text-face); font-size: 14px; font-weight: 700; color: var(--spine); }
 .f-col ul { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
 .f-col a { color: var(--on-ink); text-decoration: none; opacity: 0.85; transition: opacity 160ms; }
 .f-col a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }

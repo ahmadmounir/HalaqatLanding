@@ -4,3 +4,15 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Static files the CDN serves itself. The mushaf fonts never change (the Complex's files, unmodified): a year.
+# The landing pictures: a week (a changed picture gets a new file name anyway, see scripts/share-images.md).
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/lp/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLanguage } from "@/lib/i18n";
 import { Check } from "@/components/lp/icons";
 import { LANGUAGE_INFO } from "@/lib/site";
+import { Kicker } from "@/components/lp/kicker";
 
 type Who = "student" | "parent";
 type Kind = "reminder" | "result" | "missed";
@@ -91,7 +92,10 @@ export function Messages() {
   return (
     <section className="messages" id="messages" aria-labelledby="msg-title">
       <div className="msg-head">
-        <h2 id="msg-title" data-rise>{m.title}</h2>
+        <h2 id="msg-title" data-rise>
+          <Kicker>{m.kicker}</Kicker>
+          {m.title}
+        </h2>
         <p className="msg-intro" data-rise style={{ ["--d" as string]: "80ms" }}>{m.intro}</p>
       </div>
       <div className="msg-read">

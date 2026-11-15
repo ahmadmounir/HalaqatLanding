@@ -6,9 +6,9 @@ import "@fontsource/ibm-plex-sans-arabic/400.css";
 import "@fontsource/ibm-plex-sans/400.css";
 import "./globals.css";
 
+// No robots field: Next already marks a not-found page "noindex"; a second tag ("noindex, follow") contradicted it.
 export const metadata: Metadata = {
   title: "404 — Hafiz",
-  robots: { index: false, follow: true },
 };
 
 const MESSAGES = [

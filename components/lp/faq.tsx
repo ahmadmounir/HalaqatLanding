@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/lib/i18n";
 import { WHATSAPP_NUMBER } from "@/lib/contact";
+import { Kicker } from "@/components/lp/kicker";
 
 /** Common questions: one open at a time; the heading and a way to ask stay beside the list. */
 export function Faq() {
@@ -11,7 +12,10 @@ export function Faq() {
   return (
     <section className="faq" id="faq" aria-labelledby="faq-title">
       <div className="faq-head" data-rise>
-        <h2 id="faq-title">{f.title}</h2>
+        <h2 id="faq-title">
+          <Kicker>{f.kicker}</Kicker>
+          {f.title}
+        </h2>
         <p>{f.more}</p>
         <a className="btn btn-ink" href={`https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">
           {f.ask}

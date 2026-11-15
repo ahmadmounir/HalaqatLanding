@@ -35,14 +35,14 @@ export function Finale() {
       <div className="finale-words" ref={wordsRef}>
         <Voice live={live} />
         <h2 id="cta-title" data-rise>
-          <span>{f.title1}</span>
-          <span>{f.title2}</span>
+          {/* The space keeps the two lines two words apart in the page's text ("…حلقتك اليوم") */}
+          <span>{f.title1}</span> <span>{f.title2}</span>
         </h2>
         <p data-rise style={{ ["--d" as string]: "80ms" }}>{f.text}</p>
       </div>
       <form className="dialog" data-ui data-rise style={{ ["--d" as string]: "160ms" }} onSubmit={(e) => e.preventDefault()}>
         <div className="d-top">
-          <img src="/lp/icon-dark.svg" alt="" width={40} height={40} />
+          <img src="/lp/icon-dark.svg" alt="" width={40} height={40} loading="lazy" />
           <b>{f.dialogTitle}</b>
         </div>
         <label htmlFor="org">{f.org}</label>

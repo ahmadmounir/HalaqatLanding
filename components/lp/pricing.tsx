@@ -6,20 +6,8 @@ import { SIGNUP_URL } from "@/lib/site";
 import { WHATSAPP_NUMBER } from "@/lib/contact";
 import { fill } from "@/lib/fill";
 import { Check } from "@/components/lp/icons";
-
-type PlanId = "starter" | "basic" | "pro" | "enterprise";
-type Period = "annual" | "semester";
-
-// US dollars for the whole period. 2026-11-09 (the owner): no priority-support add-on, prices up — Pro 500 → 600 a
-// year; the same +20% on every paid price, rounded to 10.
-const PRICES: Record<PlanId, { annual: number; semester: number } | "free" | "custom"> = {
-  starter: "free",
-  basic: { annual: 360, semester: 230 },
-  pro: { annual: 600, semester: 380 },
-  enterprise: "custom",
-};
-const ORDER: PlanId[] = ["starter", "basic", "pro", "enterprise"];
-const PERIODS: Period[] = ["annual", "semester"];
+import { Kicker } from "@/components/lp/kicker";
+import { PERIODS, PLAN_ORDER as ORDER, PRICES, type Period } from "@/lib/plans";
 
 const waLink = (text: string) => `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
 const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
@@ -33,7 +21,10 @@ export function Pricing() {
   return (
     <section className="pricing" id="pricing" aria-labelledby="pricing-title">
       <div className="pricing-head">
-        <h2 id="pricing-title" data-rise>{p.title}</h2>
+        <h2 id="pricing-title" data-rise>
+          <Kicker>{p.kicker}</Kicker>
+          {p.title}
+        </h2>
         <p className="pricing-sub" data-rise style={{ ["--d" as string]: "80ms" }}>{p.sub}</p>
       </div>
 
