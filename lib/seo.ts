@@ -2,6 +2,7 @@
 // Telegram, X, LinkedIn, Facebook) read.
 import type { Metadata } from "next";
 import { translations } from "@/lib/translations";
+import { legalContent } from "@/lib/legal-content";
 import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_NUMBER } from "@/lib/contact";
 import { PERIODS, PLAN_ORDER, PLAN_STUDENTS, PRICES, type PlanId } from "@/lib/plans";
 import {
@@ -44,7 +45,7 @@ export function pageMetadata(
   return {
     title: { absolute: title },
     description,
-    keywords: seo.keywords,
+    // No keywords meta: search engines ignore it (SEO audit 2026-11-15).
     alternates: { canonical: url, languages: languageAlternates(page) },
     openGraph: {
       type: "website",
@@ -191,7 +192,7 @@ export function homeStructuredData(language: Language) {
         applicationSubCategory: t.seo.appCategory,
         // A web app, installed from the browser (PWA); not in the app stores yet.
         operatingSystem: "Web",
-        browserRequirements: "A current web browser; installable as a web app (PWA) on Android, iOS and computers.",
+        browserRequirements: t.seo.browserRequirements,
         inLanguage: [...LANGUAGES],
         audience: { "@type": "Audience", audienceType: t.seo.audience },
         image: `${SITE_URL}${shareImagePath(language)}`,
@@ -214,22 +215,28 @@ export function homeStructuredData(language: Language) {
   };
 }
 
-/** A legal page: what it is and where it sits (Home › Privacy). */
+/** A legal page: what it is, when it last changed (the date it shows) and where it sits (Home › Privacy). */
 export function legalStructuredData(language: Language, page: PagePath, name: string) {
   const url = `${SITE_URL}${localePath(language, page)}`;
+  const document = page === "/terms" ? legalContent[language].terms : legalContent[language].privacy;
+  const site = translations[language].seo.siteName;
   return {
     "@context": "https://schema.org",
     "@graph": [
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, name: site, url: SITE_URL },
       {
         "@type": "WebPage",
         "@id": `${url}#webpage`,
         url,
         name,
         inLanguage: language,
+        dateModified: document.lastUpdated,
         isPartOf: { "@id": `${SITE_URL}/#website` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
       },
       {
         "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: translations[language].seo.siteName, item: `${SITE_URL}${localePath(language)}` },
           { "@type": "ListItem", position: 2, name, item: url },

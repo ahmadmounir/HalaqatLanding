@@ -128,7 +128,7 @@ export function Messages() {
       </div>
 
       <div className="msg-out" aria-live="polite">
-        <div className="inbox" data-ui>
+        <div className="inbox" data-ui data-nosnippet>
           <article className="inbox-card" key={`${who}-${shownKind}-${gender}-${reader}`} dir={msg.dir} lang={reader}>
             <div className="inbox-top">
               <span className="av"><img src="/lp/icon-dark.svg" alt="" width={26} height={26} /></span>

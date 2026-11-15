@@ -9,19 +9,10 @@
         "shareTitle": "Hafız — her tilavet, her öğrenci tek bir yerde",
         "shareDescription": "Kur'an kursu ve halka yönetimi: tilavetler, Mushaf üzerinde değerlendirme, istatistikler ve otomatik hatırlatmalar. 20 öğrenciye kadar ücretsiz.",
         "imageAlt": "Hafız: bir Kur'an kursunun paneli ve öğrenciye giden bir hatırlatma",
-        "keywords": [
-            "Kur'an kursu yönetimi",
-            "hafızlık takip",
-            "hıfz takip uygulaması",
-            "Kur'an ezber takibi",
-            "halka yönetimi",
-            "Kur'an hocası uygulaması",
-            "hafızlık programı",
-            "Hafız"
-        ],
         "appCategory": "Kur'an kursu yönetimi",
         "disambiguation": "Kur'an kursları ve hafızlık halkalarını yönetmek için bulut yazılımı, alhafiz.app adresinde",
-        "audience": "Kur'an kursları ve hafızlık halkaları, öğretmenleri, öğrencileri ve velileri"
+        "audience": "Kur'an kursları ve hafızlık halkaları, öğretmenleri, öğrencileri ve velileri",
+        "browserRequirements": "Güncel bir web tarayıcısı; Android, iOS ve bilgisayarlara web uygulaması (PWA) olarak yüklenebilir."
     },
     "lp": {
         "nav": {

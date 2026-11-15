@@ -33,7 +33,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "Purpose",
       aboutText:
-        "This Privacy Policy explains how we collect, use, store, and protect personal data when you use the Hafiz platform (alhafiz.app and the Hafiz app).",
+        "This Privacy Policy explains how we collect, use, store, and protect personal data when you use the Hafiz platform.",
       sections: [
         {
           title: "Data Collection",
@@ -90,7 +90,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "Purpose",
       aboutText:
-        "These Terms of Service define the rules and responsibilities for accessing and using the Hafiz platform (alhafiz.app and the Hafiz app).",
+        "These Terms of Service define the rules and responsibilities for accessing and using the Hafiz platform.",
       sections: [
         {
           title: "User Responsibilities",
@@ -149,7 +149,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "الغرض",
       aboutText:
-        "توضح سياسة الخصوصية هذه كيفية جمع البيانات الشخصية واستخدامها وتخزينها وحمايتها عند استخدام منصة حافظ (alhafiz.app وتطبيق حافظ).",
+        "توضح سياسة الخصوصية هذه كيفية جمع البيانات الشخصية واستخدامها وتخزينها وحمايتها عند استخدام منصة حافظ.",
       sections: [
         {
           title: "جمع البيانات",
@@ -206,7 +206,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "الغرض",
       aboutText:
-        "تحدد شروط الخدمة هذه القواعد والمسؤوليات الخاصة بالوصول إلى منصة حافظ (alhafiz.app وتطبيق حافظ) واستخدامها.",
+        "تحدد شروط الخدمة هذه القواعد والمسؤوليات الخاصة بالوصول إلى منصة حافظ واستخدامها.",
 
       sections: [
         {
@@ -266,7 +266,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "Amaç",
       aboutText:
-        "Bu Gizlilik Politikası, Hafız platformunu (alhafiz.app ve Hafız uygulaması) kullanırken kişisel verilerin nasıl toplandığını, kullanıldığını, saklandığını ve korunduğunu açıklar.",
+        "Bu Gizlilik Politikası, Hafız platformunu kullanırken kişisel verilerin nasıl toplandığını, kullanıldığını, saklandığını ve korunduğunu açıklar.",
       sections: [
         {
           title: "Veri Toplama",
@@ -323,7 +323,7 @@ export const legalContent: Record<Language, LegalLocaleContent> = {
       lastUpdated: "2026-04-28",
       aboutTitle: "Amaç",
       aboutText:
-        "Bu Hizmet Şartları, Hafız platformuna (alhafiz.app ve Hafız uygulaması) erişim ve kullanım için geçerli kuralları ve sorumlulukları tanımlar.",
+        "Bu Hizmet Şartları, Hafız platformuna erişim ve kullanım için geçerli kuralları ve sorumlulukları tanımlar.",
       sections: [
         {
           title: "Kullanıcı Sorumlulukları",

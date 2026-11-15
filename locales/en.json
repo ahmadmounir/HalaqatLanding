@@ -9,20 +9,10 @@
         "shareTitle": "Hafiz — every recitation, every student, in one place",
         "shareDescription": "Quran school and halaqa management: recitations, grading on the Mushaf, statistics and automatic reminders. Free for up to 20 students.",
         "imageAlt": "Hafiz: a Quran school's dashboard and a reminder sent to a student",
-        "keywords": [
-            "Quran school management",
-            "halaqa management",
-            "Hifz tracker",
-            "Quran memorization app",
-            "Quran memorization tracking",
-            "Quran teacher app",
-            "recitation tracking",
-            "Islamic school software",
-            "Hafiz"
-        ],
         "appCategory": "Quran school management",
         "disambiguation": "Cloud software for running Quran memorization (hifz) circles and schools, at alhafiz.app",
-        "audience": "Quran schools and memorization circles, their teachers, students and parents"
+        "audience": "Quran schools and memorization circles, their teachers, students and parents",
+        "browserRequirements": "A current web browser; installable as a web app (PWA) on Android, iOS and computers."
     },
     "lp": {
         "nav": {

@@ -248,7 +248,7 @@ function MushafDemo() {
 
   return (
     <>
-      <div className="mushaf" data-ui ref={cardRef} aria-label={h.pageAria} {...wakeProps}>
+      <div className="mushaf" data-ui data-nosnippet ref={cardRef} aria-label={h.pageAria} {...wakeProps}>
         <div className="mp-head">
           <b>{h.surah}</b>
           <span className={`live${low ? " low" : ""}`}>{fill(h.score, { n: score })}</span>
@@ -317,7 +317,7 @@ function MushafDemo() {
                 {"words" in line &&
                   line.words.map((w, wi) =>
                     w.end ? (
-                      <span key={wi} className="mp-end" aria-label={fill(h.ayah, { n: w.ayah })}>{w.g}</span>
+                      <span key={wi} className="mp-end" role="img" aria-label={fill(h.ayah, { n: w.ayah })}>{w.g}</span>
                     ) : (
                       <span
                         key={wi}
@@ -363,7 +363,7 @@ function MushafDemo() {
         </div>
       </div>
 
-      <aside className="grade" data-ui aria-live="polite" {...wakeProps}>
+      <aside className="grade" data-ui data-nosnippet aria-live="polite" {...wakeProps}>
         <p className="grade-do">
           <Tap />
           {h.panelTap}
