@@ -131,7 +131,7 @@ export function Messages() {
         <div className="inbox" data-ui data-nosnippet>
           <article className="inbox-card" key={`${who}-${shownKind}-${gender}-${reader}`} dir={msg.dir} lang={reader}>
             <div className="inbox-top">
-              <span className="av"><img src="/lp/icon-dark.svg" alt="" width={26} height={26} /></span>
+              <span className="av"><img src="/lp/icon-dark.svg" alt="" width={26} height={26} loading="lazy" /></span>
               <span><b>{msg.from}</b><span>{msg.org}</span></span>
               <time>{msg.now}</time>
             </div>
